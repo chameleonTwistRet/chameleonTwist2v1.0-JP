@@ -22,4 +22,15 @@ void func_80040840(unk_func_80040840* arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1B750/func_8004085C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1B750/func_80040934.s")
+//#pragma GLOBAL_ASM("asm/nonmatchings/1B750/func_80040934.s")
+void func_8004085C(s32, s32);                          /* extern */
+
+void func_80040934(s32 arg0) {
+    s32 var_s0;
+
+    var_s0 = 0;
+    do {
+        func_8004085C(var_s0, arg0);
+        var_s0 += 8;
+    } while (var_s0 != 0x10);
+}
