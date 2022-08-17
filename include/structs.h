@@ -83,3 +83,9 @@ typedef struct unk_func_800CD790 {
     char unk0[0x2B];
     s32 unk2C;
 } unk_func_800CD790;
+
+typedef struct unk_func_800CD5D0 {
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+} unk_func_800CD5D0;
