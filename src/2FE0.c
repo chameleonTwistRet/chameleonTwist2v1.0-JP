@@ -4,8 +4,25 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027D94.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027E90.s")
+//#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027E90.s")
+void func_80027E90(s32 arg0) {
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027E98.s")
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027EA8.s")
+//#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027E98.s")
+extern f32 D_80160620;
+
+void func_80027E98(unk_func_80027E98* arg0) {
+    D_80160620 = arg0->unk104;
+}
+
+//#pragma GLOBAL_ASM("asm/nonmatchings/2FE0/func_80027EA8.s")
+extern f32 D_80160620;
+
+void func_80027EA8(unk_func_80027E98* arg0) {
+    if (D_80160620 != arg0->unk104) {
+        arg0->unkF2 = (u16) (arg0->unkF2 | 4);
+        return;
+    }
+    arg0->unkF2 = (u16) (arg0->unkF2 & 0xFFFB);
+}
