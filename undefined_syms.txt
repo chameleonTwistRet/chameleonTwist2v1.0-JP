@@ -14,3 +14,6 @@ func_802023F8 = 0x802023F8;
 func_80203640 = 0x80203640;
 gzip_data_0000 = 0x800EB074;
 myfree = 0x8002D580;
+gameMode = 0x800EAF60;
+playerCanMove = 0x800FF20C;
+sqrtf = 0x800E03E0;

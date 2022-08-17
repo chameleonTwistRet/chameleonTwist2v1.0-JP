@@ -78,3 +78,8 @@ typedef struct unk_func_80027E98 {  //2fe0.c
     char unkF3[0x10];
     f32 unk104;
 } unk_func_80027E98;
+
+typedef struct unk_func_800CD790 {
+    char unk0[0x2B];
+    s32 unk2C;
+} unk_func_800CD790;

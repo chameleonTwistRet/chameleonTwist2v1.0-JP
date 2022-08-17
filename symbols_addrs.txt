@@ -1,1 +1,2 @@
 gzip_data_0000 = 0x800EB074;
+sqrtf = 0x800E03E0;
