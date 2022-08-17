@@ -94,3 +94,7 @@ typedef struct unk_800F1CB4 {
     char unk0[0x37];
     s32 unk38;
 } unk_800F1CB4;
+
+typedef struct unk_8019CB40 {
+char unk_00[0x188];
+} unk_8019CB40;
