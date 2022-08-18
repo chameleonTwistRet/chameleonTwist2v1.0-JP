@@ -96,5 +96,20 @@ typedef struct unk_800F1CB4 {
 } unk_800F1CB4;
 
 typedef struct unk_8019CB40 {
-char unk_00[0x188];
+    char unk_00[0x188];
 } unk_8019CB40;
+
+typedef struct unk_800EEFF0 {
+    s8 unk0[0x9];
+    s16 unkA;
+} unk_800EEFF0;
+
+typedef struct unk_func_800DA208 {
+    char unk0[0xA];
+    s32 unkC;
+} unk_func_800DA208;
+
+typedef struct unk_func_800E7A9C {
+    char unk0[0xA];
+    s32 unkC;
+} unk_func_800E7A9C;
