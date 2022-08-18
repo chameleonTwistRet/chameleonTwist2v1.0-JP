@@ -113,3 +113,13 @@ typedef struct unk_func_800E7A9C {
     char unk0[0xA];
     s32 unkC;
 } unk_func_800E7A9C;
+
+typedef struct unk_func_80037EB4 {
+    u8 unk0[0x121];
+    s16 unk122;
+} unk_func_80037EB4;
+
+typedef struct unk_func_800D1F70 {
+    char unk0[0x31];
+    s16 unk32;
+} unk_func_800D1F70;
