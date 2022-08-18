@@ -2,9 +2,19 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5620.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5854.s")
+//#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5854.s")
+extern s32 D_801C7DD4;  //unknown type
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5860.s")
+s32* func_800D5854(void) {
+    return &D_801C7DD4;
+}
+
+//#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5860.s")
+extern s32 D_801C7E0C;
+
+s32* func_800D5860(void) {
+    return &D_801C7E0C;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D586C.s")
 
