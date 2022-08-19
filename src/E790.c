@@ -140,7 +140,7 @@ void func_800334C4(void) {
 //extern s32 D_80163110;
 //extern s32 D_80163128;
 //
-//void func_80035BD8() {
+//void func_80035BD8(void) {
 //    D_80163110 = 0;
 //    D_801630C0 = 0;
 //    D_80163128 = 0xFFFF;
