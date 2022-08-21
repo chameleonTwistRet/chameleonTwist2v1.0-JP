@@ -1,14 +1,14 @@
 # ChameleonTwist2v1.0-JP
 
-<img src='https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/compiler.json&style="plastic"'/>
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/compiler.json&style='plastic'"/>
 
 
-<img src='https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/sha.json&style="plastic"'/>
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/sha.json&style='plastic'"/>
 
 ## Progress Info
 ![Graph](assets_for_repo/graph.png)
-<img src='https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/funcs.json&style="plastic"'/>
-<img src='https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/completion.json&style="plastic"'/>
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/funcs.json&style='plastic'"/>
+<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/completion.json&style='plastic'"/>
 ## Building
 git clone this repository in a WSL 2 directory
 

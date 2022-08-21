@@ -28,7 +28,7 @@ class Badge:
         return
 
     def getHTML(self):
-        return '<img src=\'https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style="plastic"\'/>' % self.id
+        return '<img src=\"https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style=\'plastic\'\"/>' % self.id
 
 
 def getPushInfo() -> dict:
