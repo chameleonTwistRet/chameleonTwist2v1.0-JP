@@ -17,17 +17,18 @@ class Badge:
         self.storeBadge()
 
     def __str__(self):
-        return """{ schemaVersion: 1, label: "%s", message: "%s", color: "%s" }""" % (self.label, self.message, self.color)
+        return '{ "schemaVersion": 1, "label": "%s", "message": "%s", "color": "%s" }' % (self.label, self.message, self.color)
 
     def storeBadge(self):
         """ Stores badge information in json file """
         with open("../assets_for_repo/badges/%s.json" % self.id, "w") as json_file:
-            json.dump(str(self), json_file)
+            s = json.loads(str(self))
+            json.dump(s, json_file)
             json_file.close()
         return
 
     def getHTML(self):
-        return '<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style="plastic"/>' % self.id
+        return '<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style="plastic""/>' % self.id
 
 
 def getPushInfo() -> dict:
