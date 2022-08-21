@@ -1,6 +1,5 @@
 #include "common.h"
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80040C10.s")
 void func_8004925C(unk_func_80040C10*, s32);
 
 s32 func_80040C10(unk_func_80040C10* arg0, s32 arg1) {

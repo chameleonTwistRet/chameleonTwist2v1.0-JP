@@ -10,7 +10,6 @@ extern s8 D_8016315E;
 extern s8 D_8016315F;
 extern s8 D_80163160;
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/E790/func_80033390.s")
 void func_80033390(void) {
     D_80163158 = 0xB4;
     D_80163159 = 0xB4;
@@ -23,7 +22,6 @@ void func_80033390(void) {
     D_80163160 = 0x45;
 }
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/E790/func_800333EC.s")
 extern unk_80163130 D_80163130;
 
 void func_800333EC(void) {
@@ -57,7 +55,6 @@ void func_800333EC(void) {
     D_80163130.unk12 = D_80163160;
 }
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/E790/func_8003347C.s")
 extern f32 D_80163164;
 extern f32 D_80163168;
 extern f32 D_8016316C;
@@ -78,7 +75,6 @@ void func_8003347C(void) {
     D_80163184 = 0;
 }
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/E790/func_800334C4.s")
 extern unk_801630D8 D_801630D8;
 extern f32 D_80163164;
 extern f32 D_80163168;

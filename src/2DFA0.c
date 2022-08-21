@@ -2,7 +2,6 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2DFA0/func_80052BA0.s")
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/2DFA0/func_80052CF8.s")
 extern unk_800EEFF0* D_800EEFF0;
 
 s8 func_80052CF8(void) {

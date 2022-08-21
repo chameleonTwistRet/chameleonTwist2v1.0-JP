@@ -4,14 +4,12 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D0CC.s")
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D580.s")
 extern s32 gzip_data_0000;
 
 void myfree(void) {
     gzip_data_0000 = 0;
 }
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D58C.s")
 extern s32 D_800EB050;
 extern f32 D_800EB054;
 extern f32 D_800EB058;
@@ -28,8 +26,6 @@ void func_8002D58C(f32 arg0, f32 arg1, f32 arg2, f32 arg3) {
     D_800EB060 = arg3;
 }
 
-
-//#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D5D8.s")
 extern f32 D_800EB064;
 extern f32 D_800EB068;
 extern f32 D_800EB06C;
@@ -45,7 +41,6 @@ void func_8002D5D8(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) {
     D_800EB06C = arg5;
 }
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D638.s")
 extern unk_80163030 D_80163030;
 
 void func_8002D638(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) {

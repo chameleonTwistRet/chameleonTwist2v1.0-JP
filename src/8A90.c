@@ -6,7 +6,6 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002E1B4.s")
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002ECC8.s")
 void func_80035D6C(f32, f32, f32, f32);                      /* extern */
 extern f32 D_801630C8;
 extern f32 D_801630CC;

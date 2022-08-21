@@ -1,6 +1,5 @@
 #include "common.h"
 
-//#pragma GLOBAL_ASM("asm/nonmatchings/B1BA0/func_800D67A0.s")
 s32 func_800D79E0(s32);                             /* extern */
 extern s32 D_800F1F70;
 
