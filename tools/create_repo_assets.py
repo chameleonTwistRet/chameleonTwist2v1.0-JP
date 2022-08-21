@@ -28,7 +28,7 @@ class Badge:
         return
 
     def getHTML(self):
-        return '<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style="plastic""/>' % self.id
+        return '<img src=\'https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/chameleonTwistRet/chameleonTwist2v1.0-JP/master/assets_for_repo/badges/%s.json&style="plastic"\'/>' % self.id
 
 
 def getPushInfo() -> dict:
@@ -112,7 +112,7 @@ def writeReadMe(data: dict) -> None:
 
         readme.write("## Progress Info\n")
         readme.write("![Graph](assets_for_repo/graph.png)\n")
-        funcsBadge = Badge("funcs", "Functions Done", "%d" % data['project']['total_funcs'], "#f1c40f")
+        funcsBadge = Badge("funcs", "Functions Done", "%d" % data['project']['funcs_done'], "#9932CC")
         readme.write(funcsBadge.getHTML() + "\n")
         completeBadge = Badge("completion", "Complete", "%s%%" % getCompletionPercentage(data)[0], getCompletionPercentage(data)[1])
         readme.write(completeBadge.getHTML() + "\n")
