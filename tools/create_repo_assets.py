@@ -111,11 +111,12 @@ def writeReadMe(data: dict) -> None:
         readme.write("\n")
 
         readme.write("## Progress Info\n")
-        readme.write("![Graph](assets_for_repo/graph.png)\n")
+        readme.write("![Graph](assets_for_repo/graph.png)\n\n")
         funcsBadge = Badge("funcs", "Functions Done", "%d" % data['project']['funcs_done'], "#9932CC")
         readme.write(funcsBadge.getHTML() + "\n")
         completeBadge = Badge("completion", "Complete", "%s%%" % getCompletionPercentage(data)[0], getCompletionPercentage(data)[1])
         readme.write(completeBadge.getHTML() + "\n")
+        readme.write("\n")
 
         readme.write("## Building\n")
         readme.write("""git clone this repository in a WSL 2 directory
