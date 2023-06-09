@@ -12,6 +12,9 @@ asm/
 assets/
 build/
 expected/
+.ninja_log
+build.ninja
+
 
 # Tool artifacts
 undefined_funcs_auto.txt
