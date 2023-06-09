@@ -1,6 +1,6 @@
 typedef struct unk_func_80040840 {
     s32 unk00[4];
-    s32 unk10;
+    void* unk10;
     s32 unk14[15];
     s32 unk50;
 } unk_func_80040840;

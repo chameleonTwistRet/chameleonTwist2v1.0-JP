@@ -7,21 +7,19 @@ options:
   compiler: IDO
   find_file_boundaries: True
   header_encoding: ASCII
-  # platform: n64
+  platform: n64
   # ld_script_path: chameleonTwist2.jp.ld
-  undefined_funcs_auto: True
   undefined_funcs_auto_path: undefined_funcs_auto.txt
-  undefined_syms_auto: True
   undefined_syms_auto_path: undefined_syms_auto.txt
   symbol_addrs_path: symbol_addrs.txt
-  undefined_syms_path: undefined_syms.txt
+  migrate_rodata_to_functions : True
   asm_path: asm
   src_path: src
   build_path: build
   # extensions_path: tools/splat_ext
   # mips_abi_float_regs: o32
   # section_order: [".text", ".data", ".rodata", ".bss"]
-  # auto_all_sections: [".data", ".rodata", ".bss"]
+  auto_all_sections: []
 segments:
   - name: header
     type: header
@@ -210,7 +208,7 @@ segments:
       - [0xB2CA0, c]
       - [0xB2DE0, c]
       - [0xB2F20, c]
-      - [0xB3490, c]
+      - [0xB3490, hasm]
       - [0xB3EE0, c]
       - [0xB4680, c]
       - [0xB5420, c]
