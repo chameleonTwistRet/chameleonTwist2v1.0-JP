@@ -5,8 +5,8 @@ void func_800CEE90(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/AA290/func_800CEE98.s")
 
-void func_800D7CE0(void);                                  /* extern */
-void func_800D7D10(s32, s32);                          /* extern */
+void func_800D7CE0(void);
+void func_800D7D10(s32, s32);
 extern unk_800F1CB4* D_800F1CB4;
 
 void func_800CEEF0(s32 arg0) {
