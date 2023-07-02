@@ -16,6 +16,7 @@ options:
   asm_path: asm
   src_path: src
   build_path: build
+  gfx_ucode: f3dex2
   # extensions_path: tools/splat_ext
   # mips_abi_float_regs: o32
   # section_order: [".text", ".data", ".rodata", ".bss"]
@@ -314,6 +315,1177 @@ segments:
       - [0xC3F50, c]
       - [0xC4000, c]
       - [0xC4030, c]
-  - type: bin
+  - name: assets
+    type: data
     start: 0xC4070
+    vram: 0x800E8C70
+    subsegments:
+      - [0x0C4070, bin]
+      - [0x4a4808, bin, inflate/davy]
+      #data
+      - [0x4a6198, bin, inflate/data1]
+      #data
+      - [0x4a6430, bin, inflate/data2]
+      #data
+      - [0x4a66d0, bin, inflate/data3]
+      #data
+      - [0x4a6980, bin, inflate/data4]
+      #data
+      - [0x4a72e8, bin, inflate/data5]
+      #data
+      - [0x4a7588, bin, inflate/data6]
+      #data
+      - [0x4a7720, bin, inflate/data7]
+      #data
+      - [0x4a78c0, bin, inflate/data9]
+      #data
+      - [0x4a7a60, bin, inflate/data10]
+      #data
+      - [0x4a7c00, bin, inflate/data11]
+      #data
+      - [0x4a7da0, bin, inflate/data12]
+      #data
+      - [0x4a7f48, bin, inflate/data13]
+      #data
+      - [0x4a80f0, bin, inflate/data14]
+      #data
+      - [0x4a8290, bin, inflate/data15]
+      #data
+      - [0x4a9858, bin, inflate/data16]
+      #data
+      - [0x4a98e0, bin, inflate/data17]
+      #data
+      - [0x4a9b78, bin, inflate/data18]
+      #data
+      - [0x4aa238, bin, inflate/data19]
+      #data
+      - [0x4aadb8, bin, inflate/data20]
+      #data
+      - [0x4ab670, bin, inflate/data21]
+      #data
+      - [0x4ab7f0, bin, inflate/data22]
+      #data
+      - [0x4ac058, bin, inflate/data23]
+      #data
+      - [0x4ac830, bin, inflate/data24]
+      #data
+      - [0x4ad378, bin, inflate/data25]
+      #data
+      - [0x4ad9e8, bin, inflate/data26]
+      #data
+      - [0x4ae050, bin, inflate/data27]
+      #data
+      - [0x4ae6b0, bin, inflate/data28]
+      #data
+      - [0x4aed18, bin, inflate/data29]
+      #data
+      - [0x4af380, bin, inflate/data30]
+      #data
+      - [0x4af9e0, bin, inflate/data31]
+      #data
+      - [0x4b0048, bin, inflate/data32]
+      #data
+      - [0x4b06b0, bin, inflate/data33]
+      #data
+      - [0x4b0d20, bin, inflate/data34]
+      #data
+      - [0x4b1d50, bin, inflate/data35]
+      #data
+      - [0x4b27d8, bin, inflate/data36]
+      #data
+      - [0x4b2928, bin, inflate/data37]
+      #data
+      - [0x4b41c0, bin, inflate/data38]
+      #data
+      - [0x4b61a8, bin, inflate/data39]
+      #data
+      - [0x4b6610, bin, inflate/data40]
+      #data
+      - [0x4b6a78, bin, inflate/data41]
+      #data
+      - [0x4b6ee8, bin, inflate/data42]
+      #data
+      - [0x4b7358, bin, inflate/data43]
+      #data
+      - [0x4b77d0, bin, inflate/data44]
+      #data
+      - [0x4b7a38, bin, inflate/data45]
+      #data
+      - [0x4b7ca0, bin, inflate/data46]
+      #data
+      - [0x4b7f00, bin, inflate/data47]
+      #data
+      - [0x4b8158, bin, inflate/data48]
+      #data
+      - [0x4b92a8, bin, inflate/data49]
+      #data
+      - [0x4b93f0, bin, inflate/data50]
+      #data
+      - [0x4bae10, bin, inflate/data51]
+      #data
+      - [0x4bc798, bin, inflate/data52]
+      #data
+      - [0x4be120, bin, inflate/data53]
+      #data
+      - [0x4bf638, bin, inflate/data54]
+      #data
+      - [0x4c0af8, bin, inflate/data55]
+      #data
+      - [0x4c1fb8, bin, inflate/data56]
+      #data
+      - [0x4c24e8, bin, inflate/data57]
+      #data
+      - [0x4c27d0, bin, inflate/data58]
+      #data
+      - [0x4c33b0, bin, inflate/data59]
+      #data
+      - [0x4c3868, bin, inflate/data60]
+      #data
+      - [0x4c3d70, bin, inflate/data61]
+      #data
+      - [0x4c4150, bin, inflate/data62]
+      #data
+      - [0x4c43f0, bin, inflate/data63]
+      #data
+      - [0x4c4938, bin, inflate/data64]
+      #data
+      - [0x4c4ee0, bin, inflate/data65]
+      #data
+      - [0x4c6e60, bin, inflate/data66]
+      #data
+      - [0x4c9910, bin, inflate/data67]
+      #data
+      - [0x4c9a68, bin, inflate/data68]
+      #data
+      - [0x4c9c08, bin, inflate/data69]
+      #data
+      - [0x4cdd10, bin, inflate/data70]
+      #data
+      - [0x4ce8e8, bin, inflate/data71]
+      #data
+      - [0x4cf4c8, bin, inflate/data72]
+      #data
+      - [0x4d00a8, bin, inflate/data73]
+      #data
+      - [0x4d0c88, bin, inflate/data74]
+      #data
+      - [0x4d1868, bin, inflate/data75]
+      #data
+      - [0x4d4fe0, bin, inflate/data76]
+      #data
+      - [0x4d5ae8, bin, inflate/data77]
+      #data
+      - [0x4d5d98, bin, inflate/data78]
+      #data
+      - [0x4d6260, bin, inflate/data79]
+      #data
+      - [0x4dc338, bin, inflate/data80]
+      #data
+      - [0x4e2b30, bin, inflate/data81]
+      #data
+      - [0x4e3c78, bin, inflate/data82]
+      #data
+      - [0x4e4db0, bin, inflate/data83]
+      #data
+      - [0x4e5ee8, bin, inflate/data84]
+      #data
+      - [0x4e7f60, bin, inflate/data85]
+      #data
+      - [0x4e80c0, bin, inflate/crash]
+      #ci4, crash, 320, 240
+      #palette, crash, 9600
+      - [0x4e81e4, bin, inflate/textBigger]
+      #ia8, textBigger, 384, 144
+      - [0x4eb8f4, bin, inflate/bellyLightBlue]
+      #ci4, bellyLightBlue, 32, 64
+      #palette, bellyLightBlue, 400
+      - [0x4eb95c, bin, inflate/bellyPurple]
+      #ci4, bellyPurple, 32, 64
+      #palette, bellyPurple, 400
+      - [0x4eb9c4, bin, inflate/stalk]
+      #ci4, stalk, 48, 160
+      #palette, stalk, F00
+      - [0x4ebfa8, bin, inflate/bellyPink]
+      #ci4, bellyPink, 32, 64
+      #palette, bellyPink, 400
+      - [0x4ec010, bin, inflate/mountainSky]
+      #ci8, mountainSky, 320, 240
+      #palette, mountainSky, 12C00
+      - [0x4f37f8, bin, inflate/mailbox]
+      #ci4, mailbox, 48, 96
+      #palette, mailbox, 900
+      - [0x4f3ae8, bin, inflate/slandSky]
+      #ci8, slandSky, 320, 240
+      #palette, slandSky, 12C00
+      - [0x4f7810, bin, inflate/shine]
+      #ia8, shine, 32, 32
+      - [0x4f7924, bin, inflate/data86]
+      #data
+      #idk it looks like nothing
+      - [0x4f7944, bin, inflate/fireSprite]
+      #ci8, fireSprite, 240, 49
+      #palette, fireSprite, 2D00
+      #palette2, fireSprite, 2F00
+      #palette3, fireSprite, 3100
+      #palette4, fireSprite, 3300
+      #palette5, fireSprite, 3500
+      - [0x4f9288, bin, inflate/seed]
+      #ci8, seed, 64, 64
+      #palette, seed, 640
+      - [0x4f9794, bin, inflate/candleAndSprite]
+      #ci8, candleAndSprite, 160, 64
+      #palette, candleAndSprite, 2800
+      - [0x4fa634, bin, inflate/clouds2]
+      #ia8, clouds2, 64, 64
+      - [0x4fa980, bin, inflate/clouds]
+      #ia8, clouds, 64, 64
+      - [0x4fad68, bin, inflate/cloudCt12]
+      #ci4, cloudCt12, 64, 32
+      #palette, cloudCt12, 400
+      - [0x4faed8, bin, inflate/cloudCt1]
+      #ci4, cloudCt1, 64, 32
+      #palette, cloudCt1, 400
+      - [0x4fb0dc, bin, inflate/greentree]
+      #ci8, greentree, 40, 96
+      #palette, greentree, F00
+      - [0x4fbbac, bin, inflate/bluetree]
+      #ci8, bluetree, 40, 96
+      #palette, bluetree, F00
+      - [0x4fc5fc, bin, inflate/lamp]
+      #ci8, lamp, 32, 128
+      #palette, lamp, 1000
+      - [0x4fd01c, bin, inflate/ring]
+      #ia8, ring, 48, 48
+      - [0x4fd1ac, bin, inflate/health]
+      #ci4, health, 16, 16
+      #palette, health, 80
+      - [0x4fd238, bin, inflate/1Heart]
+      #ci8, 1Heart, 192, 40
+      #palette, 1Heart, 1E00
+      - [0x4fdb58, bin, inflate/livingPopcorn]
+      #ci4, livingPopcorn, 64, 64
+      #palette, livingPopcorn, 800
+      - [0x4fdfe8, bin, inflate/slPortrait]
+      #ci8, slPortrait, 64, 64
+      #palette, slPortrait, 1000
+      - [0x4fea90, bin, inflate/clPortrait]
+      #ci8, clPortrait, 64, 64
+      #palette, clPortrait, 1000
+      - [0x4ff748, bin, inflate/ilPortrait]
+      #ci8, ilPortrait, 64, 64
+      #palette, ilPortrait, 1000
+      - [0x5001f4, bin, inflate/gelPortrait]
+      #ci8, gelPortrait, 64, 64
+      #palette, gelPortrait, 1000
+      - [0x500d1c, bin, inflate/tlPortrait]
+      #ci8, tlPortrait, 64, 64
+      #palette, tlPortrait, 1000
+      - [0x5018a8, bin, inflate/plPortrait]
+      #ci8, plPortrait, 64, 64
+      #palette, plPortrait, 1000
+      - [0x5025d4, bin, inflate/carnivalBG]
+      #ci8, carnivalBG, 320, 240
+      #palette, carnivalBG, 12C00
+      - [0x50a084, bin, inflate/rrCrossing]
+      #ci8, rrCrossing, 64, 64
+      #palette1, rrCrossing, 1000
+      - [0x50a72c, bin, inflate/hiResCircle]
+      #ia16, hiResCircle, 128, 128
+      - [0x50c3fc, bin, inflate/circle]
+      #ia4, circle, 64, 64
+      - [0x50c498, bin, inflate/smallText]
+      #ci8, smallText, 128, 96
+      #palette1, smallText, 3000
+      #palette2, smallText, 3200
+      #palette3, smallText, 3400
+      - [0x50ce28, bin, inflate/arrowBalloon3]
+      #ci8, arrowBalloon3, 32, 54
+      #palette, arrowBalloon3, 6C0
+      - [0x50d2f0, bin, inflate/arrowBalloon2]
+      #ci8, arrowBalloon2, 32, 48
+      #palette, arrowBalloon2, 600
+      - [0x50d6ec, bin, inflate/arrowBalloon]
+      #ci8, arrowBalloon, 32, 54
+      #palette, arrowBalloon, 6C0
+      - [0x50db98, bin, inflate/snowflake]
+      #ci4, snowflake, 64, 64
+      #palette, snowflake, 800
+      - [0x50df5c, bin, inflate/ball]
+      #ia8, ball, 64, 64
+      - [0x50e22c, bin, inflate/data87]
+      #data
+      - [0x50e2c8, bin, inflate/data88]
+      #data
+      - [0x50e368, bin, inflate/jss]
+      #ci8, jss, 128, 96
+      #palette, jss, 3000
+      - [0x50ef40, bin, inflate/jssCat]
+      #ia8, jssCat, 448, 288
+      - [0x512200, bin, inflate/data89]
+      #data
+      - [0x5122a0, bin, inflate/data90]
+      #data
+      #idk it looks like nothing
+      - [0x5122e8, bin, inflate/evilPurple]
+      #ci8, evilPurple, 192, 64
+      #palette, evilPurple, 3000
+      - [0x513754, bin, inflate/starHeart]
+      #ci8, starHeart, 192, 40
+      #palette, starHeart, 1E00
+      - [0x513fe0, bin, inflate/3Heart]
+      #ci8, 3Heart, 192, 40
+      #palette, 3Heart, 1E00
+      - [0x514ba4, bin, inflate/iceLandSky]
+      #ci8, iceLandSky, 320, 240
+      #palette, iceLandSky, 12C00
+      - [0x51de50, bin, inflate/bellyRaw]
+      #ci4, bellyRaw, 32, 64
+      #palette, bellyRaw, 400
+      - [0x51deb8, bin, inflate/twistOld]
+      #ia8, twistOld, 112, 32
+      - [0x51e264, bin, inflate/ct2]
+      #ia8, ct2, 96, 96
+      - [0x51e638, bin, inflate/font]
+      #ia4, font, 256, 272
+      - [0x5209c0, bin, inflate/exit]
+      #ia8, exit, 64, 16
+      - [0x520b54, bin, inflate/plater3]
+      #ci4, plater3, 144, 40
+      #palette, plater3, B40
+      - [0x521064, bin, inflate/plater2]
+      #ci8, plater2, 152, 96
+      #palette, plater2, 3900
+      - [0x522848, bin, inflate/plater]
+      #ci8, plater, 152, 128
+      #palette, plater, 4C00
+      - [0x5240f0, bin, inflate/fin]
+      #ci4, fin, 96, 32
+      #palette, fin, 600
+      - [0x5242d0, bin, inflate/greatComeon]
+      #ci4, greatComeon, 224, 48
+      #palette, greatComeon, 1500
+      - [0x524964, bin, inflate/ohnice]
+      #ci4, ohnice, 224, 48
+      #palette, ohnice, 1500
+      - [0x524ff8, bin, inflate/ohwow]
+      #ci4, ohwow, 224, 48
+      #palette, ohwow, 1500
+      - [0x5257fc, bin, inflate/thankayousomuch]
+      #ci4, thankayousomuch, 224, 48
+      #palette, thankayousomuch, 1500
+      - [0x525e90, bin, inflate/plankidk]
+      #ci4, plankidk, 64, 16
+      #palette, plankidk, 200
+      - [0x526050, bin, inflate/woodLogs]
+      #ci8, woodLogs, 160, 120
+      #palette, woodLogs, 4B00
+      - [0x527ca0, bin, inflate/PUPS]
+      #ci8, PUPS, 256, 32
+      #palette, PUPS, 2000
+      - [0x5290f0, bin, inflate/heartPUPS]
+      #ci8, heartPUPS, 128, 32
+      #palette, heartPUPS, 1000
+      - [0x529ccc, bin, inflate/coinBig]
+      #ci8, coinBig, 160, 40
+      #palette, coinBig, 1900
+      - [0x52a458, bin, inflate/coin]
+      #ci8, coin, 96, 24
+      #palette, coin, 900
+      - [0x52a8f4, bin, inflate/carrotBig]
+      #ci8, carrotBig, 432, 40
+      #palette, carrotBig, 4380
+      - [0x52b818, bin, inflate/carrot]
+      #ci8, carrot, 96, 24
+      #palette, carrot, 900
+      - [0x52bbe0, bin, inflate/bossMeter]
+      #ci8, bossMeter, 128, 16
+      #palette, bossMeter, 800
+      - [0x52c104, bin, inflate/data91]
+      #data
+      #idk it looks like nothing
+      - [0x52c124, bin, inflate/mushroom]
+      #ci8, mushroom, 160, 32
+      #palette, mushroom, 1400
+      - [0x52cb98, bin, inflate/GAME]
+      #ia4, GAME, 480, 480
+      - [0x52da3c, bin, inflate/OVER]
+      #ia4, OVER, 512, 288
+      - [0x52e4a4, bin, inflate/chameleonSelect]
+      #ci8, chameleonSelect, 320, 240
+      #palette, chameleonSelect, 12C00
+      - [0x5363e4, bin, inflate/DAVY]
+      #ci8, DAVY, 160, 112
+      #palette, DAVY, 4600
+      - [0x5390a8, bin, inflate/JACK]
+      #ci8, JACK, 160, 112
+      #palette, JACK, 4600
+      - [0x53be4c, bin, inflate/FRED]
+      #ci8, FRED, 160, 112
+      #palette, FRED, 4600
+      - [0x53ebb0, bin, inflate/RINDA]
+      #ci8, RINDA, 160, 112
+      #palette, RINDA, 4600
+      - [0x541c88, bin, inflate/SkyLandT]
+      #ci4, SkyLandT, 192, 32
+      #palette, SkyLandT, C00
+      - [0x541fd8, bin, inflate/CarnivalLandT]
+      #ci4, CarnivalLandT, 192, 32
+      #palette, CarnivalLandT, C00
+      - [0x542460, bin, inflate/IceLandT]
+      #ci4, IceLandT, 192, 32
+      #palette, IceLandT, C00
+      - [0x54274c, bin, inflate/GreatEdoLandT]
+      #ci4, GreatEdoLandT, 192, 32
+      #palette, GreatEdoLandT, C00
+      - [0x542c10, bin, inflate/ToyLandT]
+      #ci4, ToyLandT, 192, 32
+      #palette, ToyLandT, C00
+      - [0x542f44, bin, inflate/PyramidLandT]
+      #ci4, PyramidLandT, 192, 32
+      #palette, PyramidLandT, C00
+      - [0x5433a8, bin, inflate/Clear]
+      #ci4, Clear, 96, 32
+      #palette, Clear, 600
+      - [0x54368c, bin, inflate/congratulations]
+      #ci4, congratulations, 160, 24
+      #palette, youArePerfect, 780
+      - [0x543abc, bin, inflate/youArePerfect]
+      #ci4, youArePerfect, 160, 24
+      #palette, youArePerfect, 780
+      - [0x543e90, bin, inflate/gotANewCostume]
+      #ci4, gotANewCostume, 192, 24
+      #palette, gotANewCostume, 900
+      - [0x5442f0, bin, inflate/number1]
+      #ia8, number1, 48, 48
+      - [0x544348, bin, inflate/number2]
+      #ia8, number2, 48, 48
+      - [0x5443ac, bin, inflate/number3]
+      #ia8, number3, 48, 48
+      - [0x544404, bin, inflate/number4]
+      #ia8, number4, 48, 48
+      - [0x544460, bin, inflate/number5]
+      #ia8, number5, 48, 48
+      - [0x5444c0, bin, inflate/number6]
+      #ia8, number6, 48, 48
+      - [0x544520, bin, inflate/number7]
+      #ia8, number7, 48, 48
+      - [0x544580, bin, inflate/number8]
+      #ia8, number8, 48, 48
+      - [0x5445dc, bin, inflate/number9]
+      #ia8, number9, 48, 48
+      - [0x544638, bin, inflate/number10]
+      #ia8, number10, 48, 48
+      - [0x544694, bin, inflate/fileSelect]
+      #ci8, fileSelect, 320, 240
+      #palette, fileSelect, 12C00
+      - [0x54b55c, bin, inflate/miniGame]
+      #ci8, miniGame, 320, 240
+      #palette, miniGame, 12C00
+      - [0x553c80, bin, inflate/option]
+      #ci8, option, 320, 240
+      #palette, option, 12C00
+      - [0x55c298, bin, inflate/training]
+      #ci8, training, 320, 240
+      #palette, training, 12C00
+      - [0x563a6c, bin, inflate/game1]
+      #ia8, game1, 72, 25
+      - [0x563ce4, bin, inflate/game2]
+      #ia8, game2, 72, 25
+      - [0x563f7c, bin, inflate/game3]
+      #ia8, game3, 72, 25
+      - [0x564210, bin, inflate/game4]
+      #ia8, game4, 72, 25
+      - [0x5644b0, bin, inflate/bestScore]
+      #ia8, bestScore, 56, 16
+      - [0x564680, bin, inflate/downIdk]
+      #ia8, downIdk, 56, 56
+      - [0x5647a0, bin, inflate/room1]
+      #ia8, room1, 80, 24
+      - [0x564a74, bin, inflate/room2]
+      #ia8, room2, 80, 24
+      - [0x564db4, bin, inflate/room3]
+      #ia8, room3, 80, 24
+      - [0x565110, bin, inflate/snowman]
+      #ci8, snowman, 288, 96
+      #palette, snowman, 6E00
+      #palette2, snowman, 7000
+      #palette3, snowman, 7200
+      #palette4, snowman, 7400
+      #palette5, snowman, 7600
+      #palette6, snowman, 7800
+      #palette7, snowman, 7A00
+      - [0x566634, bin, inflate/dirPad]
+      #ci4, dirPad, 64, 64
+      #palette, dirPad, 800
+      - [0x56674c, bin, inflate/10ball]
+      #ci8, 10ball, 32, 32
+      #palette, 10ball, 400
+      - [0x566a44, bin, inflate/11ball]
+      #ci8, 11ball, 32, 32
+      #palette, 11ball, 400
+      - [0x566ca8, bin, inflate/12ball]
+      #ci8, 12ball, 32, 32
+      #palette, 12ball, 400
+      - [0x566fd4, bin, inflate/13ball]
+      #ci8, 13ball, 32, 32
+      #palette, 13ball, 400
+      - [0x5672bc, bin, inflate/14ball]
+      #ci8, 14ball, 32, 32
+      #palette, 14ball, 400
+      - [0x56754c, bin, inflate/15ball]
+      #ci8, 15ball, 32, 32
+      #palette, 15ball, 400
+      - [0x56780c, bin, inflate/16ball]
+      #ci8, 16ball, 32, 32
+      #palette, 16ball, 400
+      - [0x567a84, bin, inflate/davyIco2]
+      #ci8, davyIco2, 24, 24
+      #palette, davyIco2, 240
+      - [0x567d84, bin, inflate/jackIco2]
+      #ci8, jackIco2, 24, 24
+      #palette, jackIco2, 240
+      - [0x5680c0, bin, inflate/fredIco2]
+      #ci8, fredIco2, 24, 24
+      #palette, fredIco2, 240
+      - [0x5683d8, bin, inflate/lindaIco2]
+      #ci8, lindaIco2, 24, 24
+      #palette, lindaIco2, 240
+      - [0x5687ac, bin, inflate/mountain]
+      #ci8, mountain, 320, 240
+      #palette, mountain, 12C00
+      - [0x56c9b0, bin, inflate/star]
+      #ia4, star, 64, 32
+      - [0x56ca58, bin, inflate/spike]
+      #ia4, spike, 32, 32
+      - [0x56cac8, bin, inflate/numbers]
+      #ia8, numbers, 264, 24
+      - [0x56d284, bin, inflate/lightning]
+      #ia8, lightning, 192, 192
+      - [0x56dc2c, bin, inflate/hole]
+      #ci4, hole, 64, 64
+      #palette, hole, 800
+      - [0x56df84, bin, inflate/PAUSE]
+      #ia4, PAUSE, 128, 24
+      - [0x56e1dc, bin, inflate/continue]
+      #ia4, continue, 96, 24
+      - [0x56e424, bin, inflate/stageQuit]
+      #ia4, stageQuit, 128, 24
+      - [0x56e668, bin, inflate/yes]
+      #ia4, yes, 48, 24
+      - [0x56e7ac, bin, inflate/no]
+      #ia4, no, 32, 24
+      - [0x56e89c, bin, inflate/fern3]
+      #ci4, fern3, 64, 56
+      #palette, fern3, 700
+      - [0x56ed90, bin, inflate/fern2]
+      #ci4, fern2, 64, 40
+      #palette, fern2, 500
+      - [0x56f140, bin, inflate/fern]
+      #ci4, fern, 64, 48
+      #palette, fern, 600
+      - [0x56f568, bin, inflate/tree]
+      #ci4, tree, 64, 64
+      #palette, tree, 800
+      - [0x56fa64, bin, inflate/changeCostumes]
+      #ci8, changeCostumes, 224, 40
+      #palette, changeCostumes, 2300
+      - [0x5710fc, bin, inflate/arruw2]
+      #ci4, arruw2, 32, 192
+      #palette, arruw2, C00
+      - [0x5713f0, bin, inflate/arruw1]
+      #ci4, arruw1, 64, 192
+      #palette, arruw1, 1800
+      - [0x571870, bin, inflate/ghost]
+      #ci8, ghost, 384, 224
+      #palette, ghost, 15000
+      - [0x574cbc, bin, inflate/bat]
+      #ci8, bat, 192, 160
+      #palette, bat, 7800
+      - [0x5759f4, bin, inflate/data92]
+      #data
+      - [0x575b44, bin, inflate/bearToy]
+      #ci8, bearToy, 48, 64
+      #palette, bearToy, C00
+      - [0x5765d8, bin, inflate/dogToy]
+      #ci8, dogToy, 64, 64
+      #palette, dogToy, 1000
+      - [0x5770f4, bin, inflate/save]
+      #ia8, save, 64, 16
+      - [0x5772cc, bin, inflate/data93]
+      #data
+      - [0x577318, bin, inflate/plbg1]
+      #ci8, plbg1, 320, 120
+      #palette, plbg1, 12C00
+      - [0x57be0c, bin, inflate/torch]
+      #ci8, torch, 256, 112
+      #palette, torch, 7000
+      - [0x57da68, bin, inflate/1Ico]
+      #ci8, 1Ico, 96, 96
+      #palette, 1Ico, 2400
+      - [0x57f344, bin, inflate/2Ico]
+      #ci8, 2Ico, 96, 96
+      #palette, 2Ico, 2400
+      - [0x580e30, bin, inflate/3Ico]
+      #ci8, 3Ico, 96, 96
+      #palette, 3Ico, 2400
+      - [0x58259c, bin, inflate/4Ico]
+      #ci8, 4Ico, 96, 96
+      #palette, 4Ico, 2400
+      - [0x583de4, bin, inflate/5Ico]
+      #ci8, 5Ico, 96, 96
+      #palette, 5Ico, 2400
+      - [0x5855cc, bin, inflate/6Ico]
+      #ci8, 6Ico, 96, 96
+      #palette, 6Ico, 2400
+      - [0x5871d8, bin, inflate/toylandSky]
+      #ci8, toylandSky, 320, 240
+      #palette, toylandSky, 12C00
+      - [0x58d864, bin, inflate/chessmult6]
+      #ci8, chessmult6, 160, 56
+      #palette, chessmult6, 2300
+      - [0x58e2e4, bin, inflate/chessmult5]
+      #ci8, chessmult5, 128, 56
+      #palette, chessmult5, 1C00
+      - [0x58f048, bin, inflate/chessmult4]
+      #ci8, chessmult4, 192, 64
+      #palette, chessmult4, 3000
+      - [0x58fc28, bin, inflate/chessmult3]
+      #ci8, chessmult3, 128, 64
+      #palette, chessmult3, 2000
+      - [0x5908c8, bin, inflate/chessmult2]
+      #ci8, chessmult2, 160, 64
+      #palette, chessmult2, 2800
+      - [0x59152c, bin, inflate/chessmult1]
+      #ci8, chessmult1, 192, 56
+      #palette, chessmult1, 2A00
+      - [0x5921a8, bin, inflate/title1]
+      #ci8, title1, 320, 240
+      #palette, title1, 12C00
+      - [0x59bb84, bin, inflate/titleLabel]
+      #ci8, titleLabel, 264, 96
+      #palette, stage2Label, 6300
+      - [0x59eb94, bin, inflate/pressStart]
+      #ia8, pressStart, 128, 24
+      - [0x59f044, bin, inflate/gameStart]
+      #ia8, gameStart, 128, 24
+      - [0x59f3d0, bin, inflate/training]
+      #ia8, training, 128, 24
+      - [0x59f67c, bin, inflate/option]
+      #ia8, option, 128, 24
+      - [0x59f930, bin, inflate/minigame]
+      #ia8, minigame, 128, 24
+      - [0x59fcd8, bin, inflate/stage1Label]
+      #ci8, stage1Label, 104, 80
+      #palette, stage1Label, 2080
+      - [0x5a0f68, bin, inflate/stage2Label]
+      #ci8, stage2Label, 104, 80
+      #palette, stage2Label, 2080
+      - [0x5a2388, bin, inflate/stage3Label]
+      #ci8, stage3Label, 104, 80
+      #palette, stage3Label, 2080
+      - [0x5a35ac, bin, inflate/stage4Label]
+      #ci8, stage4Label, 104, 80
+      #palette, stage4Label, 2080
+      - [0x5a499c, bin, inflate/stage5Label]
+      #ci8, stage5Label, 104, 80
+      #palette, stage4Label, 2080
+      - [0x5a5bfc, bin, inflate/stage6Label]
+      #ci8, stage6Label, 104, 80
+      #palette, stage6Label, 2080
+      - [0x5a6fa8, bin, inflate/stageStart]
+      #ci8, stageStart, 320, 240
+      #palette, stageStart, 12C00
+      - [0x5b0608, bin, inflate/smallCoin]
+      #ci8, smallCoin, 16, 16
+      #palette, smallCoin, 100
+      - [0x5b07e4, bin, inflate/smallCarrot]
+      #ci8, smallCarrot, 16, 16
+      #palette, smallCarrot, 100
+      - [0x5b08f0, bin, inflate/starPup]
+      #ci8, starPup, 320, 40
+      #palette, starPup, 3200
+      - [0x5b1890, bin, inflate/heartPup]
+      #ci8, heartPup, 320, 40
+      #palette, heartPup, 3200
+      - [0x5b26ac, bin, inflate/stageSelect]
+      #ci8, stageSelect, 320, 240
+      #palette, stageSelect, 12C00
+      - [0x5bb9c8, bin, inflate/1]
+      #ci8, 1, 16, 24
+      #palette, 1, 180
+      - [0x5bbbe4, bin, inflate/2]
+      #ci8, 2, 16, 24
+      #palette, 2, 180
+      - [0x5bbe30, bin, inflate/3]
+      #ci8, 3, 16, 24
+      #palette, 3, 180
+      - [0x5bc08c, bin, inflate/4]
+      #ci8, 4, 16, 24
+      #palette, 4, 180
+      - [0x5bc310, bin, inflate/5]
+      #ci8, 5, 16, 24
+      #palette, 5, 180
+      - [0x5bc574, bin, inflate/6]
+      #ci8, 6, 16, 24
+      #palette, 6, 180
+      - [0x5bc7e8, bin, inflate/SkyLand]
+      #ci8, SkyLand, 120, 24
+      #palette, SkyLand, B40
+      - [0x5bd0d0, bin, inflate/CarnivalLand]
+      #ci8, CarnivalLand, 120, 24
+      #palette, CarnivalLand, B40
+      - [0x5bdacc, bin, inflate/IceLand]
+      #ci8, IceLand, 120, 24
+      #palette, IceLand, B40
+      - [0x5be394, bin, inflate/GreatEdoLand]
+      #ci8, GreatEdoLand, 120, 24
+      #palette, GreatEdoLand, B40
+
+
+
+
+      - [0x5beda8, bin, inflate/unk126]
+      - [0x5bf680, bin, inflate/unk127]
+      - [0x5c0084, bin, inflate/unk128]
+      #- [0x5c1808, bin, inflate/unk129]
+      - [0x5c8b70, bin, inflate/unk12B]
+      - [0x5c9440, bin, inflate/unk12C]
+      - [0x5c95bc, bin, inflate/unk12D]
+      - [0x5c967c, bin, inflate/unk12E]
+      - [0x5c9cf4, bin, inflate/unk12F]
+      - [0x5ca238, bin, inflate/unk130]
+      - [0x5ca384, bin, inflate/unk131]
+      #- [0x5cf3ac, bin, inflate/unk133]
+      - [0x5d2958, bin, inflate/unk134]
+      - [0x5d50f8, bin, inflate/unk135]
+      - [0x5d988c, bin, inflate/unk136]
+      - [0x5d9960, bin, inflate/unk137]
+      - [0x5d9f24, bin, inflate/unk138]
+      - [0x5da2a0, bin, inflate/unk139]
+      - [0x5da670, bin, inflate/unk13A]
+      - [0x5dd67c, bin, inflate/unk13B]
+      - [0x5debec, bin, inflate/unk13C]
+      - [0x5df348, bin, inflate/unk13D]
+      - [0x5df640, bin, inflate/unk13E]
+      - [0x5df8d8, bin, inflate/unk13F]
+      - [0x5dfb74, bin, inflate/unk140]
+      - [0x5dfe8c, bin, inflate/unk141]
+      - [0x5e155c, bin, inflate/unk142]
+      - [0x5e3ec4, bin, inflate/unk143]
+      - [0x5e4398, bin, inflate/unk144]
+      - [0x5e466c, bin, inflate/unk145]
+      - [0x5e4b4c, bin, inflate/unk146]
+      - [0x5e4da8, bin, inflate/unk147]
+      - [0x5e5444, bin, inflate/unk148]
+      - [0x5e5aa0, bin, inflate/unk149]
+      - [0x5e6194, bin, inflate/unk14A]
+      - [0x5e677c, bin, inflate/unk14B]
+      - [0x5e6d10, bin, inflate/unk14C]
+      - [0x5ebc24, bin, inflate/unk14D]
+      - [0x5ec16c, bin, inflate/unk14E]
+      - [0x5ec288, bin, inflate/unk14F]
+      - [0x5ec93c, bin, inflate/unk150]
+      - [0x5ecb18, bin, inflate/unk151]
+      - [0x5f6aa4, bin, inflate/unk152]
+      - [0x5fe6b0, bin, inflate/unk153]
+      - [0x606ef0, bin, inflate/unk154]
+      - [0x612d34, bin, inflate/unk155]
+      - [0x61c004, bin, inflate/unk157]
+      - [0x6244ec, bin, inflate/unk158]
+      - [0x624520, bin, inflate/unk159]
+      - [0x624a10, bin, inflate/unk15A]
+      - [0x624bb4, bin, inflate/unk15B]
+      - [0x625040, bin, inflate/unk15C]
+      - [0x625358, bin, inflate/unk15D]
+      - [0x6254f0, bin, inflate/unk15E]
+      - [0x625bcc, bin, inflate/unk15F]
+      - [0x62631c, bin, inflate/unk160]
+      - [0x62c9c4, bin, inflate/unk161]
+      - [0x62cc0c, bin, inflate/unk162]
+      - [0x62e64c, bin, inflate/unk163]
+      - [0x62ebb0, bin, inflate/unk164]
+      - [0x62f920, bin, inflate/unk165]
+      - [0x630908, bin, inflate/unk166]
+      - [0x63496c, bin, inflate/unk167]
+      - [0x637aa4, bin, inflate/unk168]
+      - [0x63ba4c, bin, inflate/unk169]
+      - [0x63f4b0, bin, inflate/unk16A]
+      - [0x643834, bin, inflate/unk16B]
+      - [0x643da4, bin, inflate/unk16C]
+      - [0x6451d0, bin, inflate/unk16D]
+      - [0x648330, bin, inflate/unk16E]
+      - [0x64d9ec, bin, inflate/unk16F]
+      - [0x653114, bin, inflate/unk170]
+      - [0x659eb0, bin, inflate/unk171]
+      - [0x65ab68, bin, inflate/unk172]
+      - [0x65bd60, bin, inflate/unk173]
+      - [0x65ce34, bin, inflate/unk174]
+      - [0x661510, bin, inflate/unk175]
+      - [0x6616f0, bin, inflate/unk176]
+      - [0x66170c, bin, inflate/unk177]
+      - [0x6618ac, bin, inflate/unk178]
+      - [0x661c4c, bin, inflate/unk179]
+      - [0x661fe0, bin, inflate/unk17A]
+      - [0x662084, bin, inflate/unk17B]
+      - [0x6620a0, bin, inflate/unk17C]
+      - [0x662154, bin, inflate/unk17D]
+      - [0x662170, bin, inflate/unk17E]
+      - [0x66218c, bin, inflate/unk17F]
+      - [0x6621b4, bin, inflate/unk180]
+      - [0x6622b8, bin, inflate/unk181]
+      - [0x662400, bin, inflate/unk182]
+      - [0x6625dc, bin, inflate/unk183]
+      - [0x6626bc, bin, inflate/unk184]
+      - [0x6627d0, bin, inflate/unk185]
+      - [0x662cb4, bin, inflate/unk186]
+      - [0x662e70, bin, inflate/unk187]
+      - [0x663058, bin, inflate/unk188]
+      - [0x66328c, bin, inflate/unk189]
+      - [0x663348, bin, inflate/unk18A]
+      - [0x6638a0, bin, inflate/unk18B]
+      - [0x663c00, bin, inflate/unk18C]
+      - [0x664300, bin, inflate/unk18D]
+      - [0x6646c8, bin, inflate/unk18E]
+      - [0x6649ec, bin, inflate/unk18F]
+      - [0x664b10, bin, inflate/unk190]
+      - [0x664f18, bin, inflate/unk191]
+      - [0x66512c, bin, inflate/unk192]
+      - [0x665320, bin, inflate/unk193]
+      - [0x66588c, bin, inflate/unk194]
+      - [0x665f28, bin, inflate/unk195]
+      - [0x6666ac, bin, inflate/unk196]
+      - [0x6666fc, bin, inflate/unk197]
+      - [0x666720, bin, inflate/unk198]
+      - [0x666938, bin, inflate/unk199]
+      - [0x667014, bin, inflate/unk19A]
+      - [0x6676b4, bin, inflate/unk19B]
+      - [0x6676f4, bin, inflate/unk19C]
+      - [0x667d74, bin, inflate/unk19D]
+      - [0x6683cc, bin, inflate/unk19E]
+      - [0x668400, bin, inflate/unk19F]
+      - [0x668a50, bin, inflate/unk1A0]
+      - [0x6690f8, bin, inflate/unk1A1]
+      - [0x66912c, bin, inflate/unk1A2]
+      - [0x6695a8, bin, inflate/unk1A3]
+      - [0x669804, bin, inflate/unk1A4]
+      - [0x669c4c, bin, inflate/unk1A5]
+      - [0x669e90, bin, inflate/unk1A6]
+      - [0x66a250, bin, inflate/unk1A7]
+      - [0x66a620, bin, inflate/unk1A8]
+      - [0x66a6a0, bin, inflate/unk1A9]
+      - [0x66a7f4, bin, inflate/unk1AA]
+      - [0x66ab68, bin, inflate/unk1AB]
+      - [0x66abd0, bin, inflate/unk1AC]
+      - [0x66ad0c, bin, inflate/unk1AD]
+      - [0x66af94, bin, inflate/unk1AE]
+      - [0x66b324, bin, inflate/unk1AF]
+      - [0x66b4d4, bin, inflate/unk1B0]
+      - [0x66b680, bin, inflate/unk1B1]
+      - [0x66bd4c, bin, inflate/unk1B2]
+      - [0x66bea0, bin, inflate/unk1B3]
+      - [0x66c194, bin, inflate/unk1B4]
+      - [0x66c8a0, bin, inflate/unk1B5]
+      - [0x66d0a4, bin, inflate/unk1B6]
+      - [0x66d770, bin, inflate/unk1B7]
+      - [0x66de80, bin, inflate/unk1B8]
+      - [0x66e370, bin, inflate/unk1B9]
+      - [0x66e858, bin, inflate/unk1BA]
+      - [0x66ed44, bin, inflate/unk1BB]
+      - [0x66edac, bin, inflate/unk1BC]
+      - [0x66f890, bin, inflate/unk1BD]
+      - [0x670354, bin, inflate/unk1BE]
+      - [0x6709a8, bin, inflate/unk1BF]
+      - [0x670de4, bin, inflate/unk1C0]
+      - [0x670f08, bin, inflate/unk1C1]
+      - [0x6713e8, bin, inflate/unk1C2]
+      - [0x671418, bin, inflate/unk1C3]
+      - [0x6714cc, bin, inflate/unk1C4]
+      - [0x671bd8, bin, inflate/unk1C5]
+      - [0x672384, bin, inflate/unk1C6]
+      - [0x672a50, bin, inflate/unk1C7]
+      - [0x672bc4, bin, inflate/unk1C8]
+      - [0x6733bc, bin, inflate/unk1C9]
+      - [0x673b90, bin, inflate/unk1CA]
+      - [0x674290, bin, inflate/unk1CB]
+      - [0x6743e0, bin, inflate/unk1CC]
+      - [0x67459c, bin, inflate/unk1CD]
+      - [0x674628, bin, inflate/unk1CE]
+      - [0x67494c, bin, inflate/unk1CF]
+      - [0x674b74, bin, inflate/unk1D0]
+      - [0x674d48, bin, inflate/unk1D1]
+      - [0x67541c, bin, inflate/unk1D2]
+      - [0x675590, bin, inflate/unk1D3]
+      - [0x675b64, bin, inflate/unk1D4]
+      - [0x675c24, bin, inflate/unk1D5]
+      - [0x676020, bin, inflate/unk1D6]
+      - [0x676678, bin, inflate/unk1D7]
+      - [0x6769f4, bin, inflate/unk1D8]
+      - [0x676b84, bin, inflate/unk1D9]
+      - [0x6772f0, bin, inflate/unk1DA]
+      - [0x677518, bin, inflate/unk1DB]
+      - [0x677c14, bin, inflate/unk1DC]
+      - [0x6783f4, bin, inflate/unk1DD]
+      - [0x678bb0, bin, inflate/unk1DE]
+      - [0x6792c0, bin, inflate/unk1DF]
+      - [0x6799f0, bin, inflate/unk1E0]
+      - [0x67a1e4, bin, inflate/unk1E1]
+      - [0x67a98c, bin, inflate/unk1E2]
+      - [0x67ada0, bin, inflate/unk1E3]
+      - [0x67af18, bin, inflate/unk1E4]
+      - [0x67b0a4, bin, inflate/unk1E5]
+      - [0x67b224, bin, inflate/unk1E6]
+      - [0x67b974, bin, inflate/unk1E7]
+      - [0x67bb3c, bin, inflate/unk1E8]
+      - [0x67c0dc, bin, inflate/unk1E9]
+      - [0x67c704, bin, inflate/unk1EA]
+      - [0x67c898, bin, inflate/unk1EB]
+      - [0x67d004, bin, inflate/unk1EC]
+      - [0x67d684, bin, inflate/unk1ED]
+      - [0x67dd64, bin, inflate/unk1EE]
+      - [0x67e124, bin, inflate/unk1EF]
+      - [0x67e4e8, bin, inflate/unk1F0]
+      - [0x67e66c, bin, inflate/unk1F1]
+      - [0x67e694, bin, inflate/unk1F2]
+      - [0x67e6b0, bin, inflate/unk1F3]
+      - [0x67e6cc, bin, inflate/unk1F4]
+      - [0x67e6ec, bin, inflate/unk1F5]
+      - [0x67e70c, bin, inflate/unk1F6]
+      - [0x67e72c, bin, inflate/unk1F7]
+      - [0x67ea34, bin, inflate/unk1F8]
+      - [0x67eb40, bin, inflate/unk1F9]
+      - [0x67ec4c, bin, inflate/unk1FA]
+      - [0x67ec68, bin, inflate/unk1FB]
+      - [0x67ec88, bin, inflate/unk1FC]
+      - [0x67ed5c, bin, inflate/unk1FD]
+      - [0x67ee30, bin, inflate/unk1FE]
+      - [0x67ee58, bin, inflate/unk1FF]
+      - [0x67ee80, bin, inflate/unk200]
+      - [0x67eea0, bin, inflate/unk201]
+      - [0x67eec0, bin, inflate/unk202]
+      - [0x67eee0, bin, inflate/unk203]
+      - [0x67eefc, bin, inflate/unk204]
+      - [0x67ef18, bin, inflate/unk205]
+      - [0x67efb8, bin, inflate/unk206]
+      - [0x67f100, bin, inflate/unk207]
+      - [0x67f22c, bin, inflate/unk208]
+      - [0x67f3a0, bin, inflate/unk209]
+      - [0x67f4e4, bin, inflate/unk20A]
+      - [0x67f500, bin, inflate/unk20B]
+      - [0x67f564, bin, inflate/unk20C]
+      - [0x67f584, bin, inflate/unk20D]
+      - [0x67f5a4, bin, inflate/unk20E]
+      - [0x67f68c, bin, inflate/unk20F]
+      - [0x67f704, bin, inflate/unk210]
+      - [0x67f724, bin, inflate/unk211]
+      - [0x67f744, bin, inflate/unk212]
+      - [0x67f764, bin, inflate/unk213]
+      - [0x67f884, bin, inflate/unk214]
+      - [0x67f944, bin, inflate/unk215]
+      - [0x67f9a0, bin, inflate/unk216]
+      - [0x67fe34, bin, inflate/unk217]
+      - [0x6802b4, bin, inflate/unk218]
+      - [0x6808f0, bin, inflate/unk219]
+      - [0x680a98, bin, inflate/unk21A]
+      - [0x680c64, bin, inflate/unk21B]
+      - [0x680ffc, bin, inflate/unk21C]
+      - [0x681194, bin, inflate/unk21D]
+      - [0x6814bc, bin, inflate/unk21E]
+      - [0x681928, bin, inflate/unk21F]
+      - [0x6822a4, bin, inflate/unk220]
+      - [0x682978, bin, inflate/unk221]
+      - [0x683288, bin, inflate/unk222]
+      - [0x6832f0, bin, inflate/unk223]
+      - [0x6835d8, bin, inflate/unk224]
+      - [0x6835f4, bin, inflate/unk225]
+      - [0x6836a8, bin, inflate/unk226]
+      - [0x683734, bin, inflate/unk227]
+      - [0x683750, bin, inflate/unk228]
+      - [0x683adc, bin, inflate/unk229]
+      - [0x683c1c, bin, inflate/unk22A]
+      - [0x683d60, bin, inflate/unk22B]
+      - [0x683e74, bin, inflate/unk22C]
+      - [0x683f78, bin, inflate/unk22D]
+      - [0x684084, bin, inflate/unk22E]
+      - [0x6846e4, bin, inflate/unk22F]
+      - [0x684820, bin, inflate/unk230]
+      - [0x684e44, bin, inflate/unk231]
+      - [0x684fe4, bin, inflate/unk232]
+      - [0x6854b4, bin, inflate/unk233]
+      - [0x685864, bin, inflate/unk234]
+      - [0x686010, bin, inflate/unk235]
+      - [0x68639c, bin, inflate/unk236]
+      - [0x686930, bin, inflate/unk237]
+      - [0x686950, bin, inflate/unk238]
+      - [0x687084, bin, inflate/unk239]
+      - [0x687400, bin, inflate/unk23A]
+      - [0x687ab4, bin, inflate/unk23B]
+      - [0x687dc0, bin, inflate/unk23C]
+      - [0x68837c, bin, inflate/unk23D]
+      - [0x688a0c, bin, inflate/unk23E]
+      - [0x68900c, bin, inflate/unk23F]
+      - [0x689610, bin, inflate/unk240]
+      - [0x689744, bin, inflate/unk241]
+      - [0x68989c, bin, inflate/unk242]
+      - [0x6898b8, bin, inflate/unk243]
+      - [0x689a68, bin, inflate/unk244]
+      - [0x689b24, bin, inflate/unk245]
+      - [0x689be0, bin, inflate/unk246]
+      - [0x689c00, bin, inflate/unk247]
+      - [0x689c20, bin, inflate/unk248]
+      - [0x689d4c, bin, inflate/unk249]
+      - [0x689d74, bin, inflate/unk24A]
+      - [0x689d94, bin, inflate/unk24B]
+      - [0x689db4, bin, inflate/unk24C]
+      - [0x689dd4, bin, inflate/unk24D]
+      - [0x689df4, bin, inflate/unk24E]
+      - [0x689e14, bin, inflate/unk24F]
+      - [0x689e34, bin, inflate/unk250]
+      - [0x689f84, bin, inflate/unk251]
+      - [0x68a0b8, bin, inflate/unk252]
+      - [0x68a294, bin, inflate/unk253]
+      - [0x68a3f0, bin, inflate/unk254]
+      - [0x68a40c, bin, inflate/unk255]
+      - [0x68a42c, bin, inflate/unk256]
+      - [0x68a688, bin, inflate/unk257]
+      - [0x68a6a8, bin, inflate/unk258]
+      - [0x68ade4, bin, inflate/unk259]
+      - [0x68b3cc, bin, inflate/unk25A]
+      - [0x68b898, bin, inflate/unk25B]
+      - [0x68baa0, bin, inflate/unk25C]
+      - [0x68bb50, bin, inflate/unk25D]
+      - [0x68bf80, bin, inflate/unk25E]
+      - [0x68c170, bin, inflate/unk25F]
+      - [0x68c788, bin, inflate/unk260]
+      - [0x68c958, bin, inflate/unk261]
+      - [0x68cb94, bin, inflate/unk262]
+      - [0x68d244, bin, inflate/unk263]
+      - [0x68d438, bin, inflate/unk264]
+      - [0x68d5f8, bin, inflate/unk265]
+      - [0x68d904, bin, inflate/unk266]
+      - [0x68da94, bin, inflate/unk267]
+      - [0x68dbe4, bin, inflate/unk268]
+      - [0x68dde8, bin, inflate/unk269]
+      - [0x68dfec, bin, inflate/unk26A]
+      - [0x68e0ec, bin, inflate/unk26B]
+      - [0x68e2a8, bin, inflate/unk26C]
+      - [0x68e98c, bin, inflate/unk26D]
+      - [0x68ec8c, bin, inflate/unk26E]
+      - [0x68f23c, bin, inflate/unk26F]
+      - [0x68f404, bin, inflate/unk270]
+      - [0x68f4ec, bin, inflate/unk271]
+      - [0x68f57c, bin, inflate/unk272]
+      - [0x68f7d8, bin, inflate/unk273]
+      - [0x68f974, bin, inflate/unk274]
+      - [0x68fad4, bin, inflate/unk275]
+      - [0x68fb80, bin, inflate/unk276]
+      - [0x68fc28, bin, inflate/unk277]
+      - [0x690394, bin, inflate/unk278]
+      - [0x6905a4, bin, inflate/unk279]
+      - [0x690c70, bin, inflate/unk27A]
+      - [0x690ed8, bin, inflate/unk27B]
+      - [0x690efc, bin, inflate/unk27C]
+      - [0x690f18, bin, inflate/unk27D]
+      - [0x691064, bin, inflate/unk27E]
+      - [0x691088, bin, inflate/unk27F]
+      - [0x6910a4, bin, inflate/unk280]
+      - [0x691400, bin, inflate/unk281]
+      - [0x6915d0, bin, inflate/unk282]
+      - [0x691750, bin, inflate/unk283]
+      - [0x691784, bin, inflate/unk284]
+      - [0x691e8c, bin, inflate/unk285]
+      - [0x69205c, bin, inflate/unk286]
+      - [0x692468, bin, inflate/unk287]
+      - [0x692484, bin, inflate/unk288]
+      - [0x692504, bin, inflate/unk289]
+      - [0x692ba4, bin, inflate/unk28A]
+      - [0x6931d8, bin, inflate/unk28B]
+      - [0x6938bc, bin, inflate/unk28C]
+      - [0x693cbc, bin, inflate/unk28D]
+      - [0x69414c, bin, inflate/unk28E]
+      - [0x694430, bin, inflate/unk28F]
+      - [0x6947d0, bin, inflate/unk290]
+      - [0x694de0, bin, inflate/unk291]
+      - [0x694e08, bin, inflate/unk292]
+      - [0x694e74, bin, inflate/unk293]
+      - [0x694e90, bin, inflate/unk294]
+      - [0x694eac, bin, inflate/unk295]
+      - [0x69527c, bin, inflate/unk296]
+      - [0x6952b4, bin, inflate/unk297]
+      - [0x6953dc, bin, inflate/unk298]
+      - [0x695af0, bin, inflate/unk299]
+      - [0x696254, bin, inflate/unk29A]
+      - [0x696628, bin, inflate/unk29B]
+      - [0x696898, bin, inflate/unk29C]
+      - [0x696b7c, bin, inflate/unk29D]
+      - [0x696c54, bin, inflate/unk29E]
+      - [0x696e10, bin, inflate/unk29F]
+      - [0x696fb8, bin, inflate/unk2A0]
+      - [0x697160, bin, inflate/unk2A1]
+      - [0x6978a0, bin, inflate/unk2A2]
+      - [0x697e74, bin, inflate/unk2A3]
+      - [0x69800c, bin, inflate/unk2A4]
+      - [0x6980b4, bin, inflate/unk2A5]
+      - [0x69875c, bin, inflate/unk2A6]
+      - [0x698a00, bin, inflate/unk2A7]
+      - [0x698c64, bin, inflate/unk2A8]
+      - [0x698dac, bin, inflate/unk2A9]
+      - [0x698e90, bin, inflate/unk2AA]
+      - [0x698eac, bin, inflate/unk2AB]
+      - [0x698f38, bin, inflate/unk2AC]
+      - [0x698fec, bin, inflate/unk2AD]
+      - [0x699008, bin, inflate/unk2AE]
+      - [0x69903c, bin, inflate/unk2AF]
+      - [0x699334, bin, inflate/unk2B0]
+      - [0x699988, bin, inflate/unk2B1]
+      - [0x699d24, bin, inflate/unk2B2]
+      - [0x699fe4, bin, inflate/unk2B3]
+      - [0x69a174, bin, inflate/unk2B4]
+      - [0x69a8a0, bin, inflate/unk2B5]
+      - [0x69a900, bin, inflate/unk2B6]
+      - [0x69aa58, bin, inflate/unk2B7]
+      - [0x69aa74, bin, inflate/unk2B8]
+      - [0x69aa90, bin, inflate/unk2B9]
+      - [0x69aef0, bin, inflate/unk2BA]
+      - [0x69af10, bin, inflate/unk2BB]
+      - [0x69b0f8, bin, inflate/unk2BC]
+      - [0x69b160, bin, inflate/unk2BD]
+      - [0x69b30c, bin, inflate/unk2BE]
+      - [0x69b444, bin, inflate/unk2BF]
+      - [0x69b480, bin, inflate/unk2C0]
+      - [0x69b4fc, bin, inflate/unk2C1]
+      - [0x69b84c, bin, inflate/unk2C2]
+      - [0x69bde4, bin, inflate/unk2C3]
+      - [0x69c078, bin, inflate/unk2C4]
+      - [0x69c0c4, bin, inflate/unk2C5]
+      - [0x69c474, bin, inflate/unk2C6]
+      - [0x69c9dc, bin, inflate/unk2C7]
+      - [0x69ceb4, bin, inflate/unk2C8]
+      - [0x69cfb4, bin, inflate/unk2C9]
+      - [0x69d550, bin, inflate/unk2CA]
+      - [0x69d6dc, bin, inflate/unk2CB]
+      - [0x69d718, bin, inflate/unk2CC]
+      - [0x69d72c, bin, inflate/unk2CD]
+      - [0x69d8a8, bin, inflate/unk2CE]
+      - [0x69db24, bin, inflate/unk2CF]
+      - [0x69db48, bin, inflate/unk2D0]
+      - [0x69dde4, bin, inflate/unk2D1]
+      - [0x69deb8, bin, inflate/unk2D2]
+      - [0x69e2c8, bin, inflate/unk2D3]
+      - [0x69e350, bin, inflate/unk2D4]
+      - [0x69e364, bin, inflate/unk2D5]
+      - [0x69e52c, bin, inflate/unk2D6]
+      - [0x69e5a8, bin, inflate/unk2D7]
+      - [0x69e5c4, bin, inflate/unk2D8]
+      - [0x69e778, bin, inflate/unk2D9]
+      - [0x69e794, bin, inflate/unk2DA]
+
+      - [0x69ef18, bin, inflate/img7]
+      - [0x69f5d0, bin, inflate/img6]
+      - [0x69f8dc, bin, inflate/img5]
+      - [0x69ffec, bin, inflate/img4]
+      - [0x6a03e4, bin, inflate/img3]
+      - [0x6a0694, bin, inflate/img2]
+      - [0x6a0dc0, bin, inflate/img1]
+      - [0x6a1b24, bin]
+  - [0xC00000]
   - [0xC00000]
