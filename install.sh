@@ -11,6 +11,7 @@ if cat /etc/os-release | grep -E 'ID=debian|ID_LIKE=(.*)debian' &> /dev/null; th
     sudo apt update
     sudo apt -y install python3 python3-pip ipython3
     pip install -r tools/splat/requirements.txt
+    pip install splat
 
     sudo apt install -y gcc
     sudo apt-get install -y gcc-mips-linux-gnu

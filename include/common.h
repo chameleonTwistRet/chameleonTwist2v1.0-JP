@@ -4,4 +4,4 @@
 #include "ultra64.h"
 #include "structs.h"
 
-#endif _COMMON_H_
+#endif //_COMMON_H_
