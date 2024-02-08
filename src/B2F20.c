@@ -12,6 +12,6 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B2F20/func_800D7DA0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B2F20/func_800D7EBC.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B2F20/osSpTaskLoad.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B2F20/func_800D804C.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B2F20/osSpTaskStartGo.s")

@@ -80,7 +80,7 @@ typedef struct unk_func_80027E98 {  //2fe0.c
 } unk_func_80027E98;
 
 typedef struct unk_func_800CD790 {
-    char unk0[0x2B];
+    char unk0[0x2C];
     s32 unk2C;
 } unk_func_800CD790;
 
@@ -91,8 +91,8 @@ typedef struct unk_func_800CD5D0 {
 } unk_func_800CD5D0;
 
 typedef struct unk_800F1CB4 {
-    char unk0[0x37];
-    s32 unk38;
+    char unk0[0x38];
+    s32* unk38; //probably some struct
 } unk_800F1CB4;
 
 typedef struct unk_8019CB40 {
@@ -100,26 +100,26 @@ typedef struct unk_8019CB40 {
 } unk_8019CB40;
 
 typedef struct unk_800EEFF0 {
-    s8 unk0[0x9];
+    s8 unk0[0xA];
     s16 unkA;
 } unk_800EEFF0;
 
 typedef struct unk_func_800DA208 {
-    char unk0[0xA];
+    char unk0[0xC];
     s32 unkC;
 } unk_func_800DA208;
 
 typedef struct unk_func_800E7A9C {
-    char unk0[0xA];
+    char unk0[0xC];
     s32 unkC;
 } unk_func_800E7A9C;
 
 typedef struct unk_func_80037EB4 {
-    u8 unk0[0x121];
+    u8 unk0[0x122];
     s16 unk122;
 } unk_func_80037EB4;
 
 typedef struct unk_func_800D1F70 {
-    char unk0[0x31];
+    char unk0[0x32];
     s16 unk32;
 } unk_func_800D1F70;

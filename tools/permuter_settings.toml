@@ -1,0 +1,13 @@
+build_system = "ninja"
+compiler_type = "ido"
+
+[preserve_macros]
+"gs?[DS]P.*" = "void"
+OVERRIDE_FLAG_CHECK = "int"
+OS_K0_TO_PHYSICAL = "int"
+"G_.*" = "int"
+"TEXEL.*" = "int"
+PRIMITIVE = "int"
+
+[decompme.compilers]
+"tools/ido_5.3/usr/lib/cc" = "ido_5.3"

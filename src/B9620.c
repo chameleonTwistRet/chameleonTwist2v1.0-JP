@@ -1,6 +1,6 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9620/func_800DE220.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9620/osCreatePiManager.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B9620/func_800DE390.s")
 
