@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "structs.h": "c"
+        "structs.h": "c",
+        "common.h": "c",
+        "ultra64.h": "c",
+        "os.h": "c",
+        "os_message.h": "c"
     }
 }

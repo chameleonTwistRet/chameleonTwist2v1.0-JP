@@ -43,6 +43,8 @@ osCreateViManager = 0x800E7DA0; //type:func
 osWritebackDCacheAll = 0x800E80C0; //type:func
 osStartThread = 0x800E8630; //type:func
 osViSetYScale = 0x800E8780; //type:func
+__osDevMgrMain = 0x800DE460; //type:func
+
 func_80049944 = 0x80049944; //type:func
 func_800CDDAC = 0x800CDDAC; //type:func
 func_800CF864 = 0x800CF864; //type:func
