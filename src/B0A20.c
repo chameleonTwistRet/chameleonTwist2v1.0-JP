@@ -1,5 +1,6 @@
 #include "common.h"
 #include "PR/os_message.h"
+#include "PR/os_exception.h"
 
 typedef struct unk {
     struct unk* unk0;
@@ -7,22 +8,11 @@ typedef struct unk {
     s16 unk8;
 } unk;
 
-extern void		osWritebackDCacheAll(void);
-void func_800E03F0(void);                                  /* extern */
-extern void (*D_800F1F80)(void);
-extern OSMesgQueue D_8019CEB0;
-extern OSMesgQueue D_801C7E44;
-extern s32 D_801C8450;
-void func_800D5AA4(s16* arg0);
-void osViSetYScale(f32);
-
-extern OSMesgQueue D_801C7DD4;
-extern OSMesgQueue D_801C7E7C;
-extern OSMesgQueue D_801C7EEC;
-
 typedef struct unkTaskStruct {
 /* 0x00 */ OSMesg mesg;
-/* 0x04 */ char unk_04[12];
+/* 0x04 */ char unk_04[4];
+/* 0x08 */ s32 unk_08;
+/* 0x0C */ char unk_0C[4];
 /* 0x10 */ OSTask tp; //unknown size
 /* 0x50 */ OSMesgQueue* MesgQueue;
 /* 0x54 */ OSMesg Mesg;
@@ -33,11 +23,26 @@ typedef struct unkTaskStruct2 {
     char unk_04[0x668];
     unkTaskStruct* unk66C;
     unkTaskStruct* unk670;
-    s32 unk674;
+    unkTaskStruct* unk674;
 } unkTaskStruct2;
 
-extern unkTaskStruct2 D_801C7DD0;
+void osWritebackDCacheAll(void);
+void func_800E03F0(void);
+extern void (*D_800F1F80)(void);
+extern OSMesgQueue D_8019CEB0;
+extern OSMesgQueue D_801C7E44;
+extern s32 D_801C8450;
+void func_800D5AA4(s16* arg0);
+void osViSetYScale(f32);
+void nnScWaitTaskReady(void*);
+OSIntMask osSetIntMask(OSIntMask);
+extern OSMesgQueue D_801C7DD4;
+extern OSMesgQueue D_801C7E7C;
+extern OSMesgQueue D_801C7EEC;
+extern OSMesgQueue D_801C7EB4;
 
+extern unkTaskStruct2 D_801C7DD0;
+extern OSMesgQueue D_801C7E0C;
 extern unk* D_801C8438;
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5620.s")
@@ -46,9 +51,7 @@ OSMesgQueue* func_800D5854(void) {
     return &D_801C7DD4;
 }
 
-extern s32 D_801C7E0C;
-
-s32* func_800D5860(void) {
+OSMesgQueue* func_800D5860(void) {
     return &D_801C7E0C;
 }
 
@@ -84,9 +87,9 @@ void func_800D586C(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D59B4.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/nnScAddClient.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5A14.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/nnScRemoveClient.s")
 
 void func_800D5AA4(s16* arg0) {
     unk* var_s0;
@@ -100,7 +103,7 @@ void func_800D5AA4(s16* arg0) {
     }
 }
 
-void func_800D5B08(void) {
+void nnScExecuteAudio(void) {
     unkTaskStruct* temp_s1;
     unkTaskStruct* sp50;
     void* sp4C;
@@ -140,6 +143,37 @@ void func_800D5B08(void) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5C90.s")
+void func_800D5C90(void) {
+    void* sp44;
+    unkTaskStruct* sp40;
+    u32 mask;
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/func_800D5E08.s")
+    while (1) {
+        osRecvMesg(&D_801C7E0C, (void*)&sp40, 1);
+        nnScWaitTaskReady(sp40);
+        mask = osSetIntMask(1U);
+        if (D_801C7DD0.unk670 != 0) {
+            D_801C7DD0.unk674 = sp40;
+            osSetIntMask(mask);
+            osRecvMesg(&D_801C7EEC, &sp44, 1);
+            mask = osSetIntMask(1U);
+            D_801C7DD0.unk674 = NULL;
+        }
+        osSetIntMask(mask);
+        mask = osSetIntMask(1U);
+        D_801C7DD0.unk66C = sp40;
+        osSetIntMask(mask);
+        osSpTaskLoad(&sp40->tp);
+        osSpTaskStartGo(&sp40->tp);
+        osRecvMesg(&D_801C7E7C, &sp44, 1);
+        mask = osSetIntMask(1U);
+        D_801C7DD0.unk66C = NULL;
+        osSetIntMask(mask);
+        if (!(sp40->unk_08 & 2)) {
+            osRecvMesg(&D_801C7EB4, &sp44, 1);
+        }
+        osSendMesg(sp40->MesgQueue, sp40, 1);        
+    }
+}
+
+#pragma GLOBAL_ASM("asm/nonmatchings/B0A20/nnScWaitTaskReady.s")

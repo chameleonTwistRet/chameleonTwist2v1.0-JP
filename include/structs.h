@@ -87,12 +87,12 @@ typedef struct unk_func_800CD790 {
 typedef struct unk_func_800CD5D0 {
     s32 unk0;
     s32 unk4;
-    s32 unk8;
+    s32* unk8; //unknown type
 } unk_func_800CD5D0;
 
 typedef struct unk_800F1CB4 {
     char unk0[0x38];
-    s32* unk38; //probably some struct
+    void* unk38; //probably some struct
 } unk_800F1CB4;
 
 typedef struct unk_8019CB40 {
