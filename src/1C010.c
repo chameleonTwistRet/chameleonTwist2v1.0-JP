@@ -1,14 +1,6 @@
 #include "common.h"
 
-void func_8004925C(unk_func_80040C10*, s32);
-
-s32 func_80040C10(unk_func_80040C10* arg0, s32 arg1) {
-    if (arg0->unk2 < 0) {
-        return 0;
-    }
-    func_8004925C(arg0, 1);
-    return 1;
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80040C10.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80040C4C.s")
 

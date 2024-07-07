@@ -12,15 +12,9 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EAAC.s")
 
-void func_8007EB58(s32 arg0) {
+#pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB58.s")
 
-}
-
-void func_8007EB60(void) {
-}
-
-void func_8007EB68(void) {
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB60.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB70.s")
 

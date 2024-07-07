@@ -2,14 +2,7 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2DFA0/func_80052BA0.s")
 
-extern unk_800EEFF0* D_800EEFF0;
-
-s8 func_80052CF8(void) {
-    if (D_800EEFF0->unkA == 0) {
-        return 1;
-    }
-    return 0;
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/2DFA0/func_80052CF8.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2DFA0/func_80052D20.s")
 

@@ -2,7 +2,7 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/7E260/func_800A2E60.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/7E260/func_800A3158.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/7E260/RobotBossMain.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/7E260/func_800A47CC.s")
 

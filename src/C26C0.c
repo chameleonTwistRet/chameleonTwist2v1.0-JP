@@ -17,9 +17,7 @@ void func_800E751C(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/C26C0/func_800E7930.s")
 
-s32 func_800E7A9C(unk_func_800E7A9C* arg0) {
-    return arg0->unkC;
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/C26C0/func_800E7A9C.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/C26C0/func_800E7AA4.s")
 

@@ -64,3 +64,4 @@ func_800E751C = 0x800E751C; //type:func
 guRandom = 0x800E0790; //type:func
 Random = 0x8003CA90; //type:func
 RandomF = 0x8003CBAC; //type:func
+RobotBossMain = 0x800A3158; //type:func

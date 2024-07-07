@@ -2,9 +2,7 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/84F70/func_800A9B70.s")
 
-void func_800A9CDC(s32 arg0) {
-
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/84F70/func_800A9CDC.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/84F70/func_800A9CE4.s")
 

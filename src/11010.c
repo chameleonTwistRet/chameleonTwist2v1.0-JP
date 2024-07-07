@@ -58,9 +58,7 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037E10.s")
 
-void func_80037EB4(unk_func_80037EB4* arg0) {
-    arg0->unk122 = 0;
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037EB4.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037EBC.s")
 
