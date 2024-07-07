@@ -6,7 +6,6 @@ void func_800A9CDC(s32 arg0) {
 
 }
 
-
 #pragma GLOBAL_ASM("asm/nonmatchings/84F70/func_800A9CE4.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/84F70/func_800A9E14.s")

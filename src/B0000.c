@@ -1,6 +1,6 @@
 #include "common.h"
 
-s32 osSetIntMask(s32);                             /* extern */
+s32 osSetIntMask(s32);
 extern s32 D_801C1BEC;
 
 void func_800D4C00() {

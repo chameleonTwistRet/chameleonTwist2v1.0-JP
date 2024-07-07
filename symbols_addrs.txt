@@ -60,3 +60,7 @@ func_800DA8EC = 0x800DA8EC; //type:func
 func_800E1990 = 0x800E1990; //type:func
 func_800E68E8 = 0x800E68E8; //type:func
 func_800E751C = 0x800E751C; //type:func
+
+guRandom = 0x800E0790; //type:func
+Random = 0x8003CA90; //type:func
+RandomF = 0x8003CBAC; //type:func

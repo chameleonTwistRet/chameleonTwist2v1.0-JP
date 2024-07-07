@@ -1,21 +1,23 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D040.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D0CC.s")
-
 extern s32 gzip_data_0000;
-
-void myfree(void) {
-    gzip_data_0000 = 0;
-}
-
 extern s32 D_800EB050;
 extern f32 D_800EB054;
 extern f32 D_800EB058;
 extern f32 D_800EB05C;
 extern f32 D_800EB060;
 extern s32 D_800EB070;
+extern f32 D_800EB064;
+extern f32 D_800EB068;
+extern f32 D_800EB06C;
+
+#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D040.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/8440/func_8002D0CC.s")
+
+void myfree(void) {
+    gzip_data_0000 = 0;
+}
 
 void func_8002D58C(f32 arg0, f32 arg1, f32 arg2, f32 arg3) {
     D_800EB050 = 0x1E;
@@ -25,10 +27,6 @@ void func_8002D58C(f32 arg0, f32 arg1, f32 arg2, f32 arg3) {
     D_800EB05C = arg2;
     D_800EB060 = arg3;
 }
-
-extern f32 D_800EB064;
-extern f32 D_800EB068;
-extern f32 D_800EB06C;
 
 void func_8002D5D8(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5) {
     D_800EB050 = 0x1E;
