@@ -1,4 +1,5 @@
 #include "common.h"
+//rand_seed is D_800F3FF0
 
 int guRandom(void)
 {
