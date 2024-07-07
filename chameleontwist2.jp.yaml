@@ -57,7 +57,7 @@ segments:
       - [0x11010, c]
       - [0x15BD0, c]
       - [0x15F90, c]
-      - [0x17E90, c]
+      - [0x17E90, c, ido_71/17E90]
       - [0x17FE0, c]
       - [0x184E0, c]
       - [0x18B40, c]
@@ -332,7 +332,7 @@ segments:
       - [0xCF630, data, C3EA0]
       - [0xCF640, data, 2C1A0]
       - [0xCF750, data] #rodata starts here
-      - [0xD0D10, data, 17E90] #is rodata
+      - [0xD0D10, data, ido_71/17E90] #is rodata
       - [0xD0D20, data]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
   - [0xD6250, databin]

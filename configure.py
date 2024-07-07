@@ -29,13 +29,18 @@ COMMON_INCLUDES = "-I. -Iinclude -Isrc"
 
 GAME_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 LIB_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
+IDO71_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_7.1/usr/lib/cc --$AS $ASFLAGS"
 WARNINGS = "-fullwarn -verbose -Xcpluscomm -signed -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI -DNDEBUG -woff 649,838"
 GAME_COMPILE_CMD = (
     f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} -Iinclude -Isrc -mips2 -O2"
 )
 
 LIB_COMPILE_CMD = (
-    f"{LIB_CC_DIR} -c -B {LIB_CC_DIR}/ee- {COMMON_INCLUDES} -O2 -G0"
+    f"{LIB_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} -Iinclude -Isrc -mips2 -O2"
+)
+
+IDO71_COMPILE_CMD = (
+    f"{IDO71_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} -Iinclude -Isrc -mips2 -O2"
 )
 
 def exec_shell(command: List[str]) -> str:
@@ -122,9 +127,15 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     ninja.rule(
         "libcc",
         description="cc $in",
-        command=f"{LIB_COMPILE_CMD} $in -o $out",
+        command=f"{LIB_COMPILE_CMD} -o $out $in",
     )
 
+    ninja.rule(
+        "ido71_cc",
+        description="cc $in",
+        command=f"{IDO71_COMPILE_CMD} -o $out $in",
+    )
+    
     ninja.rule(
         "ld",
         description="link $out",
@@ -157,10 +168,10 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         ):
             build(entry.object_path, entry.src_paths, "as")
         elif isinstance(seg, splat.segtypes.common.c.CommonSegC):
-            if any(
-                str(src_path).startswith("src/lib/") for src_path in entry.src_paths
-            ):
+            if any(str(src_path).startswith("src/lib/") for src_path in entry.src_paths):
                 build(entry.object_path, entry.src_paths, "libcc")
+            elif any(str(src_path).startswith("src/ido_71/") for src_path in entry.src_paths):
+                build(entry.object_path, entry.src_paths, "ido71_cc")
             else:
                 build(entry.object_path, entry.src_paths, "cc")
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):
