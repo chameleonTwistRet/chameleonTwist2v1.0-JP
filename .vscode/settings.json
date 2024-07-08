@@ -4,6 +4,7 @@
         "common.h": "c",
         "ultra64.h": "c",
         "os.h": "c",
-        "os_message.h": "c"
+        "os_message.h": "c",
+        "ld_addrs.h": "c"
     }
 }

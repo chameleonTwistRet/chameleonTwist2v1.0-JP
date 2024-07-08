@@ -64,3 +64,8 @@ func_800E751C = 0x800E751C; //type:func
 guRandom = 0x800E0790; //type:func
 Random = 0x8003CA90; //type:func
 RandomF = 0x8003CBAC; //type:func
+
+//func_802001E0 = 0x802001E0; //type:func size:0x938
+//func_80202980 = 0x80202980; //type:func size:0x1EC
+//func_80200E7C = 0x80200E7C; //type:func size:0x90
+//func_801FF7E0_207D50 = 0x801FF7E0; //rom:0x207D50 size:0xF4

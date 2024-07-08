@@ -8,6 +8,7 @@ options:
   find_file_boundaries: True
   header_encoding: ASCII
   platform: n64
+  ld_symbol_header_path: include/ld_addrs.h
   ld_script_path: chameleontwist2.ld
   undefined_funcs_auto_path: undefined_funcs_auto.txt
   undefined_syms_auto_path: undefined_syms_auto.txt
@@ -336,6 +337,30 @@ segments:
       - [0xD0D20, data]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
   - [0xD6250, databin]
+  - name: Unk0
+    type: code
+    dir: overlay0
+    start: 0x207D50
+    vram: 0x801FF7E0
+    overlay: True
+    symbol_name_format: $VRAM_$ROM
+    exclusive_ram_id: minigame
+    subsegments:
+      - [0x207D50, c]
+      - [0x20EAE0, data]
+      - {type: .bss, vram: 0x80207890, name: 207D50}
+  - name: Unk1
+    type: code
+    dir: overlay1
+    start: 0x20FE00
+    vram: 0x801FF7E0
+    overlay: True
+    symbol_name_format: $VRAM_$ROM
+    exclusive_ram_id: minigame
+    subsegments:
+      - [0x20FE00, c]
+      - [0x213320, data]
+  - [0x213970, databin]
   # - name: assets
   #   type: data
   #   start: 0xC4070
@@ -1508,5 +1533,4 @@ segments:
   #     - [0x6a0694, databin, inflate/img2]
   #     - [0x6a0dc0, databin, inflate/img1]
   #     - [0x6a1b24, databin]
-  - [0xC00000]
   - [0xC00000]
