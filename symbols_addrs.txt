@@ -69,3 +69,5 @@ RandomF = 0x8003CBAC; //type:func
 //func_80202980 = 0x80202980; //type:func size:0x1EC
 //func_80200E7C = 0x80200E7C; //type:func size:0x90
 //func_801FF7E0_207D50 = 0x801FF7E0; //rom:0x207D50 size:0xF4
+gCollisionData = 0x80167240; //size:0x1D650
+gPlayers = 0x80187290; //size:0x858

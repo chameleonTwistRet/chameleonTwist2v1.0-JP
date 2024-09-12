@@ -127,15 +127,9 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     ninja.rule(
         "libcc",
         description="cc $in",
-        command=f"{LIB_COMPILE_CMD} -o $out $in",
+        command=f"{LIB_COMPILE_CMD} $in -o $out",
     )
 
-    ninja.rule(
-        "ido71_cc",
-        description="cc $in",
-        command=f"{IDO71_COMPILE_CMD} -o $out $in",
-    )
-    
     ninja.rule(
         "ld",
         description="link $out",

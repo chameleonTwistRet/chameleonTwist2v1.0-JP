@@ -1,5 +1,10 @@
 #include "common.h"
 
+extern s16 D_800EAE6C;
+extern s16 D_800EAF60;
+
+s32 func_8003B48C(s32, s32, s32, s32, s32, s32);
+
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003AB90.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003ABD0.s")
@@ -34,7 +39,16 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B48C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B8B8.s")
+s32 func_8003B8B8(s32 arg0) {
+    if (D_800EAE6C != 0) {
+        return 0;
+    }
+    if (D_800EAF60 == 0x17) {
+        return -1;
+    }
+    return func_8003B48C(arg0, 0, 0, 0, 0, 0);
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B914.s")
 

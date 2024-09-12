@@ -1,5 +1,10 @@
 #include "common.h"
 
+void func_8003B8B8(s32);
+void func_800AFE64(Player*, f32);
+void func_800B0568(Player* arg0, Player* arg1, Tongue* arg2);
+void func_800B065C(Player* arg0, Player* arg1, Tongue* arg2);
+
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800ADB80.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800ADBC0.s")
@@ -78,9 +83,32 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFD30.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFE64.s")
+void func_800AFE64(Player* arg0, f32 arg1) {
+    arg0->unk8AC = 1;
+    arg0->unk8B0 = 0;
+    arg0->unk8B4 = 0;
+    arg0->unk8B8 = 0;
+    arg0->unk8C4 = 0;
+    arg0->unk8C8 = 0;
+    arg0->unk890 = arg1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFE8C.s")
+void func_800AFE8C(Player* arg0, s32 arg1) {
+    arg0->unk858 = arg1;
+    arg0->unk85C = 0;
+    switch (arg1) {
+    case 12:
+        arg0->unk8B4 = 0;
+        func_800AFE64(arg0, 0.0f);
+        break;
+    case 3:
+        func_8003B8B8(9);
+        break;
+    case 9:
+        func_8003B8B8(0x18);
+        break;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFEF4.s")
 
@@ -106,7 +134,27 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B065C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B072C.s")
+void func_800B072C(Player* arg0, Player* arg1, s32 buttonMask) {
+    if (arg0->unk8D4 == 0) {
+        if ((arg1->unk844 != 0) && (arg0->unk952 == 0)) {
+            if (buttonMask & B_BUTTON) {
+                arg0->unk8D0 = arg1->unk844;
+                return;
+            }
+            if (buttonMask & Z_TRIG) {
+                arg0->unk8D0 = 1;
+            }
+        } else if ((buttonMask & B_BUTTON) && (arg0->unk8C8 == 0)) {
+            if (arg0->unk952 == 0) {
+                func_800B0568(arg0, arg1, &arg1->tongueData);
+            }
+        } else if ((buttonMask & Z_TRIG) && (arg0->unk8AC == 0)) {
+            if ((arg0->unk952 == 0) && (arg0->unk8A8 == 0) && (arg0->unk94C != 0xC) && (arg0->unk952 == 0)) {
+                func_800B065C(arg0, arg1, &arg1->tongueData);
+            }
+        }
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B080C.s")
 
