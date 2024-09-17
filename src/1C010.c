@@ -90,7 +90,7 @@ s32 func_80040C10(unk_func_80040C10* arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_8004641C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80046568.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/CheckTongueCollision.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_800469C4.s")
 
