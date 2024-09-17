@@ -1,9 +1,12 @@
 #include "common.h"
 
-void func_8003B8B8(s32);
 void func_800AFE64(Player*, f32);
 void func_800B0568(Player* arg0, Player* arg1, Tongue* arg2);
 void func_800B065C(Player* arg0, Player* arg1, Tongue* arg2);
+f32 func_80037F78(f32);
+f32 func_80037FD8(f32);
+s32 func_8003B8B8(s32);
+void func_800B04B0(Player*, Player*, Tongue*);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800ADB80.s")
 
@@ -143,7 +146,21 @@ void func_800AFEF4(Player* arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B0530.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B0568.s")
+void func_800B0568(Player* arg0, Player* arg1, Tongue* tongueData) {
+    arg1->unk860 = 0;
+    func_800AFE8C(arg0, 1);
+    arg0->unk93C = func_8003B8B8(8);
+    if (arg0->unk946 == 7) {
+        arg1->unk84C = 0xC;
+    } else {
+        arg1->unk84C = 0x19;
+    }
+    func_800B04B0(arg0, arg1, tongueData);
+    tongueData->tongue[2].y = 0.0f;
+    tongueData->tongue[1].x = (f32) (tongueData->tongue[0].x + (func_80037F78(tongueData->tongue[2].x) * 0.5f * 50.0f));
+    tongueData->tongue[1].y = (f32) (arg0->unk8A4 + 5.0f);
+    tongueData->tongue[1].z = (f32) (tongueData->tongue[0].z + (func_80037FD8(tongueData->tongue[2].x ) * 0.5f * 50.0f));
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B065C.s")
 
