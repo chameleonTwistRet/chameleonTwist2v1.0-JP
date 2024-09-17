@@ -64,6 +64,8 @@ func_800E751C = 0x800E751C; //type:func
 guRandom = 0x800E0790; //type:func
 Random = 0x8003CA90; //type:func
 RandomF = 0x8003CBAC; //type:func
+CheckTongueCollision = 0x80046568; //type:func
+IsTongueMaxDistance = 0x800B004C; //type:func
 
 //func_802001E0 = 0x802001E0; //type:func size:0x938
 //func_80202980 = 0x80202980; //type:func size:0x1EC

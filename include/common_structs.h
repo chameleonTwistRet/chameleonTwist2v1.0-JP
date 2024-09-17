@@ -136,37 +136,46 @@ typedef struct Tongue {
     Vec3f tongue[70];
 } Tongue;
 
+typedef struct UnkPlayer {
+    void* actor; //?
+    s32 timer; //?
+} UnkPlayer;
+
 typedef struct Player {
     /* 0x000 */ struct Player* player;
-    /* 0x004 */ Tongue tongueData; //tongue data (is this really 70 long? seems very random)
-    /* 0x3DC */ char unk3dc[0x4F8];
+    /* 0x004 */ Tongue tongueData;
+    /* 0x34C */ char unk34C[0x2F8];
+    /* 0x644 */ UnkPlayer unk644[32]; //
+    /* 0x64C */ char unk64C[0x100];
     /* 0x844 */ s32 unk844;
     /* 0x848 */ char pad848[4];
     /* 0x84C */ s32 unk84C;
-    /* 0x850 */ char pad850[8];                  /* maybe part of unk84C[5]? */
-    /* 0x858 */ s32 unk858;   
-    /* 0x85C */ s32 unk85C;   
-    /* 0x860 */ s32 unk860;                         /* inferred */
-    /* 0x864 */ char pad864[0x2C];                  /* maybe part of unk860[0x11]? */
-    /* 0x890 */ f32 unk890;                         /* inferred */
-    /* 0x894 */ char unk894[0x10];                         /* inferred */
-    /* 0x8A4 */ f32 unk8A4;                         /* inferred */
+    /* 0x850 */ s32 unk850;
+    /* 0x854 */ s32 unk854;
+    /* 0x858 */ s32 unk858;
+    /* 0x85C */ s32 unk85C;
+    /* 0x860 */ s32 unk860;
+    /* 0x864 */ char pad864[0x2C];
+    /* 0x890 */ f32 unk890;
+    /* 0x894 */ s8 unk894[0x10];
+    /* 0x8A4 */ f32 unk8A4;
     /* 0x8A8 */ s32 unk8A8;
     /* 0x8AC */ s32 unk8AC;
     /* 0x8B0 */ s32 unk8B0;
-    /* 0x8B4 */ s32 unk8B4;   
+    /* 0x8B4 */ s32 unk8B4;
     /* 0x8B8 */ s32 unk8B8;
-    /* 0x8BC */ char unk8BC[8];
+    /* 0x8BC */ s8 unk8BC[8];
     /* 0x8C4 */ s16 unk8C4;
+    /* 0x8C6 */ char pad8C6[2];
     /* 0x8C8 */ s32 unk8C8;
     /* 0x8CC */ s8 unk8CC[4];
     /* 0x8D0 */ s32 unk8D0;
     /* 0x8D4 */ s32 unk8D4;
     /* 0x8D8 */ s8 unk8D8[0x64];
     /* 0x93C */ s32 unk93C;
-    /* 0x940 */ char unk940[0x6];
+    /* 0x940 */ s8 unk940[6];
     /* 0x946 */ s16 unk946;
-    /* 0x948 */ char unk948[0x4];
+    /* 0x948 */ s8 unk948[4];
     /* 0x94C */ s16 unk94C;
     /* 0x94E */ s8 unk94E[4];
     /* 0x952 */ s16 unk952;

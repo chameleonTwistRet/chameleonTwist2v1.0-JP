@@ -110,13 +110,26 @@ void func_800AFE8C(Player* arg0, s32 arg1) {
     }
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFEF4.s")
+void func_800AFEF4(Player* arg0, s32 arg1) {
+    s32 i;
+
+    arg0->unk850 += arg1;
+    for (i = 0; i < arg0->unk844; i++) {
+        if (arg0->unk644[i].timer >= arg0->unk850) {
+            arg0->unk644[i].timer = (arg0->unk850 - 1);
+        }        
+    }
+
+    if ((arg0->unk84C - 3) >= arg0->unk850) {
+        arg0->unk854 = arg0->unk850;
+    }
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFF64.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800AFFC8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B004C.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/88F80/IsTongueMaxDistance.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B008C.s")
 
@@ -134,6 +147,7 @@ void func_800AFE8C(Player* arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B065C.s")
 
+//related to shooting actors you have eaten
 void func_800B072C(Player* arg0, Player* arg1, s32 buttonMask) {
     if (arg0->unk8D4 == 0) {
         if ((arg1->unk844 != 0) && (arg0->unk952 == 0)) {
