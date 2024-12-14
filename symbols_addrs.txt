@@ -74,6 +74,13 @@ osYieldThread = 0x800E5A10;
 osEPiRawWriteIo = 0x800E6140;
 osSetTimer = 0x800E62A0;
 osAiSetNextBuffer = 0x800E8AA0;
+__createSpeedParam = 0x800DC560;
+__osSpRawReadIo = 0x800DD120;
+__osSpRawWriteIo = 0x800E7270;
+__osSetTimerIntr = 0x800E22D4;
+__osTimerInterrupt = 0x800E215C;
+viMgrMain = 0x800E7F20;
+__osInitialize_common = 0x800DC2A0; //type:func
 
 n_aspMain_code = 0x800E8C70; //size:0xC60
 n_aspMain_data = 0x800FA780; //size:0x6D0
