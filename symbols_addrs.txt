@@ -80,6 +80,7 @@ __osSpRawWriteIo = 0x800E7270;
 __osSetTimerIntr = 0x800E22D4;
 __osTimerInterrupt = 0x800E215C;
 viMgrMain = 0x800E7F20;
+bootproc = 0x80025C60; //rom:0x1060
 __osInitialize_common = 0x800DC2A0; //type:func
 
 n_aspMain_code = 0x800E8C70; //size:0xC60

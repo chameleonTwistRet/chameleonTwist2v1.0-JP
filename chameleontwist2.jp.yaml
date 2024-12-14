@@ -37,6 +37,7 @@ segments:
     bss_size: 0xD2F50
     subsegments:
       - [0x1000, asm]
+      - [0x1060, c]
       - [0x1220, c]
       - [0x1D70, c]
       - [0x2B30, c]
