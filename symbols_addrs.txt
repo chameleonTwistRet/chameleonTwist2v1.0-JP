@@ -79,6 +79,11 @@ __osSpRawReadIo = 0x800DD120;
 __osSpRawWriteIo = 0x800E7270;
 __osSetTimerIntr = 0x800E22D4;
 __osTimerInterrupt = 0x800E215C;
+__osPiCreateAccessQueue = 0x800DE390;
+__osPiRelAccess = 0x800DE424;
+osCartRomInit = 0x800E42F0;
+__osPiGetAccess = 0x800DE3E0;
+
 viMgrMain = 0x800E7F20;
 bootproc = 0x80025C60; //rom:0x1060
 __osInitialize_common = 0x800DC2A0; //type:func
