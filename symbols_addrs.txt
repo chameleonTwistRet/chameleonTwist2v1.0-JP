@@ -75,6 +75,17 @@ osEPiRawWriteIo = 0x800E6140;
 osSetTimer = 0x800E62A0;
 osAiSetNextBuffer = 0x800E8AA0;
 
+n_aspMain_code = 0x800E8C70; //size:0xC60
+n_aspMain_data = 0x800FA780; //size:0x6D0
+
+__osProbeTLB = 0x800DE160; //type:func
+__osSetCompare = 0x800E31A0; //type:func
+
+__osDisableInt = 0x800E39E0; //type:func
+__osRestoreInt = 0x800E3A00; //type:func
+__osSetSR = 0x800DC980; //type:func
+__osGetSR = 0x800DC990; //type:func
+
 func_80049944 = 0x80049944; //type:func
 func_800CDDAC = 0x800CDDAC; //type:func
 func_800CF864 = 0x800CF864; //type:func

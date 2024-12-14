@@ -1,3 +1,3 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9560/func_800DE160.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9560/__osProbeTLB.s")
