@@ -4,7 +4,7 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DB808.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DB914.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/osMotorInit.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBA70.s")
 

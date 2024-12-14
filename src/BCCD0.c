@@ -24,4 +24,4 @@ void func_800E1AD0(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/BCCD0/func_800E1D70.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/BCCD0/func_800E2070.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/BCCD0/osPfsRepairId.s")

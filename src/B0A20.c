@@ -27,7 +27,7 @@ typedef struct unkTaskStruct2 {
 } unkTaskStruct2;
 
 void osWritebackDCacheAll(void);
-void func_800E03F0(void);
+void osAfterPreNMI(void);
 extern void (*D_800F1F80)(void);
 extern OSMesgQueue D_8019CEB0;
 extern OSMesgQueue D_801C7E44;
@@ -78,7 +78,7 @@ void func_800D586C(void) {
         }
 
         osViSetYScale(1.0f);
-        func_800E03F0();
+        osAfterPreNMI();
         func_800D5AA4(&D_801C7DD0.unk_00[1]);
         if (D_800F1F80 == NULL) {
             continue;
