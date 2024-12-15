@@ -2,9 +2,9 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/BFF60/osPfsChecker.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/BFF60/func_800E5098.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/BFF60/corrupted_init.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/BFF60/func_800E5364.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/BFF60/corrupted.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/BFF60/osPfsIsPlug.s")
 

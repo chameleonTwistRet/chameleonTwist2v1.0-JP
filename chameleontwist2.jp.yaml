@@ -313,7 +313,7 @@ segments:
       - [0xC34C0, c]
       - [0xC34F0, c]
       - [0xC3550, c]
-      - [0xC3BE0, c]
+      - [0xC3BE0, c, llcvt]
       - [0xC3DF0, c]
       - [0xC3E90, c]
       - [0xC3EA0, c]

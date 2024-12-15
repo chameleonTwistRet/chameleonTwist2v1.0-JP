@@ -4,16 +4,16 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B9860/osPiRawStartDma.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DE9D0.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osSumcalc.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DEA44.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osIdCheckSum.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DEB40.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osRepairPackId.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DEE90.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osCheckPackId.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DEFF4.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osGetId.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DF1A0.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osCheckId.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B9860/func_800DF274.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B9860/__osPfsRWInode.s")

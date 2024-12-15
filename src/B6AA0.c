@@ -1,19 +1,19 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DB6A0.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osMotorAccess.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DB808.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/_MakeMotorData.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/osMotorInit.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBA70.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osSiCreateAccessQueue.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBAC0.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osSiGetAccess.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBB04.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osSiRelAccess.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBB30.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/osContInit.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBCA0.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osContGetInitData.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/func_800DBD70.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/B6AA0/__osPackRequestData.s")
