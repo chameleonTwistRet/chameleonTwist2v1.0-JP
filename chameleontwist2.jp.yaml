@@ -347,9 +347,9 @@ segments:
       - [0x207D50, c]
       - [0x20EAE0, data]
       - {type: .bss, vram: 0x80207890, name: 207D50}
-  - name: Unk1
+  - name: ControllerPakAndVictoryScreen
     type: code
-    dir: overlay1
+    dir: ControllerPakAndVictoryScreen
     start: 0x20FE00
     vram: 0x801FF7E0
     overlay: True
