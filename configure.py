@@ -81,6 +81,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         src_paths: List[Path],
         task: str,
         variables: Dict[str, str] = {},
+        implicit: List[str] = None,
         implicit_outputs: List[str] = [],
     ):
         if not isinstance(object_paths, list):
@@ -96,6 +97,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
                 rule=task,
                 inputs=[str(s) for s in src_paths],
                 variables=variables,
+                implicit=implicit,
                 implicit_outputs=implicit_outputs,
             )
 
@@ -116,6 +118,13 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         "as",
         description="as $in",
         command=f"cpp {COMMON_INCLUDES} $in -o  - | {cross}as -no-pad-sections -EB -mtune=vr4300 -march=vr4300 -mabi=32 -Iinclude -o $out",
+    )
+
+    #for zlib compressed files
+    ninja.rule(
+        "zlib",
+        description="zlib $in",
+        command=f"python3 tools/zlib_zip.py $in $out",
     )
 
     ninja.rule(
@@ -175,7 +184,22 @@ def build_stuff(linker_entries: List[LinkerEntry]):
             else:
                 build(entry.object_path, entry.src_paths, "cc")
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):
-            build(entry.object_path, entry.src_paths, "as")
+            if str(seg.type) == "z_databin":
+                #get the original file and the incbin file
+                l = open(entry.src_paths[0], "r").readlines()
+                x = 0
+                outfile = ""
+                while x < len(l):
+                    if l[x].find("incbin") != -1:
+                        infile = l[x-1].split("#")[-1].strip()
+                        outfile = l[x].split('"')[-2].strip()
+                        build(Path(outfile), [Path(infile)], "zlib")
+                        break
+                    x += 1
+                #then just build the assembly (the binary) with the compressed binary as a dependency
+                build(entry.object_path, entry.src_paths, "as", [], [outfile])
+            else:
+                build(entry.object_path, entry.src_paths, "as")
         else:
             print(f"ERROR: Unsupported build segment type {seg.type}")
             sys.exit(1)
