@@ -131,10 +131,10 @@ __ull_to_f = 0x800E89B8;
 viMgrMain = 0x800E7F20;
 bootproc = 0x80025C60; //rom:0x1060
 __osInitialize_common = 0x800DC2A0; //type:func
-
+gTextWrapXPos = 0x800ED000; //type:s16
 n_aspMain_code = 0x800E8C70; //size:0xC60
 n_aspMain_data = 0x800FA780; //size:0x6D0
-
+alHeapDBAlloc = 0x800E80F0; //rom:0xC34F0
 __osProbeTLB = 0x800DE160; //type:func
 __osSetCompare = 0x800E31A0; //type:func
 

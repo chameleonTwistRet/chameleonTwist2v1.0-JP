@@ -130,7 +130,14 @@ s32 func_80051F88(s32 arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2C1A0/func_80051FA4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2C1A0/func_80052068.s")
+s32 func_80052068(s32 asciiChar) {
+    if (((asciiChar > ' ') && (asciiChar < '0')) ||
+        ((asciiChar >= ':') && (asciiChar < 'A')) ||
+        ((asciiChar >= '[') && (asciiChar < 'a'))) {
+        return TRUE;
+    }
+    return FALSE;
+}
 
 s32 func_800520B0(s32 arg0) {
     if ((arg0 >= 0x1C) && (arg0 < 0x20)) {

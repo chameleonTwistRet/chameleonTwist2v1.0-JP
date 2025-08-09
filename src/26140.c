@@ -1,5 +1,34 @@
 #include "common.h"
 
+typedef struct UnkHeapStruct2 {
+    /* 0x00 */ char unk_00[0x04];
+    /* 0x04 */ s16 unk_04;
+    /* 0x06 */ s16 unk_06;
+    /* 0x08 */ char unk_08[8];
+    /* 0x10 */ f32 unk_10;
+    /* 0x14 */ f32 unk_14;
+} UnkHeapStruct2;
+typedef struct UnkHeapStruct {
+    /* 0x00 */ char pad0[8];
+    /* 0x08 */ UnkHeapStruct2* unk8;                          /* inferred */
+    /* 0x0C */ char padC[0x3C];                     /* maybe part of unk8[0x10]? */
+    /* 0x48 */ s16 unk48;                           /* inferred */
+    /* 0x4A */ char pad4A[6];                       /* maybe part of unk48[4]? */
+    /* 0x50 */ s32 unk50;                           /* inferred */
+    /* 0x54 */ char pad54[8];                       /* maybe part of unk50[3]? */
+    /* 0x5C */ f32 unk5C;                           /* inferred */
+    /* 0x60 */ f32 unk60;                           /* inferred */
+    /* 0x64 */ char pad64[8];                       /* maybe part of unk60[3]? */
+    /* 0x6C */ f32 unk6C;                           /* inferred */
+    /* 0x70 */ char unk70[0x94];                           /* inferred */
+    /* 0x104 */ f32 unk_104;                           /* inferred */
+} UnkHeapStruct;
+
+void func_80039D3C(UnkHeapStruct*);                             /* extern */
+
+//arg0 points somewhere on the heap? currently 8030B740 (heap linked list?)
+s32 func_8004F110(UnkHeapStruct* arg0);
+
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004AD40.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004AD94.s")
@@ -152,7 +181,28 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004EFB8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004F110.s")
+//draw player health
+s32 func_8004F110(UnkHeapStruct* arg0) {
+    UnkHeapStruct2* temp_v0;
+    s32 var_s2;
+    s32 i;
+
+    temp_v0 = arg0->unk8;
+    if (arg0->unk50 & 1) {
+        return 0;
+    }
+    arg0->unk6C = 32.0f;
+    arg0->unk_104 = 0.0f;
+    arg0->unk5C = temp_v0->unk_10;
+    arg0->unk60 = temp_v0->unk_14;
+    arg0->unk48 = 3;
+    var_s2 = (temp_v0->unk_04 < temp_v0->unk_06) ? temp_v0->unk_04 : temp_v0->unk_06;
+    
+    for (i = 0; i < var_s2; i++, arg0->unk6C += 13.0f) {
+        func_80039D3C(arg0);      
+    }
+    return i;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004F1E0.s")
 
