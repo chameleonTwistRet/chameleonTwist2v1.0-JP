@@ -155,9 +155,15 @@ typedef struct Player {
     /* 0x858 */ s32 unk858;
     /* 0x85C */ s32 unk85C;
     /* 0x860 */ s32 unk860;
-    /* 0x864 */ char pad864[0x2C];
+    /* 0x864 */ char pad864[0xC];
+    /* 0x870 */ Vec3f pos;
+    /* 0x87C */ f32 angle1;
+    /* 0x880 */ char unk_880[8];
+    /* 0x888 */ f32 stickMagnitude;
+    /* 0x88C */ f32 unk_88C;
     /* 0x890 */ f32 unk890;
-    /* 0x894 */ s8 unk894[0x10];
+    /* 0x894 */ f32 velocity; //speedWithDirection
+    /* 0x898 */ char unk898[0xC];
     /* 0x8A4 */ f32 unk8A4;
     /* 0x8A8 */ s32 unk8A8;
     /* 0x8AC */ s32 unk8AC;
@@ -179,4 +185,5 @@ typedef struct Player {
     /* 0x94C */ s16 unk94C;
     /* 0x94E */ s8 unk94E[4];
     /* 0x952 */ s16 unk952;
-} Player;                                           /* size = 0x954 */
+    /* 0x954 */ char unk_954[0x28];
+} Player; /* size = 0x97C */

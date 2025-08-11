@@ -3,6 +3,8 @@
 extern s16 D_800EAE6C;
 extern s16 D_800EAF60;
 
+s32 func_8003ADDC(s32);
+s32 func_8003B190(s32);
 s32 func_8003B48C(s32, s32, s32, s32, s32, s32);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003AB90.s")
@@ -27,7 +29,15 @@ s32 func_8003B48C(s32, s32, s32, s32, s32, s32);
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B190.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B244.s")
+s32 func_8003B244(s32 arg0) {
+    s32 temp_v0;
+
+    temp_v0 = func_8003ADDC(arg0);
+    if (temp_v0 == 0) {
+        return -1;
+    }
+    return func_8003B190(temp_v0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B27C.s")
 
