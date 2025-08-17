@@ -36,6 +36,7 @@ segments:
     start: 0x1000
     vram: 0x80025C00
     bss_size: 0xD2F50
+    subalign: 8
     subsegments:
       - [0x1000, asm]
       - [0x1060, asm]
@@ -331,9 +332,11 @@ segments:
       - [0xCF610, data, C31A0]
       - [0xCF630, data, C3EA0]
       - [0xCF640, data, 2C1A0]
-      - [0xCF750, data] #rodata starts here
-      - [0xD0D10, data, ido_71/rand] #is rodata
-      - [0xD0D20, data]
+      - [0xCF750, rodata] #rodata starts here
+      - [0xD0D10, .rodata, ido_71/rand] #is rodata
+      - [0xD0D20, rodata, 17FE0] #800F5920
+      - [0xD0DC0, rodata, 184E0] #800F59C0
+      - [0xD0F00, rodata] #800F5B00 (18D90 rodata starts here)
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
   - [0xD6250, databin]
   - name: Unk0

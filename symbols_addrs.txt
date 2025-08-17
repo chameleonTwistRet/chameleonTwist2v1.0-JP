@@ -171,3 +171,22 @@ osViYScaleSetFlag = 0x800EAD38; //type:u8
 //func_801FF7E0_207D50 = 0x801FF7E0; //rom:0x207D50 size:0xF4
 gCollisionData = 0x80167240; //size:0x1D650
 gPlayers = 0x80187290; //size:0x97C
+
+
+//D_800F5920 = 0x800F5920; //force_migration:true type:f64
+//D_800F5928 = 0x800F5928; //force_migration:true type:f64
+//jtbl_800F5930 = 0x800F5930; //force_migration:true size:0x20
+//D_800F5950 = 0x800F5950; //force_migration:true type:f64
+//D_800F5958 = 0x800F5958; //force_migration:true type:f64
+
+//D_800F5960 = 0x800F5960; //force_migration:true type:f64
+//D_800F5968 = 0x800F5968; //force_migration:true type:f64
+//D_800F5970 = 0x800F5970; //force_migration:true type:f64
+//D_800F5978 = 0x800F5978; //force_migration:true type:f64
+//D_800F5980 = 0x800F5980; //force_migration:true type:f64
+
+D_800F567C = 0x800F567C; //type:f32
+D_800F5684 = 0x800F5684; //type:f32
+D_800F568C = 0x800F568C; //type:f32
+
+
