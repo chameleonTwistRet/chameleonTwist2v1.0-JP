@@ -1,5 +1,7 @@
 #include "common.h"
 
+extern f32 D_800EB390[];
+
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80035C10.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80035C2C.s")
@@ -65,6 +67,31 @@ void func_80037EB4(unk_func_80037EB4* arg0) {
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037EBC.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037F78.s")
+//matches with ido 7.1...is this whole game ido 7.1?
+// f32 func_80037F78(f32 arg0) {
+//     f32 var_f2;
+//     s32 temp_f4;
+//     s32 var_v1;
+
+//     temp_f4 = (s32) arg0;
+    
+//     if (temp_f4 < 0) {
+//         var_v1 = -temp_f4;
+//     } else {
+//         var_v1 = temp_f4;
+//     }
+    
+//     if (var_v1 >= 360) {
+//         var_v1 = var_v1 % 360;
+//     }
+    
+//     var_f2 = D_800EB390[var_v1];
+    
+//     if (arg0 < 0.0f) {
+//         var_f2 = -var_f2;
+//     }
+//     return var_f2;
+// }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037FD8.s")
 
