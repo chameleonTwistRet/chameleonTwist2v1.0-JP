@@ -187,6 +187,8 @@ gPlayers = 0x80187290; //size:0x97C
 //D_800F5978 = 0x800F5978; //force_migration:true type:f64
 //D_800F5980 = 0x800F5980; //force_migration:true type:f64
 
+D_800F6888 = 0x800F6888; //force_migration:true
+
 D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
