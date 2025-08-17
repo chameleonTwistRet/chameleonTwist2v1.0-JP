@@ -420,6 +420,18 @@ segments:
       - [0xD5880, rodata, B5E40]
       - [0xD58E0, rodata, B7DA0]
       - [0xD5920, rodata, B80E0]
+      - [0xD5930, rodata, B9860]
+      - [0xD5950, rodata, BBC60]
+      - [0xD5A50, rodata, BCCD0]
+      - [0xD5A60, rodata, BDB80]
+      - [0xD5A70, rodata, BE180]
+      - [0xD5A80, rodata, BF290]
+      - [0xD5AE0, rodata, C0F00]
+      - [0xD5AF0, rodata, C1780]
+      - [0xD5B50, rodata, C26C0]
+      - [0xD5B60, rodata, C3550]
+      - [0xD5B70, rodata, llcvt]
+      - [0xD5B80, rodata, n_aspMain]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
   - [0xD6250, databin]
   - name: Unk0
