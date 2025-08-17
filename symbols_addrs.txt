@@ -128,6 +128,8 @@ __ll_to_f = 0x800E896C;
 __ull_to_d = 0x800E8984;
 __ull_to_f = 0x800E89B8;
 
+_Printf = 0x800E0ED0;
+
 viMgrMain = 0x800E7F20;
 bootproc = 0x80025C60; //rom:0x1060
 __osInitialize_common = 0x800DC2A0; //type:func
@@ -188,5 +190,3 @@ gPlayers = 0x80187290; //size:0x97C
 D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
-
-
