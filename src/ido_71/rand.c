@@ -1,12 +1,7 @@
 #include "common.h"
 
 extern s16 D_800FF20E;
-extern s32 D_80165200; //bss
-
-
-extern f32 D_800F5910; //65535.0f
-extern f32 D_800F5914; //65535.0f
-extern f32 D_800F5918; //65535.0f
+s32 D_80165200; //bss (it might make more sense for this to belong to 184E0 since it writes 0x309 to it)
 
 /**
  * @brief Returns a random integer between min and max, inclusive.
