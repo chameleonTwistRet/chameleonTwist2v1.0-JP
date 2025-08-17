@@ -190,6 +190,9 @@ gPlayers = 0x80187290; //size:0x97C
 D_800F6888 = 0x800F6888; //force_migration:true
 D_800F8890 = 0x800F8890; //force_migration:true
 
+D_800FA738 = 0x800FA738; //force_not_migration:true
+D_800FA73C = 0x800FA73C; //force_not_migration:true
+
 D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
