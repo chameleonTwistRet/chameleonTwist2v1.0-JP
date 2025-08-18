@@ -1,12 +1,20 @@
 #include "common.h"
 
+void func_80035D6C(f32, f32, f32, f32);
+extern f32 D_801630C8;
+extern f32 D_801630CC;
+
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002D690.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002D77C.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002E1B4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002ECC8.s")
+void func_8002ECC8(s32 arg0) {
+    func_80035D6C(D_801630C8, 0, 1, 0);
+    func_80035D6C(D_801630CC, 1, 0, 0);
+    return;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_8002ED20.s")
 

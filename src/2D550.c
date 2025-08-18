@@ -26,7 +26,9 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2D550/func_800526E4.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2D550/func_80052708.s")
+s32 func_80052708(s32 arg0) {
+    return arg0 / 30;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/2D550/func_8005271C.s")
 

@@ -4,7 +4,9 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/B55D0/func_800DA1EC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/B55D0/func_800DA208.s")
+s32 func_800DA208(unk_func_800DA208* arg0) {
+    return arg0->unkC;
+}
 
 void func_800DA210(void) {
 }

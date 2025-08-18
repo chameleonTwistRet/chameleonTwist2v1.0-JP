@@ -111,7 +111,7 @@ segments:
       - [0x87B10, asm]
       - [0x87D60, c]
       - [0x87E90, c] #file_kimura.c
-      - [0x88F80, asm]
+      - [0x88F80, c]
       - [0x92A80, asm]
       - [0x92CC0, asm]
       - [0x949C0, asm]
@@ -396,7 +396,7 @@ segments:
       - [0xD3F10, rodata, 85B20]
       - [0xD3F90, rodata, 87B10]
       - [0xD3FF0, .rodata, 87E90]
-      - [0xD40E0, rodata, 88F80]
+      - [0xD40E0, .rodata, 88F80]
       - [0xD43F0, rodata, 92CC0]
       - [0xD47F0, rodata, 949C0]
       - [0xD4830, rodata, 94E70]
@@ -460,7 +460,7 @@ segments:
     subsegments:
       - [0x207D50, asm]
       - [0x20EAE0, data]
-      - {type: .bss, vram: 0x80207890, name: 207D50}
+      - {type: .bss, vram: 0x802078A0, name: 207D50}
   - name: ControllerPakAndVictoryScreen
     type: code
     dir: ControllerPakAndVictoryScreen

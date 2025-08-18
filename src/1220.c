@@ -1,8 +1,16 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1220/osSyncPrintf.s")
+extern s8 osViYScaleSetFlag;
+void osViSetYScale(f32);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1220/osSetViYScale.s")
+void osSyncPrintf(const char *fmt, ...) {
+    
+}
+
+void osSetViYScale(void) {
+    osViSetYScale(1.0f);
+    osViYScaleSetFlag = 1;
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1220/func_80025E6C.s")
 
