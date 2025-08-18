@@ -1,4 +1,5 @@
 #include "common.h"
 
-//https://decomp.me/scratch/beMWT 96.67%
-#pragma GLOBAL_ASM("asm/nonmatchings/C3180/func_800E7D80.s")
+void func_800E7D80(s32 arg0) {
+    IO_WRITE(SP_STATUS_REG, arg0);
+}

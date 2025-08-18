@@ -9,6 +9,19 @@ extern u8 D_8016315D;
 extern s8 D_8016315E;
 extern s8 D_8016315F;
 extern s8 D_80163160;
+extern f32 D_80163164;
+extern f32 D_80163168;
+extern f32 D_8016316C;
+extern f32 D_80163170;
+extern f32 D_80163174;
+extern f32 D_8016317C;
+extern f32 D_80163180;
+extern s16 D_80163184;
+extern unk_80163130 D_80163130;
+extern s32 D_800EB30C;
+extern s32 D_801630C0;
+extern s32 D_80163110;
+extern s32 D_80163128;
 
 void func_80033390(void) {
     D_80163158 = 0xB4;
@@ -21,8 +34,6 @@ void func_80033390(void) {
     D_8016315F = 0x45;
     D_80163160 = 0x45;
 }
-
-extern unk_80163130 D_80163130;
 
 void func_800333EC(void) {
     u8 temp_a0;
@@ -54,15 +65,6 @@ void func_800333EC(void) {
     D_80163130.unk11 = D_8016315F;
     D_80163130.unk12 = D_80163160;
 }
-
-extern f32 D_80163164;
-extern f32 D_80163168;
-extern f32 D_8016316C;
-extern f32 D_80163170;
-extern f32 D_80163174;
-extern f32 D_8016317C;
-extern f32 D_80163180;
-extern s16 D_80163184;
 
 void func_8003347C(void) {
     D_80163164 = 0.0f;
@@ -131,11 +133,7 @@ void func_800334C4(void) {
 #pragma GLOBAL_ASM("asm/nonmatchings/E790/func_8003573C.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/E790/func_80035BD8.s")
-//extern s32 D_800EB30C;
-//extern s32 D_801630C0;
-//extern s32 D_80163110;
-//extern s32 D_80163128;
-//
+
 //void func_80035BD8(void) {
 //    D_80163110 = 0;
 //    D_801630C0 = 0;

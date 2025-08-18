@@ -1,6 +1,6 @@
 #include "common.h"
 
-void func_800CFDAC(void*, void*);                         /* extern */
+void func_800CFDAC(void*, void*);
 extern s32 D_8019CAD0;
 extern s32 D_8019CE58;
 

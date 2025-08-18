@@ -35,3 +35,5 @@
 #pragma GLOBAL_ASM("asm/nonmatchings/813E0/func_800A98A8.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/813E0/func_800A99F0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/813E0/D_800F89E0.s")

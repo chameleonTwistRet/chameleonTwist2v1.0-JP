@@ -21,47 +21,18 @@ s32 func_80049780(s32 arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 
-//required 1 liner to match
-void func_80049794(void) {\
-    D_801651B0 = func_8003A91C((u32)&D_802078A0, (u32)D_800FF210 - (u32)D_802078A0);
-}
-
-void func_800497C8(void) {
-    OSIoMesg sp50;
-    OSMesgQueue sp38;
-    OSMesg sp34;
-    u32 vramSizeCopy;
-    u32 vramSize;
-
-    osCreateMesgQueue(&sp38, &sp34, 1);
-    vramSize = Unk0_VRAM_END - Unk0_VRAM;
-    vramSizeCopy = vramSize;
-    osInvalDCache(Unk0_VRAM, vramSize);
-    osInvalICache(Unk0_VRAM, vramSizeCopy);
-    osPiStartDma(&sp50, 0, 0, (u32)Unk0_ROM_START, Unk0_VRAM, (u32)Unk0_ROM_END - (u32)Unk0_ROM_START, &sp38);
-    osRecvMesg(&sp38, NULL, 1);
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/24B80/func_80049794.s")
 
 //required 1 liner to match
-void func_8004986C(void) {\
-    D_801651B0 = func_8003A91C((u32)&D_80203350, D_800FF210 - (u32)&D_80203350);
-}
+// void func_80049794(void) {\
+//     D_801651B0 = func_8003A91C((u32)&D_802078A0, (u32)D_800FF210 - (u32)D_802078A0);
+// }
 
-void func_800498A0(void) {
-    OSIoMesg sp50;
-    OSMesgQueue sp38;
-    OSMesg sp34;
-    u32 vramSizeCopy;
-    u32 vramSize;
+#pragma GLOBAL_ASM("asm/nonmatchings/24B80/func_800497C8.s")
 
-    osCreateMesgQueue(&sp38, &sp34, 1);
-    vramSize = ControllerPakAndVictoryScreen_VRAM_END - ControllerPakAndVictoryScreen_VRAM;
-    vramSizeCopy = vramSize;
-    osInvalDCache(ControllerPakAndVictoryScreen_VRAM, vramSize);
-    osInvalICache(ControllerPakAndVictoryScreen_VRAM, vramSizeCopy);
-    osPiStartDma(&sp50, 0, 0, (u32)ControllerPakAndVictoryScreen_ROM_START, ControllerPakAndVictoryScreen_VRAM, (u32)ControllerPakAndVictoryScreen_ROM_END - (u32)ControllerPakAndVictoryScreen_ROM_START, &sp38);
-    osRecvMesg(&sp38, NULL, 1);
-}
+#pragma GLOBAL_ASM("asm/nonmatchings/24B80/func_8004986C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/24B80/func_800498A0.s")
 
 void func_80049944(void) {
 }

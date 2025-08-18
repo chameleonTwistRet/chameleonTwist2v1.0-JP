@@ -4,6 +4,7 @@ extern s8 osViYScaleSetFlag;
 void osViSetYScale(f32);
 
 void osSyncPrintf(const char *fmt, ...) {
+    
 }
 
 void osSetViYScale(void) {

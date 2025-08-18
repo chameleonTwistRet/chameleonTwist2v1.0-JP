@@ -59,7 +59,6 @@ s32 func_8003B8B8(s32 arg0) {
     return func_8003B48C(arg0, 0, 0, 0, 0, 0);
 }
 
-
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B914.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003B96C.s")
@@ -93,3 +92,5 @@ s32 func_8003B8B8(s32 arg0) {
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003C4C8.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/15F90/func_8003C9DC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/15F90/D_800F5870.s")

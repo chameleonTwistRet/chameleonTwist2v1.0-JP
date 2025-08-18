@@ -1,6 +1,6 @@
 #include "common.h"
 
-void func_80035D6C(f32, f32, f32, f32);                      /* extern */
+void func_80035D6C(f32, f32, f32, f32);
 extern f32 D_801630C8;
 extern f32 D_801630CC;
 
@@ -33,3 +33,5 @@ void func_8002ECC8(s32 arg0) {
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_80032DD0.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/8A90/func_800332AC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/8A90/D_800F5610.s")

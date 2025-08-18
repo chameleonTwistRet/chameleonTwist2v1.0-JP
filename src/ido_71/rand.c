@@ -1,10 +1,7 @@
 #include "common.h"
 
 extern s16 D_800FF20E;
-extern s32 D_80165200;
-extern f32 D_800F5910; //65535.0f
-extern f32 D_800F5914; //65535.0f
-extern f32 D_800F5918; //65535.0f
+s32 D_80165200; //bss (it might make more sense for this to belong to 184E0 since it writes 0x309 to it)
 
 /**
  * @brief Returns a random integer between min and max, inclusive.
@@ -25,11 +22,11 @@ s32 Random(s32 min, s32 max) {
         } else {
             D_80165200 = temp_v0;
         }
-        randFloat = ((D_80165200)) % 65535 / D_800F5910;
+        randFloat = ((D_80165200)) % 65535 / 65535.0f;
         return (max - min + 1) * randFloat + min;
     }
     randFloat = guRandom() % 65535;
-    return (max - min + 1) * (randFloat / D_800F5914) + min;
+    return (max - min + 1) * (randFloat / 65535.0f) + min;
 }
 
 
@@ -38,5 +35,5 @@ s32 Random(s32 min, s32 max) {
  * @return A random float between 0 and 1 
  */
 f32 RandomF(void) {
-    return Random(0, 0xFFFF) / D_800F5918; //D_800F5918 is 65535.0f;
+    return Random(0, 0xFFFF) / 65535.0f;
 }

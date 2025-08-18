@@ -106,14 +106,28 @@ s32 func_80040C10(unk_func_80040C10* arg0, s32 arg1) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80047CD8.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80047D90.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5E8C.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80047E8C.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5E94.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80047EDC.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EA0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_80047F7C.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EB0.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_800481E8.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EBC.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/1C010/func_8004846C.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EC8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5ED8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EE8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5EF4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5F0C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5F18.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5F24.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/1C010/D_800F5F30.s")

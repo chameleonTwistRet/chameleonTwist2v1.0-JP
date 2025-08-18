@@ -114,10 +114,11 @@ def build_stuff(linker_entries: List[LinkerEntry]):
 
     ld_args = f"-T chameleontwist2.ld -T undefined_syms_auto.txt -T undefined_syms.txt -Map $mapfile --no-check-sections"
 
+    # .s -> .o
     ninja.rule(
         "as",
         description="as $in",
-        command=f"cpp {COMMON_INCLUDES} $in -o  - | {cross}as -no-pad-sections -EB -mtune=vr4300 -march=vr4300 -mabi=32 -Iinclude -o $out",
+        command=f"iconv -f utf-8 -t euc-jp $in | {cross}as -no-pad-sections -EB -mtune=vr4300 -march=vr4300 -mabi=32 -Iinclude -o $out",
     )
 
     #for zlib compressed files

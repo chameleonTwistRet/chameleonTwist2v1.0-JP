@@ -97,3 +97,85 @@
 #pragma GLOBAL_ASM("asm/nonmatchings/19CC0/func_80040274.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/19CC0/func_8004031C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B20.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B2C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B40.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B50.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B54.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B60.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B70.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B80.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5B94.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BA4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BB0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BC0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BD4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BE4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5BF0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C00.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C04.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C08.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C0C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C10.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C14.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C18.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C24.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C38.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C50.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C54.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C60.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C74.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5C88.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5CA0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5CB8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5CC8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5CDC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5CF0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D08.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D20.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D28.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D30.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D38.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D40.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/19CC0/D_800F5D48.s")
