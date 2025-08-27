@@ -11,12 +11,12 @@ __pycache__/
 asm/
 assets/
 build/
-include/ld_addrs.h
 expected/
+venv/
+include/ld_addrs.h
 permuter_settings.toml
 .ninja_log
 build.ninja
-
 
 # Tool artifacts
 undefined_funcs_auto.txt

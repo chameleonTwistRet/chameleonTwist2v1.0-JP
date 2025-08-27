@@ -16,6 +16,8 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB60.s")
 
+#pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB68.s")
+
 #pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EB70.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/59230/func_8007EE4C.s")
