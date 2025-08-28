@@ -103,7 +103,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
 
     ninja = ninja_syntax.Writer(open(str(ROOT / "build.ninja"), "w"), width=9999)
 
-    ninja.variable("ASM_PROC", "python3 tools/asm-processor/build.py")
+    ninja.variable("ASM_PROC", "tools/asm-processor/rust/target/release/asm-processor")
     ninja.variable("ASM_PROC_FLAGS", "--input-enc=utf-8 --output-enc=euc-jp")
     ninja.variable(
         "ASFLAGS", f"mips-linux-gnu-as -EB -mtune=vr4300 -march=vr4300 -mabi=32"

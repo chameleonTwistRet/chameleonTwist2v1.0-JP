@@ -357,6 +357,7 @@ segments:
       - [0xD0E80, .rodata, 18B40] #this could belong to 18B40 or 18D90
       - [0xD0F20, .rodata, 19CC0]
       - [0xD11A0, .rodata, 1B750]
+      - [0xD11B0, rodata] #unreferenced rodata strings?
       - [0xD1210, .rodata, 1C010]
       - [0xD14C0, .rodata, 23190]
       - [0xD1510, .rodata, 23A30]
@@ -396,6 +397,7 @@ segments:
       - [0xD3F10, rodata, 85B20]
       - [0xD3F90, rodata, 87B10]
       - [0xD3FF0, .rodata, 87E90]
+      - [0xD40C0, rodata] #unreferenced rodata
       - [0xD40E0, .rodata, 88F80]
       - [0xD43F0, rodata, 92CC0]
       - [0xD47F0, rodata, 949C0]

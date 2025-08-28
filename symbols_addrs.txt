@@ -201,3 +201,5 @@ D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
 
 jtbl_800F4B00 = 0x800F4B00; //type:jtbl size:0x64
+D_800F8CB0 = 0x800F8CB0; //type:f64
+D_800F5900 = 0x800F5900; //type:f64
