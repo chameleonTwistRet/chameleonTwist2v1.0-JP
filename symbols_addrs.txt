@@ -199,3 +199,5 @@ D_800F9954 = 0x800F9954; //force_migration:true
 D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
+
+jtbl_800F4B00 = 0x800F4B00; //type:jtbl size:0x64

@@ -16,7 +16,7 @@ from splat.segtypes.linker_entry import LinkerEntry
 ROOT = Path(__file__).parent.resolve()
 TOOLS_DIR = ROOT / "tools"
 
-YAML_FILE = "chameleontwist2.jp.yaml"
+YAML_FILE = Path("chameleontwist2.jp.yaml")  # Convert to Path object
 BASENAME = "chameleontwist2"
 LD_PATH = f"{BASENAME}.ld"
 ELF_PATH = f"build/{BASENAME}"
@@ -70,7 +70,7 @@ compiler_type = "gcc"
 [decompme.compilers]
 "tools/ido_5.3/usr/lib/cc" = "ido_5.3"
 """
-)
+        )
 
 
 def build_stuff(linker_entries: List[LinkerEntry]):

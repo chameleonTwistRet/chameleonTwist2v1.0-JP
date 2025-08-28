@@ -443,7 +443,7 @@ segments:
       - [0xD5AF0, .rodata, C1780]
       - [0xD5B50, .rodata, C26C0]
       - [0xD5B60, .rodata, C3550]
-      - [0xD5B70, rodata, llcvt]
+      - [0xD5B70, .rodata, llcvt]
       - [0xD5B80, rodata, n_aspMain]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
       - {start: 0xD6250, type: .bss, vram: 0x80165200, name: ido_71/rand }
@@ -454,6 +454,7 @@ segments:
     dir: overlay0
     start: 0x207D50
     vram: 0x801FF7E0
+    bss_size: 0x6D90
     overlay: True
     symbol_name_format: $VRAM_$ROM
     exclusive_ram_id: minigame
