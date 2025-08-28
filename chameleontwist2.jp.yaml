@@ -357,6 +357,7 @@ segments:
       - [0xD0E80, .rodata, 18B40] #this could belong to 18B40 or 18D90
       - [0xD0F20, .rodata, 19CC0]
       - [0xD11A0, .rodata, 1B750]
+      - [0xD11B0, rodata] #unreferenced rodata strings?
       - [0xD1210, .rodata, 1C010]
       - [0xD14C0, .rodata, 23190]
       - [0xD1510, .rodata, 23A30]
@@ -396,6 +397,7 @@ segments:
       - [0xD3F10, rodata, 85B20]
       - [0xD3F90, rodata, 87B10]
       - [0xD3FF0, .rodata, 87E90]
+      - [0xD40C0, rodata] #unreferenced rodata
       - [0xD40E0, .rodata, 88F80]
       - [0xD43F0, rodata, 92CC0]
       - [0xD47F0, rodata, 949C0]
@@ -443,7 +445,7 @@ segments:
       - [0xD5AF0, .rodata, C1780]
       - [0xD5B50, .rodata, C26C0]
       - [0xD5B60, .rodata, C3550]
-      - [0xD5B70, rodata, llcvt]
+      - [0xD5B70, .rodata, llcvt]
       - [0xD5B80, rodata, n_aspMain]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
       - {start: 0xD6250, type: .bss, vram: 0x80165200, name: ido_71/rand }
@@ -454,13 +456,14 @@ segments:
     dir: overlay0
     start: 0x207D50
     vram: 0x801FF7E0
+    bss_size: 0x10 #probably not actually correct
     overlay: True
     symbol_name_format: $VRAM_$ROM
     exclusive_ram_id: minigame
     subsegments:
       - [0x207D50, asm]
       - [0x20EAE0, data]
-      - {type: .bss, vram: 0x802078A0, name: 207D50}
+      #- {type: .bss, vram: 0x802078A0, name: 207D50}
   - name: ControllerPakAndVictoryScreen
     type: code
     dir: ControllerPakAndVictoryScreen

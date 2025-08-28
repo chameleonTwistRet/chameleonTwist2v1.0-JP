@@ -29,5 +29,3 @@ void func_80040934(s32 arg0) {
         func_8004085C(i * 8, arg0);
     }
 }
-
-#pragma GLOBAL_ASM("asm/nonmatchings/1B750/D_800F5DA0.s")

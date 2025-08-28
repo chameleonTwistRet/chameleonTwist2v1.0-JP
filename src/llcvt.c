@@ -15,3 +15,7 @@
 #pragma GLOBAL_ASM("asm/nonmatchings/llcvt/__ull_to_d.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/llcvt/__ull_to_f.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/llcvt/D_800FA770.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/llcvt/D_800FA778.s")

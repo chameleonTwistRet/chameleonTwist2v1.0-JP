@@ -23,5 +23,3 @@
 #pragma GLOBAL_ASM("asm/nonmatchings/87E90/func_800AD904.s")
 
 #pragma GLOBAL_ASM("asm/nonmatchings/87E90/func_800ADB08.s")
-
-#pragma GLOBAL_ASM("asm/nonmatchings/87E90/D_800F8CB0.s")

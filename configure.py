@@ -16,7 +16,7 @@ from splat.segtypes.linker_entry import LinkerEntry
 ROOT = Path(__file__).parent.resolve()
 TOOLS_DIR = ROOT / "tools"
 
-YAML_FILE = "chameleontwist2.jp.yaml"
+YAML_FILE = Path("chameleontwist2.jp.yaml")  # Convert to Path object
 BASENAME = "chameleontwist2"
 LD_PATH = f"{BASENAME}.ld"
 ELF_PATH = f"build/{BASENAME}"
@@ -30,6 +30,7 @@ COMMON_INCLUDES = "-I. -Iinclude -Isrc -Iinclude/PR"
 GAME_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 LIB_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 IDO71_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_7.1/usr/lib/cc --$AS $ASFLAGS"
+LL_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 WARNINGS = "-fullwarn -verbose -Xcpluscomm -signed -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI -DNDEBUG -woff 649,838"
 GAME_COMPILE_CMD = (
     f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
@@ -41,6 +42,10 @@ LIB_COMPILE_CMD = (
 
 IDO71_COMPILE_CMD = (
     f"{IDO71_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
+)
+
+LL_COMPILE_CMD = (
+    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips3 -O1"
 )
 
 def exec_shell(command: List[str]) -> str:
@@ -70,7 +75,7 @@ compiler_type = "gcc"
 [decompme.compilers]
 "tools/ido_5.3/usr/lib/cc" = "ido_5.3"
 """
-)
+        )
 
 
 def build_stuff(linker_entries: List[LinkerEntry]):
@@ -141,6 +146,12 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     )
 
     ninja.rule(
+        "ll",
+        description="cc $in",
+        command=f"{LL_COMPILE_CMD} -o $out $in",
+    )
+
+    ninja.rule(
         "libcc",
         description="cc $in",
         command=f"{LIB_COMPILE_CMD} -o $out $in",
@@ -182,6 +193,8 @@ def build_stuff(linker_entries: List[LinkerEntry]):
                 build(entry.object_path, entry.src_paths, "libcc")
             elif any(str(src_path).startswith("src/ido_71/") for src_path in entry.src_paths):
                 build(entry.object_path, entry.src_paths, "ido71_cc")
+            elif any(str(src_path).startswith("src/ll/") for src_path in entry.src_paths):
+                build(entry.object_path, entry.src_paths, "ll")
             else:
                 build(entry.object_path, entry.src_paths, "cc")
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):
