@@ -45,7 +45,7 @@ IDO71_COMPILE_CMD = (
 )
 
 LL_COMPILE_CMD = (
-    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips3 -O1"
+    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips3 -32 -O1"
 )
 
 def exec_shell(command: List[str]) -> str:
@@ -147,9 +147,15 @@ def build_stuff(linker_entries: List[LinkerEntry]):
 
     ninja.rule(
         "ll",
-        description="cc $in",
-        command=f"{LL_COMPILE_CMD} -o $out $in",
+        command=f"({LL_COMPILE_CMD} -o $out $in) && (python3 {TOOLS_DIR}/set_o32abi_bit.py $out)",
+        description="Compiling libc_ll_cc .c file"
     )
+
+    # ninja.rule(
+    #     "ll",
+    #     description="cc $in",
+    #     command=f"{LL_COMPILE_CMD} -o $out $in",
+    # )
 
     ninja.rule(
         "libcc",

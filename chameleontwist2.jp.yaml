@@ -319,7 +319,7 @@ segments:
       - [0xC34C0, c]
       - [0xC34F0, c]
       - [0xC3550, c]
-      - [0xC3BE0, c, llcvt]
+      - [0xC3BE0, c, ll/llcvt]
       - [0xC3DF0, c]
       - [0xC3E90, c]
       - [0xC3EA0, c]
@@ -445,7 +445,7 @@ segments:
       - [0xD5AF0, .rodata, C1780]
       - [0xD5B50, .rodata, C26C0]
       - [0xD5B60, .rodata, C3550]
-      - [0xD5B70, .rodata, llcvt]
+      - [0xD5B70, .rodata, ll/llcvt]
       - [0xD5B80, rodata, n_aspMain]
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
       - {start: 0xD6250, type: .bss, vram: 0x80165200, name: ido_71/rand }
