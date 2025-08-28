@@ -1,3 +1,6 @@
+#ifndef _COMMON_STRUCTS_H_
+#define _COMMON_STRUCTS_H_
+
 #include "ultra64.h"
 
 typedef struct Vec3f {
@@ -189,3 +192,5 @@ typedef struct Player {
     /* 0x952 */ s16 unk952;
     /* 0x954 */ char unk_954[0x28];
 } Player; /* size = 0x97C */
+
+#endif //_COMMON_STRUCTS_H_

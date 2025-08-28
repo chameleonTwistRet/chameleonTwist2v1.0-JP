@@ -151,12 +151,6 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         description="Compiling libc_ll_cc .c file"
     )
 
-    # ninja.rule(
-    #     "ll",
-    #     description="cc $in",
-    #     command=f"{LL_COMPILE_CMD} -o $out $in",
-    # )
-
     ninja.rule(
         "libcc",
         description="cc $in",

@@ -196,3 +196,22 @@ D_800F9954 = 0x800F9954; //force_migration:true
 D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
+
+jtbl_800F4B00 = 0x800F4B00; //size:0x64 type:jtbl
+
+func_801FFE88_2083F8 = 0x801FFE88; //rom:0x2083F8 segment:Unk0
+func_802005E8_210C08 = 0x802005E8; //rom:0x210C08 segment:ControllerPakAndVictoryScreen
+func_80200B18_209088 = 0x80200B18; //rom:0x209088 segment:Unk0
+func_80200E88_2114A8 = 0x80200E88; //rom:0x2114A8 segment:ControllerPakAndVictoryScreen
+func_80201908_211F28 = 0x80201908; //rom:0x211F28 segment:ControllerPakAndVictoryScreen
+func_802019CC_209F3C = 0x802019CC; //rom:0x209F3C segment:Unk0
+func_802023F8_212A18 = 0x802023F8; //rom:0x212A18 segment:ControllerPakAndVictoryScreen
+func_80202564_20AAD4 = 0x80202564; //rom:0x20AAD4 segment:Unk0
+func_80202B08_213128 = 0x80202B08; //rom:0x213128 segment:ControllerPakAndVictoryScreen
+func_80203640_20BBB0 = 0x80203640; //rom:0x20BBB0 segment:Unk0
+func_80204060_20C5D0 = 0x80204060; //rom:0x20C5D0 segment:Unk0
+func_80204EEC_20D45C = 0x80204EEC; //rom:0x20D45C segment:Unk0
+func_802063AC_20E91C = 0x802063AC; //rom:0x20E91C segment:Unk0
+
+
+D_80207458_20F9C8 = 0x80207458; //rom:0x20F9C8 size:0x18

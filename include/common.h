@@ -7,6 +7,7 @@
 typedef u8 Addr[];
 
 #include "common_structs.h"
+#include "variables.h"
 #include "ld_addrs.h"
 #include "macros.h"
 
