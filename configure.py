@@ -31,7 +31,7 @@ GAME_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $
 LIB_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 IDO71_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_7.1/usr/lib/cc --$AS $ASFLAGS"
 LL_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
-WARNINGS = "-fullwarn -verbose -Xcpluscomm -signed -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI -DNDEBUG -woff 649,838"
+WARNINGS = "-fullwarn -verbose -Xcpluscomm -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI -DNDEBUG -woff 649,838"
 GAME_COMPILE_CMD = (
     f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
 )
@@ -46,6 +46,10 @@ IDO71_COMPILE_CMD = (
 
 LL_COMPILE_CMD = (
     f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips3 -32 -O1"
+)
+
+IO_COMPILE_CMD = (
+    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O1"
 )
 
 def exec_shell(command: List[str]) -> str:
@@ -148,7 +152,15 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     ninja.rule(
         "ll",
         command=f"({LL_COMPILE_CMD} -o $out $in) && (python3 {TOOLS_DIR}/set_o32abi_bit.py $out)",
-        description="Compiling libc_ll_cc .c file"
+        description="Compiling ll/llcvt .c file"
+    )
+
+    ninja.rule(
+        "O1_cc",
+        command=f"{IO_COMPILE_CMD} -o $out $in",
+        description="Compiling -O1 .c file",
+        depfile="$out.d",  # Add the depfile specification here
+        deps="gcc",
     )
 
     ninja.rule(
@@ -195,6 +207,8 @@ def build_stuff(linker_entries: List[LinkerEntry]):
                 build(entry.object_path, entry.src_paths, "ido71_cc")
             elif any(str(src_path).startswith("src/ll/") for src_path in entry.src_paths):
                 build(entry.object_path, entry.src_paths, "ll")
+            elif any(str(src_path).startswith("src/io/") for src_path in entry.src_paths):
+                build(entry.object_path, entry.src_paths, "O1_cc")
             else:
                 build(entry.object_path, entry.src_paths, "cc")
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):

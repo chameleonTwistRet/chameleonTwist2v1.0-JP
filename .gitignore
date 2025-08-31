@@ -17,6 +17,7 @@ include/ld_addrs.h
 permuter_settings.toml
 .ninja_log
 build.ninja
+.ninja_deps
 
 # Tool artifacts
 undefined_funcs_auto.txt
