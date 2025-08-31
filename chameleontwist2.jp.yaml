@@ -300,6 +300,7 @@ segments:
       - [0xBFB40, c]
       - [0xBFF60, c, io/pfschecker]
       - [0xC0900, c, io/pfsisplug]
+      - [0xC0C40, c, io/aigetlen]
       - [0xC0C50, c]
       - [0xC0DB0, c]
       - [0xC0E10, c]
@@ -453,6 +454,8 @@ segments:
       - {start: 0xD6250, type: bss, vram: 0x800FAE50, name: globalBSS }
       - {start: 0xD6250, type: .bss, vram: 0x80165200, name: ido_71/rand }
       - {start: 0xD6250, type: bss, vram: 0x80165210, name: globalBSS2 }
+      - {start: 0xD6250, type: .bss, vram: 0x801CCB40, name: io/pfsisplug }
+      - {start: 0xD6250, type: bss, vram: 0x801CCB80, name: globalBSS3 }
   - [0xD6250, databin]
   - name: Unk0
     type: code

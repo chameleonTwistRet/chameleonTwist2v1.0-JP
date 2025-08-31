@@ -49,8 +49,19 @@ LL_COMPILE_CMD = (
 )
 
 IO_COMPILE_CMD = (
-    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
+    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O1"
 )
+
+# File-specific build rule overrides
+# Key: source file path (relative to project root)
+# Value: ninja rule name to use instead of the default
+FILE_BUILD_OVERRIDES: Dict[str, str] = {
+    # Examples:
+    "src/io/pfschecker.c": "cc",           # Use io_cc instead of default cc
+    
+    # Add overrides here:
+    # "path/to/your/file.c": "rule_name",
+}
 
 def exec_shell(command: List[str]) -> str:
     ret = subprocess.run(
@@ -80,6 +91,26 @@ compiler_type = "gcc"
 "tools/ido_5.3/usr/lib/cc" = "ido_5.3"
 """
         )
+
+
+def get_build_rule_for_file(src_path: Path, default_rule: str) -> str:
+    """
+    Check if there's an override rule for this specific file.
+    Returns the override rule if found, otherwise returns the default rule.
+    """
+    # Convert to string and normalize path separators
+    src_str = str(src_path).replace(os.sep, "/")
+    
+    # Check for exact match first
+    if src_str in FILE_BUILD_OVERRIDES:
+        return FILE_BUILD_OVERRIDES[src_str]
+    
+    # Check for matches without leading "./"
+    src_clean = src_str.lstrip("./")
+    if src_clean in FILE_BUILD_OVERRIDES:
+        return FILE_BUILD_OVERRIDES[src_clean]
+    
+    return default_rule
 
 
 def build_stuff(linker_entries: List[LinkerEntry]):
@@ -158,7 +189,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     ninja.rule(
         "io_cc",
         command=f"{IO_COMPILE_CMD} -o $out $in",
-        description="Compiling -O1 .c file",
+        description="Compiling io/*.c .c file",
         depfile="$out.d",  # Add the depfile specification here
         deps="gcc",
     )
@@ -199,18 +230,38 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         if isinstance(seg, splat.segtypes.common.asm.CommonSegAsm) or isinstance(
             seg, splat.segtypes.common.data.CommonSegData
         ):
-            build(entry.object_path, entry.src_paths, "as")
-        elif isinstance(seg, splat.segtypes.common.c.CommonSegC):
-            if any(str(src_path).startswith("src/lib/") for src_path in entry.src_paths):
-                build(entry.object_path, entry.src_paths, "libcc")
-            elif any(str(src_path).startswith("src/ido_71/") for src_path in entry.src_paths):
-                build(entry.object_path, entry.src_paths, "ido71_cc")
-            elif any(str(src_path).startswith("src/ll/") for src_path in entry.src_paths):
-                build(entry.object_path, entry.src_paths, "ll")
-            elif any(str(src_path).startswith("src/io/") for src_path in entry.src_paths):
-                build(entry.object_path, entry.src_paths, "io_cc")
+            # Determine the default rule
+            default_rule = "as"
+            
+            # Check for override and use the first source path for override lookup
+            if entry.src_paths:
+                rule_to_use = get_build_rule_for_file(entry.src_paths[0], default_rule)
             else:
-                build(entry.object_path, entry.src_paths, "cc")
+                rule_to_use = default_rule
+                
+            build(entry.object_path, entry.src_paths, rule_to_use)
+            
+        elif isinstance(seg, splat.segtypes.common.c.CommonSegC):
+            # Determine the default rule based on path
+            default_rule = "cc"  # Default fallback
+            
+            if any(str(src_path).startswith("src/lib/") for src_path in entry.src_paths):
+                default_rule = "libcc"
+            elif any(str(src_path).startswith("src/ido_71/") for src_path in entry.src_paths):
+                default_rule = "ido71_cc"
+            elif any(str(src_path).startswith("src/ll/") for src_path in entry.src_paths):
+                default_rule = "ll"
+            elif any(str(src_path).startswith("src/io/") for src_path in entry.src_paths):
+                default_rule = "io_cc"
+            
+            # Check for override and use the first source path for override lookup
+            if entry.src_paths:
+                rule_to_use = get_build_rule_for_file(entry.src_paths[0], default_rule)
+            else:
+                rule_to_use = default_rule
+                
+            build(entry.object_path, entry.src_paths, rule_to_use)
+            
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):
             if str(seg.type) == "z_databin":
                 #get the original file and the incbin file
@@ -224,10 +275,25 @@ def build_stuff(linker_entries: List[LinkerEntry]):
                         build(Path(outfile), [Path(infile)], "zlib")
                         break
                     x += 1
+                    
+                # Determine rule (default is "as")
+                default_rule = "as"
+                if entry.src_paths:
+                    rule_to_use = get_build_rule_for_file(entry.src_paths[0], default_rule)
+                else:
+                    rule_to_use = default_rule
+                    
                 #then just build the assembly (the binary) with the compressed binary as a dependency
-                build(entry.object_path, entry.src_paths, "as", [], [outfile])
+                build(entry.object_path, entry.src_paths, rule_to_use, [], [outfile])
             else:
-                build(entry.object_path, entry.src_paths, "as")
+                # Determine rule (default is "as")
+                default_rule = "as"
+                if entry.src_paths:
+                    rule_to_use = get_build_rule_for_file(entry.src_paths[0], default_rule)
+                else:
+                    rule_to_use = default_rule
+                    
+                build(entry.object_path, entry.src_paths, rule_to_use)
         else:
             print(f"ERROR: Unsupported build segment type {seg.type}")
             sys.exit(1)
