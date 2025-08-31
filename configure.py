@@ -183,13 +183,13 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     ninja.rule(
         "ll",
         command=f"({LL_COMPILE_CMD} -o $out $in) && (python3 {TOOLS_DIR}/set_o32abi_bit.py $out)",
-        description="Compiling ll/llcvt .c file"
+        description="Compiling ll/*.c"
     )
 
     ninja.rule(
         "io_cc",
         command=f"{IO_COMPILE_CMD} -o $out $in",
-        description="Compiling io/*.c .c file",
+        description="Compiling io/*.c",
         depfile="$out.d",  # Add the depfile specification here
         deps="gcc",
     )
