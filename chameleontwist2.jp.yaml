@@ -18,7 +18,7 @@ options:
   src_path: src
   build_path: build
   gfx_ucode: f3dex2
-  asm_emit_size_directive: false
+  asm_emit_size_directive: true
   asm_function_macro: glabel
   asm_jtbl_label_macro: jlabel
   asm_data_macro: dlabel
