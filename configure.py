@@ -49,7 +49,7 @@ LL_COMPILE_CMD = (
 )
 
 IO_COMPILE_CMD = (
-    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O1"
+    f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
 )
 
 def exec_shell(command: List[str]) -> str:
@@ -156,7 +156,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     )
 
     ninja.rule(
-        "O1_cc",
+        "io_cc",
         command=f"{IO_COMPILE_CMD} -o $out $in",
         description="Compiling -O1 .c file",
         depfile="$out.d",  # Add the depfile specification here
@@ -208,7 +208,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
             elif any(str(src_path).startswith("src/ll/") for src_path in entry.src_paths):
                 build(entry.object_path, entry.src_paths, "ll")
             elif any(str(src_path).startswith("src/io/") for src_path in entry.src_paths):
-                build(entry.object_path, entry.src_paths, "O1_cc")
+                build(entry.object_path, entry.src_paths, "io_cc")
             else:
                 build(entry.object_path, entry.src_paths, "cc")
         elif isinstance(seg, splat.segtypes.common.databin.CommonSegDatabin):

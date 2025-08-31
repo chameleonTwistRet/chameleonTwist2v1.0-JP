@@ -69,6 +69,7 @@ __ll_mul = 0x800DC7C8; //type:func
 __ull_divremi = 0x800DC7F8; //type:func
 __ll_mod = 0x800DC858; //type:func
 __ll_rshift = 0x800DC8F4; //type:func
+bzero = 0x800DA130; //type:func
 osProfileFlush = 0x800D4150;
 osPfsFreeBlocks = 0x800D7700;
 osStopThread = 0x800D89D0;
