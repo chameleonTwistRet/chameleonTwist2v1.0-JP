@@ -43,7 +43,6 @@ typedef struct ScTaskManager {
     s32 unk678;
 } ScTaskManager;
 
-/* Externs (kept their original names) */
 extern OSMesgQueue D_801C7DD4;
 extern OSMesgQueue D_801C7E7C;
 extern OSMesgQueue D_801C7EEC;
@@ -55,11 +54,8 @@ extern void* D_801C7DEC;
 extern void* D_801C7E24;
 extern OSMesgQueue D_801C7E44;
 extern void* D_801C7E5C;
-extern OSMesgQueue D_801C7E7C; /* duplicate extern in original - kept */
 extern void* D_801C7E94;
-extern OSMesgQueue D_801C7EB4; /* duplicate extern in original - kept */
 extern void* D_801C7ECC;
-extern OSMesgQueue D_801C7EEC; /* duplicate extern in original - kept */
 extern void* D_801C7F04;
 extern OSThread D_801C7F28;
 extern OSThread D_801C80D8;
@@ -74,7 +70,6 @@ extern char D_801C1DD0[0x2000];
 extern char D_801C3DD0[0x2000];
 extern char D_801C5DD0[0x2000];
 
-/* Forward declarations (kept same names except for type clarity) */
 void func_800D5C90(void);
 void func_800D586C(void);
 void nnScExecuteAudio(void);
@@ -89,12 +84,12 @@ OSIntMask osSetIntMask(OSIntMask);
 
 /* Initialize the subsystem: create queues, vmanager, threads */
 void func_800D5620(u8 arg0, u8 arg1) {
-    D_801C7DD0.pendingTask = 0;
-    D_801C7DD0.runningTask = 0;
-    D_801C7DD0.yieldedTask = 0;
+    D_801C7DD0.pendingTask = NULL;
+    D_801C7DD0.runningTask = NULL;
+    D_801C7DD0.yieldedTask = NULL;
     D_801C7DD0.clientList = NULL;
-    D_801C7DD0.unk_00 = 1;
-    D_801C7DD0.unk_02 = 2;
+    D_801C7DD0.unk_00 = 1; //OS_SC_RETRACE_MSG ?
+    D_801C7DD0.unk_02 = 2; //OS_SC_DONE_MSG
     D_801C7DD0.unk678 = arg1;
 
     osCreateMesgQueue(&D_801C7E44, &D_801C7E5C, 8);
@@ -112,7 +107,7 @@ void func_800D5620(u8 arg0, u8 arg1) {
     }
 
     osViBlack(1);
-    osViSetEvent(&D_801C7E44, (void*)0x29A, (u32)arg1);
+    osViSetEvent(&D_801C7E44, (void*)0x29A, arg1);
     osSetEventMesg(4, &D_801C7E7C, (void*)0x29B);
     osSetEventMesg(9, &D_801C7EB4, (void*)0x29C);
     osSetEventMesg(0xE, &D_801C7E44, (void*)0x29D);
@@ -168,28 +163,26 @@ void func_800D586C(void) {
     }
 }
 
-/* Add a client node to the manager's clientList (interrupt protected) */
+/* Add a client node to the manager's clientList */
 void nnScAddClient(ScClientNode* node, void* queuePtr, s16 flags) {
     u32 mask = osSetIntMask(1);
 
-    node->msgQueuePtr = queuePtr;         /* was unk_04 = arg1 */
-    node->next = D_801C7DD0.clientList;  /* was unk_00 = manager->unk668 */
+    node->msgQueuePtr = queuePtr;
+    node->next = D_801C7DD0.clientList;
     node->flags = flags;
     D_801C7DD0.clientList = node;
 
     osSetIntMask(mask);
 }
 
-/* Remove a registered client from the global client list (interrupt protected)
-   NOTE: arg0 is treated as a pointer that was previously passed to nnScAddClient;
-   comparisons intentionally match the original decompiled behavior. */
+/* Remove a registered client from the global client list */
 void nnScRemoveClient(ScClient** clientPtr) {
     ScClient* curr = D_801C8438;
     ScClient* prev = NULL;
     u32 mask = osSetIntMask(1);
 
     while (curr != NULL) {
-        //comparison as u32 required or doesn't match
+        /* comparison as u32 required or doesn't match */
         if ((u32)curr == (u32)clientPtr) {
             if (prev != NULL) {
                 prev->next = *clientPtr;
@@ -246,7 +239,7 @@ void nnScExecuteAudio(void) {
         osRecvMesg(&D_801C7E7C, &sp4C, 1);
         D_801C7DD0.runningTask = NULL;
 
-        if (D_801C7DD0.yieldedTask != 0) {
+        if (D_801C7DD0.yieldedTask != NULL) {
             osSendMesg(&D_801C7EEC, &sp4C, 1);
         }
 
@@ -270,24 +263,24 @@ void func_800D5C90(void) {
         osRecvMesg(&D_801C7E0C, (void*)&sp40, 1);
         nnScWaitTaskReady(sp40);
 
-        mask = osSetIntMask(1U);
-        if (D_801C7DD0.runningTask != 0) {
+        mask = osSetIntMask(1);
+        if (D_801C7DD0.runningTask != NULL) {
             D_801C7DD0.yieldedTask = sp40;
             osSetIntMask(mask);
             osRecvMesg(&D_801C7EEC, &sp44, 1);
-            mask = osSetIntMask(1U);
+            mask = osSetIntMask(1);
             D_801C7DD0.yieldedTask = NULL;
         }
         osSetIntMask(mask);
 
-        mask = osSetIntMask(1U);
+        mask = osSetIntMask(1);
         D_801C7DD0.pendingTask = sp40;
         osSetIntMask(mask);
 
         osSpTaskStart(&sp40->tp);
         osRecvMesg(&D_801C7E7C, &sp44, 1);
 
-        mask = osSetIntMask(1U);
+        mask = osSetIntMask(1);
         D_801C7DD0.pendingTask = NULL;
         osSetIntMask(mask);
 
