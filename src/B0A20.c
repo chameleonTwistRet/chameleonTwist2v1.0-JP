@@ -6,13 +6,15 @@
 #define STACK_START(stack) \
     ((u8*)(stack) + sizeof(stack))
 
-typedef struct unk {
-    struct unk* unk0;
-    OSMesgQueue* queue;
-    s16 unk8;
-} unk;
+/* Linked-list client registered to receive events */
+typedef struct ScClient {
+    struct ScClient* next;     /* was unk0 */
+    OSMesgQueue* msgQueue;     /* was queue */
+    s16 maskFlag;              /* was unk8 */
+} ScClient;
 
-typedef struct unkTaskStruct {
+/* Audio / graphics task wrapper */
+typedef struct ScTask {
     /* 0x00 */ void* mesg;
     /* 0x04 */ char pad4[4];
     /* 0x08 */ s32 unk_08;
@@ -20,46 +22,44 @@ typedef struct unkTaskStruct {
     /* 0x10 */ OSTask tp;
     /* 0x50 */ OSMesgQueue* MesgQueue;
     /* 0x54 */ void* Mesg;
-} unkTaskStruct;
+} ScTask;
 
-typedef struct unkTaskStruct4 {
-    struct unkTaskStruct4* unk_00; //TODO: is this right?
-    void* unk_04;
-    s16 unk_08;
-} unkTaskStruct4;
+/* Small registration node used for waiting clients */
+typedef struct ScClientNode {
+    struct ScClientNode* next; /* was unk_00 (keeps linked-list usage similar) */
+    void* msgQueuePtr;         /* was unk_04 */
+    s16 flags;                 /* was unk_08 */
+} ScClientNode;
 
-typedef struct unkTaskStruct2 {
+/* Big per-system task state */
+typedef struct ScTaskManager {
     s16 unk_00;
     s16 unk_02;
     char unk_04[0x664];
-    unkTaskStruct4* unk668;
-    unkTaskStruct* unk66C;
-    unkTaskStruct* unk670;
-    unkTaskStruct* unk674;
+    ScClientNode* clientList;   /* was unk668 */
+    ScTask* pendingTask;        /* was unk66C */
+    ScTask* runningTask;        /* was unk670 */
+    ScTask* yieldedTask;        /* was unk674 */
     s32 unk678;
-} unkTaskStruct2;
+} ScTaskManager;
 
-typedef struct UnkTaskStruct3 {
-    OSViMode* unk_00;
-    char unk_04[0x4C];
-} UnkTaskStruct3;
-
+/* Externs (kept their original names) */
 extern OSMesgQueue D_801C7DD4;
 extern OSMesgQueue D_801C7E7C;
 extern OSMesgQueue D_801C7EEC;
 extern OSMesgQueue D_801C7EB4;
-extern unkTaskStruct2 D_801C7DD0;
+extern ScTaskManager D_801C7DD0;
 extern OSMesgQueue D_801C7E0C;
-extern unk* D_801C8438;
+extern ScClient* D_801C8438;
 extern void* D_801C7DEC;
 extern void* D_801C7E24;
 extern OSMesgQueue D_801C7E44;
 extern void* D_801C7E5C;
-extern OSMesgQueue D_801C7E7C;
+extern OSMesgQueue D_801C7E7C; /* duplicate extern in original - kept */
 extern void* D_801C7E94;
-extern OSMesgQueue D_801C7EB4;
+extern OSMesgQueue D_801C7EB4; /* duplicate extern in original - kept */
 extern void* D_801C7ECC;
-extern OSMesgQueue D_801C7EEC;
+extern OSMesgQueue D_801C7EEC; /* duplicate extern in original - kept */
 extern void* D_801C7F04;
 extern OSThread D_801C7F28;
 extern OSThread D_801C80D8;
@@ -74,6 +74,7 @@ extern char D_801C1DD0[0x2000];
 extern char D_801C3DD0[0x2000];
 extern char D_801C5DD0[0x2000];
 
+/* Forward declarations (kept same names except for type clarity) */
 void func_800D5C90(void);
 void func_800D586C(void);
 void nnScExecuteAudio(void);
@@ -81,26 +82,29 @@ void osWritebackDCacheAll(void);
 void osAfterPreNMI(void);
 void func_800D5AA4(s16* arg0);
 void osViSetYScale(f32);
-void nnScWaitTaskReady(unkTaskStruct*);
+void nnScWaitTaskReady(ScTask*);
 void* func_800DC9A0(void);
 OSIntMask osSetIntMask(OSIntMask);
 
 
+/* Initialize the subsystem: create queues, vmanager, threads */
 void func_800D5620(u8 arg0, u8 arg1) {
-    D_801C7DD0.unk66C = 0;
-    D_801C7DD0.unk670 = 0;
-    D_801C7DD0.unk674 = 0;
-    D_801C7DD0.unk668 = NULL;
+    D_801C7DD0.pendingTask = 0;
+    D_801C7DD0.runningTask = 0;
+    D_801C7DD0.yieldedTask = 0;
+    D_801C7DD0.clientList = NULL;
     D_801C7DD0.unk_00 = 1;
     D_801C7DD0.unk_02 = 2;
     D_801C7DD0.unk678 = arg1;
+
     osCreateMesgQueue(&D_801C7E44, &D_801C7E5C, 8);
     osCreateMesgQueue(&D_801C7E7C, &D_801C7E94, 8);
     osCreateMesgQueue(&D_801C7EB4, &D_801C7ECC, 8);
     osCreateMesgQueue(&D_801C7E0C, &D_801C7E24, 8);
     osCreateMesgQueue(&D_801C7DD4, &D_801C7DEC, 8);
     osCreateMesgQueue(&D_801C7EEC, &D_801C7F04, 8);
-    osCreateViManager(0xFE);
+
+    osCreateViManager(OS_PRIORITY_VIMGR);
     osViSetMode(&D_800F2E20[arg0]);
 
     if (osTvType == 0) {
@@ -108,14 +112,17 @@ void func_800D5620(u8 arg0, u8 arg1) {
     }
 
     osViBlack(1);
-    osViSetEvent(&D_801C7E44, (void* )0x29A, (u32) arg1);
-    osSetEventMesg(4, &D_801C7E7C, (void* )0x29B);
-    osSetEventMesg(9, &D_801C7EB4, (void* )0x29C);
-    osSetEventMesg(0xE, &D_801C7E44, (void* )0x29D);
+    osViSetEvent(&D_801C7E44, (void*)0x29A, (u32)arg1);
+    osSetEventMesg(4, &D_801C7E7C, (void*)0x29B);
+    osSetEventMesg(9, &D_801C7EB4, (void*)0x29C);
+    osSetEventMesg(0xE, &D_801C7E44, (void*)0x29D);
+
     osCreateThread(&D_801C7F28, 0x13, (void*)func_800D586C, &D_801C7DD0, STACK_START(D_801C1DD0), 0x78);
     osStartThread(&D_801C7F28);
+
     osCreateThread(&D_801C80D8, 0x12, (void*)nnScExecuteAudio, &D_801C7DD0, STACK_START(D_801C3DD0), 0x6E);
     osStartThread(&D_801C80D8);
+
     osCreateThread(&D_801C8288, 0x11, (void*)func_800D5C90, &D_801C7DD0, STACK_START(D_801C5DD0), 0x64);
     osStartThread(&D_801C8288);
 }
@@ -128,6 +135,7 @@ OSMesgQueue* func_800D5860(void) {
     return &D_801C7E0C;
 }
 
+/* Main VI / pre-NMI thread */
 void func_800D586C(void) {
     OSMesg sp54;
     s32 temp_t7;
@@ -135,8 +143,8 @@ void func_800D586C(void) {
     D_801C8450 = 0;
     while (1) {
         osRecvMesg(&D_801C7E44, &sp54, 1);
-        if (sp54 != (void* )0x29A) {
-            if (sp54 != (void* )0x29D) {
+        if (sp54 != (void*)0x29A) {
+            if (sp54 != (void*)0x29D) {
                 continue;
             }
         } else {
@@ -147,7 +155,7 @@ void func_800D586C(void) {
             } else {
                 osSendMesg(&D_8019CEB0, &D_801C7DD0.unk_00, 0);
                 continue;
-            }            
+            }
         }
 
         osViSetYScale(1.0f);
@@ -160,85 +168,91 @@ void func_800D586C(void) {
     }
 }
 
-void nnScAddClient(unkTaskStruct4* arg0, void* arg1, s16 arg2) {
-    u32 mask;
+/* Add a client node to the manager's clientList (interrupt protected) */
+void nnScAddClient(ScClientNode* node, void* queuePtr, s16 flags) {
+    u32 mask = osSetIntMask(1);
 
-    mask = osSetIntMask(1);
-    
-    arg0->unk_04 = arg1;
-    arg0->unk_00 = D_801C7DD0.unk668;
-    arg0->unk_08 = arg2;
-    D_801C7DD0.unk668 = arg0;
-    
+    node->msgQueuePtr = queuePtr;         /* was unk_04 = arg1 */
+    node->next = D_801C7DD0.clientList;  /* was unk_00 = manager->unk668 */
+    node->flags = flags;
+    D_801C7DD0.clientList = node;
+
     osSetIntMask(mask);
 }
 
-void nnScRemoveClient(unk** arg0) {
-    unk* curr = D_801C8438;
-    unk* prev = NULL;
+/* Remove a registered client from the global client list (interrupt protected)
+   NOTE: arg0 is treated as a pointer that was previously passed to nnScAddClient;
+   comparisons intentionally match the original decompiled behavior. */
+void nnScRemoveClient(ScClient** clientPtr) {
+    ScClient* curr = D_801C8438;
+    ScClient* prev = NULL;
     u32 mask = osSetIntMask(1);
-    
+
     while (curr != NULL) {
-        if ((u32)curr == (u32)arg0) {
-            // Found the client to remove
+        //comparison as u32 required or doesn't match
+        if ((u32)curr == (u32)clientPtr) {
             if (prev != NULL) {
-                prev->unk0 = *arg0;  // unlink it
+                prev->next = *clientPtr;
             } else {
-                D_801C8438 = *arg0;  // removing head
+                D_801C8438 = *clientPtr;
             }
             break;
         }
 
         prev = curr;
-        curr = curr->unk0;
+        curr = curr->next;
     }
 
     osSetIntMask(mask);
 }
 
-void func_800D5AA4(s16* arg0) {
-    unk* var_s0;
+/* Broadcast an event bitmask to all registered clients */
+void func_800D5AA4(s16* maskPtr) {
+    ScClient* iter = D_801C8438;
 
-    var_s0 = D_801C8438;
-    while (var_s0 != NULL) {
-        if (*arg0 & var_s0->unk8) {
-            osSendMesg(var_s0->queue, arg0, 0);
+    while (iter != NULL) {
+        if (*maskPtr & iter->maskFlag) {
+            osSendMesg(iter->msgQueue, maskPtr, 0);
         }
-        var_s0 = var_s0->unk0;
+        iter = iter->next;
     }
 }
 
+/* Audio/task executor thread */
 void nnScExecuteAudio(void) {
-    unkTaskStruct* temp_s1;
-    unkTaskStruct* sp50;
+    ScTask* yielded;
+    ScTask* sp50;
     void* sp4C;
-    s32 var_s0;
+    s32 resumeState;
 
     while (1) {
-        var_s0 = 0;
+        resumeState = 0;
         osRecvMesg(&D_801C7DD4, (void*)&sp50, 1);
         osWritebackDCacheAll();
-        temp_s1 = D_801C7DD0.unk66C;
-        if (temp_s1 != 0) {
+
+        yielded = D_801C7DD0.pendingTask;
+        if (yielded != 0) {
             osSpTaskYield();
             osRecvMesg(&D_801C7E7C, &sp4C, 1);
-            if (osSpTaskYielded(&temp_s1->tp) != 0) {
-                var_s0 = 1;
+            if (osSpTaskYielded(&yielded->tp) != 0) {
+                resumeState = 1;
             } else {
-                var_s0 = 2;
+                resumeState = 2;
             }
         }
-        D_801C7DD0.unk670 = sp50;
-        osSpTaskStart(&sp50->tp)
+
+        D_801C7DD0.runningTask = sp50;
+        osSpTaskStart(&sp50->tp); /* fixed missing semicolon from decompiled text */
         osRecvMesg(&D_801C7E7C, &sp4C, 1);
-        D_801C7DD0.unk670 = NULL;
-        if (D_801C7DD0.unk674 != 0) {
+        D_801C7DD0.runningTask = NULL;
+
+        if (D_801C7DD0.yieldedTask != 0) {
             osSendMesg(&D_801C7EEC, &sp4C, 1);
         }
-        
-        if (var_s0 == 1) {
-            osSpTaskStart(&temp_s1->tp);
-        } else if (var_s0 == 2) {
+
+        if (resumeState == 1) {
+            osSpTaskStart(&yielded->tp);
+        } else if (resumeState == 2) {
             osSendMesg(&D_801C7E7C, &sp4C, 1);
         }
 
@@ -246,51 +260,57 @@ void nnScExecuteAudio(void) {
     }
 }
 
-//main graphics function
+/* Main graphics/task thread */
 void func_800D5C90(void) {
     void* sp44;
-    unkTaskStruct* sp40;
+    ScTask* sp40;
     u32 mask;
 
     while (1) {
         osRecvMesg(&D_801C7E0C, (void*)&sp40, 1);
         nnScWaitTaskReady(sp40);
+
         mask = osSetIntMask(1U);
-        if (D_801C7DD0.unk670 != 0) {
-            D_801C7DD0.unk674 = sp40;
+        if (D_801C7DD0.runningTask != 0) {
+            D_801C7DD0.yieldedTask = sp40;
             osSetIntMask(mask);
             osRecvMesg(&D_801C7EEC, &sp44, 1);
             mask = osSetIntMask(1U);
-            D_801C7DD0.unk674 = NULL;
+            D_801C7DD0.yieldedTask = NULL;
         }
         osSetIntMask(mask);
+
         mask = osSetIntMask(1U);
-        D_801C7DD0.unk66C = sp40;
+        D_801C7DD0.pendingTask = sp40;
         osSetIntMask(mask);
-        osSpTaskStart(&sp40->tp)
+
+        osSpTaskStart(&sp40->tp); /* fixed missing semicolon from decompiled text */
         osRecvMesg(&D_801C7E7C, &sp44, 1);
+
         mask = osSetIntMask(1U);
-        D_801C7DD0.unk66C = NULL;
+        D_801C7DD0.pendingTask = NULL;
         osSetIntMask(mask);
+
         if (!(sp40->unk_08 & 2)) {
             osRecvMesg(&D_801C7EB4, &sp44, 1);
         }
-        osSendMesg(sp40->MesgQueue, sp40, 1);        
+        osSendMesg(sp40->MesgQueue, sp40, 1);
     }
 }
 
-void nnScWaitTaskReady(unkTaskStruct* arg0) {
-    unkTaskStruct4 sp24;
-    void* framebuffer;
+/* Wait until a task's framebuffer is not the current or pending framebuffer.
+   The function registers a stack node as a client and removes it afterwards. */
+void nnScWaitTaskReady(ScTask* task) {
+    ScClientNode stackNode;
+    void* framebuffer = task->framebuffer;
 
-    framebuffer = arg0->framebuffer;
-    nnScAddClient(&sp24, &D_801C7EEC, 1);
+    nnScAddClient(&stackNode, &D_801C7EEC, 1);
     while ((osViGetCurrentFramebuffer() == framebuffer) || (func_800DC9A0() == framebuffer)) {
         osRecvMesg(&D_801C7EEC, NULL, 1);
         if (framebuffer != NULL) {
             continue;
         }
     }
-    
-    nnScRemoveClient((unk** ) &sp24);
+
+    nnScRemoveClient((ScClient**)&stackNode);
 }
