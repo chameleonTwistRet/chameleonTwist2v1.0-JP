@@ -242,7 +242,7 @@ void nnScExecuteAudio(void) {
         }
 
         D_801C7DD0.runningTask = sp50;
-        osSpTaskStart(&sp50->tp); /* fixed missing semicolon from decompiled text */
+        osSpTaskStart(&sp50->tp);
         osRecvMesg(&D_801C7E7C, &sp4C, 1);
         D_801C7DD0.runningTask = NULL;
 
@@ -284,7 +284,7 @@ void func_800D5C90(void) {
         D_801C7DD0.pendingTask = sp40;
         osSetIntMask(mask);
 
-        osSpTaskStart(&sp40->tp); /* fixed missing semicolon from decompiled text */
+        osSpTaskStart(&sp40->tp);
         osRecvMesg(&D_801C7E7C, &sp44, 1);
 
         mask = osSetIntMask(1U);
