@@ -191,6 +191,11 @@ func_800DA8EC = 0x800DA8EC; //type:func
 func_800E1990 = 0x800E1990; //type:func
 func_800E68E8 = 0x800E68E8; //type:func
 func_800E751C = 0x800E751C; //type:func
+osTvType = 0x80000300; //type:s32
+D_801C1DCC = 0x801C1DCC; //size:0x4 type:s32
+D_801C1DD0 = 0x801C1DD0; //size:0x2000
+D_801C3DD0 = 0x801C3DD0; //size:0x2000
+D_801C5DD0 = 0x801C5DD0; //size:0x2000
 
 guRandom = 0x800E0790; //type:func
 Random = 0x8003CA90; //type:func
