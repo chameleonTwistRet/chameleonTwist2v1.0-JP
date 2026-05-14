@@ -165,6 +165,20 @@ def build_stuff(linker_entries: List[LinkerEntry]):
         command=f"python3 tools/zlib_zip.py $in $out",
     )
 
+    # compile a z_databin .c file (data only — no asm-processor needed)
+    ninja.rule(
+        "z_databin_cc",
+        description="z_databin_cc $in",
+        command=f"mips-linux-gnu-gcc -c -G 0 -mabi=32 -EB -mips2 -I. -Iinclude -Iinclude/PR -o $out $in",
+    )
+
+    # extract the first global symbol from .data, trimmed to exact symbol size
+    ninja.rule(
+        "extract_bin",
+        description="extract_bin $in",
+        command=f"python3 tools/extract_z_databin.py $in $out",
+    )
+
     ninja.rule(
         "cc",
         description="cc $in",
@@ -269,7 +283,19 @@ def build_stuff(linker_entries: List[LinkerEntry]):
                     if l[x].find("incbin") != -1:
                         infile = l[x-1].split("#")[-1].strip()
                         outfile = l[x].split('"')[-2].strip()
-                        build(Path(outfile), [Path(infile)], "zlib")
+
+                        # If a .c source exists in src/assets/, use the compile pipeline.
+                        # Otherwise fall back to compressing the raw .bin directly.
+                        c_source = "src/" + infile[:-len(".bin")] + ".c"  # src/assets/...island2.z_databin.c
+                        if os.path.exists(c_source):
+                            o_file   = outfile.replace(".bin.z", ".c.o")  # build/assets/.../island2.z_databin.c.o
+                            bin_file = outfile.replace(".bin.z", ".bin")  # build/assets/.../island2.z_databin.bin
+                            # Use ninja.build directly so the intermediate .o is not added to the linker inputs
+                            ninja.build(o_file,   "z_databin_cc", [c_source])
+                            ninja.build(bin_file, "extract_bin",  [o_file])
+                            build(Path(outfile),  [Path(bin_file)], "zlib")
+                        else:
+                            build(Path(outfile), [Path(infile)], "zlib")
                         break
                     x += 1
                     
