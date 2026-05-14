@@ -119,6 +119,8 @@ __osPiRelAccess = 0x800DE424;
 osCartRomInit = 0x800E42F0;
 __osPiGetAccess = 0x800DE3E0;
 
+__osViNext = 0x800F40C4;
+
 __osSiRawStartDma = 0x800DD000;
 __osPfsGetStatus = 0x800E4930;
 osPfsInitPak = 0x800E4740;
