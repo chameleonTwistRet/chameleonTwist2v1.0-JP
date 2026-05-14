@@ -9,6 +9,11 @@ typedef struct Vec3f {
     f32 z;
 } Vec3f;
 
+typedef struct Rect3D {
+/* 0x00 */ Vec3f min;
+/* 0x0C */ Vec3f max;
+} Rect3D;
+
 typedef struct unk_func_80040840 {
     s32 unk00[4];
     void* unk10;

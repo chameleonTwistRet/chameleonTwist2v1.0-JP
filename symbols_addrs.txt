@@ -237,6 +237,10 @@ D_800F567C = 0x800F567C; //type:f32
 D_800F5684 = 0x800F5684; //type:f32
 D_800F568C = 0x800F568C; //type:f32
 
+D_800F2970 = 0x800F2970; //type:s32 size:0xC
+D_800F297C = 0x800F297C; //type:s32 size:0x4
+D_800F2980 = 0x800F2980; //type:Gfx
+
 jtbl_800F4B00 = 0x800F4B00; //size:0x64 type:jtbl
 
 func_801FFE88_2083F8 = 0x801FFE88; //rom:0x2083F8 segment:Unk0
@@ -252,6 +256,9 @@ func_80203640_20BBB0 = 0x80203640; //rom:0x20BBB0 segment:Unk0
 func_80204060_20C5D0 = 0x80204060; //rom:0x20C5D0 segment:Unk0
 func_80204EEC_20D45C = 0x80204EEC; //rom:0x20D45C segment:Unk0
 func_802063AC_20E91C = 0x802063AC; //rom:0x20E91C segment:Unk0
+
+CalculateBoundingRectFromVectors = 0x80047EDC; //segment:main
+                
 
 
 D_80207458_20F9C8 = 0x80207458; //rom:0x20F9C8 size:0x18

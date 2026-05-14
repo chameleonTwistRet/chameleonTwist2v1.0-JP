@@ -31,7 +31,7 @@ GAME_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $
 LIB_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
 IDO71_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_7.1/usr/lib/cc --$AS $ASFLAGS"
 LL_CC_DIR = f"$ASM_PROC $ASM_PROC_FLAGS {TOOLS_DIR}/ido_5.3/usr/lib/cc --$AS $ASFLAGS"
-WARNINGS = "-fullwarn -verbose -Xcpluscomm -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI -DNDEBUG -woff 649,838"
+WARNINGS = "-fullwarn -verbose -Xcpluscomm -nostdinc -non_shared -Wab,-r4300_mul -D_LANGUAGE_C -DF3DEX_GBI_2 -DNDEBUG -woff 649,838"
 GAME_COMPILE_CMD = (
     f"{GAME_CC_DIR} {COMMON_INCLUDES} -- -c -G 0 {WARNINGS} {COMMON_INCLUDES} -mips2 -O2"
 )

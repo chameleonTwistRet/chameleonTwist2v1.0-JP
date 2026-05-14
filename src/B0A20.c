@@ -224,7 +224,7 @@ void nnScExecuteAudio(void) {
         osWritebackDCacheAll();
 
         yielded = D_801C7DD0.pendingTask;
-        if (yielded != 0) {
+        if (yielded != NULL) {
             osSpTaskYield();
             osRecvMesg(&D_801C7E7C, &sp4C, 1);
             if (osSpTaskYielded(&yielded->tp) != 0) {

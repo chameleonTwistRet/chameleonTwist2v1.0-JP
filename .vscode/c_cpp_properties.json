@@ -11,7 +11,8 @@
             "defines": [
                 "_LANGUAGE_C",
                 "VERSION=jp",
-                "VERSION_JP"
+                "VERSION_JP",
+                "F3DEX_GBI_2"
             ],
             "cStandard": "gnu89",
             "cppStandard": "c++17"
