@@ -56,11 +56,8 @@ IO_COMPILE_CMD = (
 # Key: source file path (relative to project root)
 # Value: ninja rule name to use instead of the default
 FILE_BUILD_OVERRIDES: Dict[str, str] = {
-    # Examples:
-    "src/io/pfschecker.c": "cc",           # Use io_cc instead of default cc
-    
-    # Add overrides here:
-    # "path/to/your/file.c": "rule_name",
+    "src/io/pfschecker.c": "cc", # Use io_cc instead of default cc
+    "src/240B0.c": "ido71_cc", # Use ido71_cc
 }
 
 def exec_shell(command: List[str]) -> str:

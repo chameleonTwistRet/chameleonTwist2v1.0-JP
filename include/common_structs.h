@@ -3,6 +3,11 @@
 
 #include "ultra64.h"
 
+typedef struct Vec2f {
+    f32 x;
+    f32 y;
+} Vec2f;
+
 typedef struct Vec3f {
     f32 x;
     f32 y;

@@ -258,7 +258,7 @@ func_80204EEC_20D45C = 0x80204EEC; //rom:0x20D45C segment:Unk0
 func_802063AC_20E91C = 0x802063AC; //rom:0x20E91C segment:Unk0
 
 CalculateBoundingRectFromVectors = 0x80047EDC; //segment:main
-                
+IfRectsIntersect = 0x80047D90; //rom:0x23190
 
 
 D_80207458_20F9C8 = 0x80207458; //rom:0x20F9C8 size:0x18

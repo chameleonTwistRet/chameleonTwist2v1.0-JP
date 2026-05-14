@@ -1,8 +1,43 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/nonmatchings/23190/func_80047D90.s")
+/**
+ * @brief Compares two given rectangles to determine if they intersect.
+ *
+ * @param[in,out] rectA: first rectangle
+ * @param[in,out] rectB: second rectangle
+ *
+ * @return (s32) 1 if the two rectangles intersect, 0 otherwise
+ */
+s32 IfRectsIntersect(Rect3D* rectA, Rect3D* rectB) {
+    if ((f64) rectB->max.x < (f64) rectA->min.x) {
+        return 0;
+    }
+    if ((f64) rectA->max.x < (f64) rectB->min.x) {
+        return 0;
+    }
+    if ((f64) rectB->max.y < (f64) rectA->min.y) {
+        return 0;
+    }
+    if ((f64) rectA->max.y < (f64) rectB->min.y) {
+        return 0;
+    }
+    if ((f64) rectB->max.z < (f64) rectA->min.z) {
+        return 0;
+    }
+    if ((f64) rectA->max.z < (f64) rectB->min.z) {
+        return 0;
+    }
+    return 1;
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/23190/func_80047E8C.s")
+void func_80047E8C(Rect3D* arg0, f32 arg1) {
+    arg0->min.x -= arg1;
+    arg0->max.x += arg1;
+    arg0->min.y -= arg1;
+    arg0->max.y += arg1;
+    arg0->min.z -= arg1;
+    arg0->max.z += arg1;
+}
 
 /**
  * @brief Create a bounding box from two given vectors.
