@@ -4,7 +4,10 @@
 
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004AD94.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004AF3C.s")
+s32 func_8004AF3C(s32 arg0) {
+    return 0;
+}
+
 
 #pragma GLOBAL_ASM("asm/nonmatchings/26140/func_8004AF48.s")
 

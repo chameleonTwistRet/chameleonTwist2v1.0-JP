@@ -118,7 +118,7 @@ __osPiCreateAccessQueue = 0x800DE390;
 __osPiRelAccess = 0x800DE424;
 osCartRomInit = 0x800E42F0;
 __osPiGetAccess = 0x800DE3E0;
-
+__osSpGetStatus = 0x800E7D90;
 __osViNext = 0x800F40C4;
 
 __osSiRawStartDma = 0x800DD000;
