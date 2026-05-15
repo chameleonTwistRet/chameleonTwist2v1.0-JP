@@ -1,6 +1,7 @@
 #include "common.h"
 
 #define ALIGN_64(x) (((x) + 0x3F) & ~0x3F)
+
 typedef struct unk3 {
     s32 unk0;
     s32 unk4;
