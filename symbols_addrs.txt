@@ -259,8 +259,18 @@ func_80204060_20C5D0 = 0x80204060; //rom:0x20C5D0 segment:Unk0
 func_80204EEC_20D45C = 0x80204EEC; //rom:0x20D45C segment:Unk0
 func_802063AC_20E91C = 0x802063AC; //rom:0x20E91C segment:Unk0
 
+
+cplens = 0x800F04E0; //rom:0xCB8E0
+cplext = 0x800F055C; //rom:0xCB95C
+cpdist = 0x800F05D8; //rom:0xCB9D8
+cpdext = 0x800F0650; //rom:0xCBA50
+
+
+inflate_trees_dynamic = 0x800BAC10; //rom:0x96010
 CalculateBoundingRectFromVectors = 0x80047EDC; //segment:main
 IfRectsIntersect = 0x80047D90; //rom:0x23190
-
-
+inflate = 0x800B9CF0; //rom:0x950F0
+huft_build = 0x800BA4C0; //rom:0x958C0
+inflate_trees_bits = 0x800BAB70; //rom:0x95F70
+inflate_trees_free = 0x800BAF9C; //rom:0x9639C
 D_80207458_20F9C8 = 0x80207458; //rom:0x20F9C8 size:0x18

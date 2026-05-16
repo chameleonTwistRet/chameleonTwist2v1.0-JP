@@ -22,9 +22,16 @@
     extern int errno;
 #endif
 #ifdef STDC
-#  include <string.h>
-#  include <stdlib.h>
+// #  include <string.h>
+// #  include <stdlib.h>
 #endif
+
+extern void *malloc(unsigned int size);
+extern void free(void *ptr);
+extern void exit(int status);
+extern void *memcpy(void *dst, const void *src, unsigned int n);
+extern void *memset(void *dst, int c, unsigned int n);
+extern int memcmp(const void *s1, const void *s2, unsigned int n);
 
 #ifndef local
 #  define local static

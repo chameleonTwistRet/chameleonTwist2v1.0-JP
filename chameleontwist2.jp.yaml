@@ -336,6 +336,8 @@ segments:
       - [0xC4030, c, libc/strcpy]
       - [0xC4070, data]
       - [0xC4CD0, data]
+      - [0xCB8B0, .data, zlib/inftrees]
+      - [0xCBAD0, data]
       - [0xCDD80, data]
       - [0xCF3F0, .data, random]
       - [0xCF400, data, BBC60]
@@ -682,27 +684,27 @@ segments:
     start: 0x41c6c0
     subalign: 4
     subsegments:
-    - [0x41c6c0, z_databin, s1_1001] #78 9C
+    - [0x41c6c0, z_databin, tester9] #78 9C
     - [0x41ccec, databin] #???
-    - [0x41ccf8, z_databin, s1_1002] #78 9C
+    - [0x41ccf8, z_databin, tester8] #78 9C
     - [0x41cea8, databin] #???
-    - [0x41ceb0, z_databin, s1_1003] #78 9C
+    - [0x41ceb0, z_databin, tester7] #78 9C
     - [0x41d004, databin] #???
-    - [0x41d010, z_databin, s1_1004] #78 9C
+    - [0x41d010, z_databin, tester6] #78 9C
     - [0x41d1b0, databin] #???
-    - [0x41d1b8, z_databin, s1_2001] #78 9C (island2)
+    - [0x41d1b8, z_databin, island2] #78 9C
     - [0x41d6d4, databin] #???
-    - [0x41d6e0, z_databin, s1_2002] #78 9C
+    - [0x41d6e0, z_databin, tester5] #78 9C
     - [0x41d82c, databin] #???
-    - [0x41d838, z_databin, s1_3001] #78 9C
+    - [0x41d838, z_databin, tester4] #78 9C
     - [0x41dedc, databin] #???
-    - [0x41dee8, z_databin, s1_4001] #78 9C (island3)
+    - [0x41dee8, z_databin, island3] #78 9C
     - [0x41e2e4, databin] #???
-    - [0x41e2f0, z_databin, s1_4002] #78 9C
+    - [0x41e2f0, z_databin, tester3] #78 9C
     - [0x41e4b0, databin] #???
-    - [0x41e4b8, z_databin, s1_4003] #78 9C
+    - [0x41e4b8, z_databin, tester2] #78 9C
     - [0x41e688, databin] #???
-    - [0x41e690, z_databin, s1_5001] #78 9C
+    - [0x41e690, z_databin, tester] #78 9C
     - [0x41e9cc, databin] #???
     - [0x41e9d8, z_databin, land2] #78 9C
   - [0x41f5c9, databin]
