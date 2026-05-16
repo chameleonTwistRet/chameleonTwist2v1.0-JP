@@ -134,9 +134,9 @@ void func_800334C4(void) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/E790/func_80035BD8.s")
 
-//void func_80035BD8(void) {
+// void func_80035BD8(void) {
 //    D_80163110 = 0;
 //    D_801630C0 = 0;
 //    D_80163128 = 0xFFFF;
 //    D_800EB30C = 0;
-//}
+// }
