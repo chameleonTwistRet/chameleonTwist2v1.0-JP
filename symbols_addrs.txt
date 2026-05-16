@@ -216,6 +216,11 @@ osViYScaleSetFlag = 0x800EAD38; //type:u8
 gCollisionData = 0x80167240; //size:0x1D650
 gPlayers = 0x80187290; //size:0x97C
 
+gStageLoadData = 0x801FAA00;
+Stage_Open = 0x80027730;
+gGtActionHead = 0x801607FC;
+gGtActionHeap = 0x801607F8;
+Stage_Close = 0x80027A10;
 
 //D_800F5920 = 0x800F5920; //force_migration:true type:f64
 //D_800F5928 = 0x800F5928; //force_migration:true type:f64

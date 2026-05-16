@@ -11,28 +11,29 @@ extern u8 D_213970[];
 extern s32 D_80162DC0;
 extern s32 D_801651B0;
 
-typedef struct StageHeader {
+typedef struct StageData {
     s32 unk_00; //rom addr?
     s32 ramAddr;
-    s32 counter;
-} StageHeader;
+    // Could rename to s32 refCount
+    s32 counter; // < 0 means DMA in flight, 0 means unloaded, 1 means loaded with one ref, and >= 2 means multiple refs
+} StageData;
 
-extern StageHeader D_801FAA00[];
+extern StageData gStageLoadData[];
 
 #define SEGMENT_MASK 0x0F000000
 #define SEGMENT_OFFSET_CUSTOM(x)        (((u32)(x) & ~SEGMENT_MASK))
 
-s32 func_80027730(s32 arg0) {
+s32 Stage_Open(s32 arg0) {
     u32 segAddr;
     char pad1[0x4];
     s32 dmaSize;
     char pad2[8];
     s32 temp_v0;
     char sp38[0x8];
-    StageHeader* stage;
+    StageData* stage;
 
     func_80035C2C("StageOpen In\n");
-    stage = &D_801FAA00[arg0];
+    stage = &gStageLoadData[arg0];
 
     if (stage->counter > 0) {
         if (stage->ramAddr == 0) {
@@ -80,8 +81,13 @@ s32 func_80027730(s32 arg0) {
 
 const char mapStr[] = "MAP(%X),%d<%d>\n";
 
+// Stage_FreeCallback (?)
 #pragma GLOBAL_ASM("asm/nonmatchings/2B30/func_80027918.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2B30/func_80027A10.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/2B30/Stage_Close.s") 
+//calls: func_80027918
 
-#pragma GLOBAL_ASM("asm/nonmatchings/2B30/func_80027B14.s")
+// Stage_CloseAll (?)
+#pragma GLOBAL_ASM("asm/nonmatchings/2B30/func_80027B14.s") 
+//calls: Stage_Close (SPRクローズできない | Unable to close)
+//https://decomp.me/scratch/IKO7r

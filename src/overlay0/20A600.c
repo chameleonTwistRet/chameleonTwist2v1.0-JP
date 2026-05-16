@@ -175,7 +175,7 @@ extern s16 D_800FF20A;
 //         func_80029A90();
 //         func_80033390();
 //         func_8002989C();
-//         func_80027730(0x13);
+//         Stage_Open(0x13);
 //         func_80027F98(D_801FAAE8);
 //         temp_v0 = func_80029EB4(0xC, 0xFDE8, 0);
         
