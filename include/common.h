@@ -10,5 +10,6 @@ typedef u8 Addr[];
 #include "variables.h"
 #include "ld_addrs.h"
 #include "macros.h"
+#include "functions.h"
 
 #endif //_COMMON_H_

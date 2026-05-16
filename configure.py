@@ -61,6 +61,7 @@ FILE_BUILD_OVERRIDES: Dict[str, str] = {
     "src/2B30.c": "ido71_cc", # Use ido71_cc
     "src/5640.c": "ido71_cc", # Use ido71_cc
     "src/E790.c": "ido71_cc", # Use ido71_cc
+    "src/11010.c": "ido71_cc", # Use ido71_cc
 }
 
 def exec_shell(command: List[str]) -> str:

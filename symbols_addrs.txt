@@ -1,5 +1,5 @@
 gzip_data_0000 = 0x800EB074;
-_sqrtf = 0x800E03E0; //type:func
+__sqrtf = 0x800E03E0; //type:func
 osRecvMesg = 0x800D78A0; //type:func
 osSetIntMask = 0x800D79E0; //type:func
 osSendMesg = 0x800D75B0; //type:func
@@ -263,7 +263,15 @@ func_80203640_20BBB0 = 0x80203640; //rom:0x20BBB0 segment:Unk0
 func_80204060_20C5D0 = 0x80204060; //rom:0x20C5D0 segment:Unk0
 func_80204EEC_20D45C = 0x80204EEC; //rom:0x20D45C segment:Unk0
 func_802063AC_20E91C = 0x802063AC; //rom:0x20E91C segment:Unk0
-
+ 
+DmaRequest_InsertAtPriority = 0x8002A8EC; //rom:0x5CEC
+Poly_AssertInfoLevel = 0x80049214; //rom:0x24614
+ProjectOnPolygon = 0x800492E0;
+IsOnPolygon = 0x800496A4;
+IsInsidePolygon = 0x800495D0;
+LocalToWorld = 0x800494D0;
+WorldToLocal = 0x800493D8;
+Poly_EnsureInfoLevel = 0x8004925C;
 
 cplens = 0x800F04E0; //rom:0xCB8E0
 cplext = 0x800F055C; //rom:0xCB95C

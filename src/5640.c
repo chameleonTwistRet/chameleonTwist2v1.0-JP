@@ -21,7 +21,7 @@ extern Unk3 D_80160820[];
 
 #pragma GLOBAL_ASM("asm/nonmatchings/5640/func_8002A824.s")
 
-#pragma GLOBAL_ASM("asm/nonmatchings/5640/func_8002A8EC.s")
+#pragma GLOBAL_ASM("asm/nonmatchings/5640/DmaRequest_InsertAtPriority.s")
 
 s32 func_8002AA70(s32 arg0) {
     Unk3* temp_v0;
