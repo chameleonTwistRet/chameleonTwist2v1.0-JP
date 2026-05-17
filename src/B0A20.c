@@ -43,34 +43,34 @@ typedef struct ScTaskManager {
     s32 unk678;
 } ScTaskManager;
 
-extern OSMesgQueue D_801C7DD4;
-extern OSMesgQueue D_801C7E7C;
-extern OSMesgQueue D_801C7EEC;
-extern OSMesgQueue D_801C7EB4;
-extern ScTaskManager D_801C7DD0;
-extern OSMesgQueue D_801C7E0C;
+extern OSMesgQueue gScAudioCmdQueue;
+extern OSMesgQueue gScSPMesgQueue;
+extern OSMesgQueue gScYieldMesgQueue;
+extern OSMesgQueue gScDPMesgQueue;
+extern ScTaskManager gScScheduler;
+extern OSMesgQueue gScGraphicsCmdQueue;
 extern ScClient* D_801C8438;
-extern void* D_801C7DEC;
-extern void* D_801C7E24;
-extern OSMesgQueue D_801C7E44;
-extern void* D_801C7E5C;
-extern void* D_801C7E94;
-extern void* D_801C7ECC;
-extern void* D_801C7F04;
-extern OSThread D_801C7F28;
-extern OSThread D_801C80D8;
-extern OSThread D_801C8288;
-extern OSViMode D_800F2E20[];
+extern void* gScAudioCmdMsgBuf;
+extern void* gScGraphicsCmdMsgBuf;
+extern OSMesgQueue gScRetraceQueue;
+extern void* gScRetraceMsgBuf;
+extern void* gScSPMsgBuf;
+extern void* gScDPMsgBuf;
+extern void* gScYieldMsgBuf;
+extern OSThread gScViThread;
+extern OSThread gScAudioThread;
+extern OSThread gScGraphicsThread;
+extern OSViMode gViModeTable[];
 extern void (*D_800F1F80)(void);
 extern OSMesgQueue D_8019CEB0;
-extern OSMesgQueue D_801C7E44;
+extern OSMesgQueue gScRetraceQueue;
 extern s32 D_801C8450;
 
-extern char D_801C1DD0[0x2000];
-extern char D_801C3DD0[0x2000];
-extern char D_801C5DD0[0x2000];
+extern char gScViThreadStack[0x2000];
+extern char gScAudioThreadStack[0x2000];
+extern char gScGraphicsThreadStack[0x2000];
 
-void func_800D5C90(void);
+void nnScExecuteGraphics (void);
 void func_800D586C(void);
 void nnScExecuteAudio(void);
 void osWritebackDCacheAll(void);
@@ -83,61 +83,61 @@ OSIntMask osSetIntMask(OSIntMask);
 
 
 /* Initialize the subsystem: create queues, vmanager, threads */
-void func_800D5620(u8 arg0, u8 arg1) {
-    D_801C7DD0.pendingTask = NULL;
-    D_801C7DD0.runningTask = NULL;
-    D_801C7DD0.yieldedTask = NULL;
-    D_801C7DD0.clientList = NULL;
-    D_801C7DD0.unk_00 = 1; //OS_SC_RETRACE_MSG ?
-    D_801C7DD0.unk_02 = 2; //OS_SC_DONE_MSG
-    D_801C7DD0.unk678 = arg1;
+void Scheduler_Init(u8 viMode, u8 retraceCount) {
+    gScScheduler.pendingTask = NULL;
+    gScScheduler.runningTask = NULL;
+    gScScheduler.yieldedTask = NULL;
+    gScScheduler.clientList = NULL;
+    gScScheduler.unk_00 = 1; //OS_SC_RETRACE_MSG ?
+    gScScheduler.unk_02 = 2; //OS_SC_DONE_MSG
+    gScScheduler.unk678 = retraceCount;
 
-    osCreateMesgQueue(&D_801C7E44, &D_801C7E5C, 8);
-    osCreateMesgQueue(&D_801C7E7C, &D_801C7E94, 8);
-    osCreateMesgQueue(&D_801C7EB4, &D_801C7ECC, 8);
-    osCreateMesgQueue(&D_801C7E0C, &D_801C7E24, 8);
-    osCreateMesgQueue(&D_801C7DD4, &D_801C7DEC, 8);
-    osCreateMesgQueue(&D_801C7EEC, &D_801C7F04, 8);
+    osCreateMesgQueue(&gScRetraceQueue, &gScRetraceMsgBuf, 8);
+    osCreateMesgQueue(&gScSPMesgQueue, &gScSPMsgBuf, 8);
+    osCreateMesgQueue(&gScDPMesgQueue, &gScDPMsgBuf, 8);
+    osCreateMesgQueue(&gScGraphicsCmdQueue, &gScGraphicsCmdMsgBuf, 8);
+    osCreateMesgQueue(&gScAudioCmdQueue, &gScAudioCmdMsgBuf, 8);
+    osCreateMesgQueue(&gScYieldMesgQueue, &gScYieldMsgBuf, 8);
 
     osCreateViManager(OS_PRIORITY_VIMGR);
-    osViSetMode(&D_800F2E20[arg0]);
+    osViSetMode(&gViModeTable[viMode]);
 
     if (osTvType == 0) {
         osViSetYScale(0.833f);
     }
 
     osViBlack(1);
-    osViSetEvent(&D_801C7E44, (void*)0x29A, arg1);
-    osSetEventMesg(4, &D_801C7E7C, (void*)0x29B);
-    osSetEventMesg(9, &D_801C7EB4, (void*)0x29C);
-    osSetEventMesg(0xE, &D_801C7E44, (void*)0x29D);
+    osViSetEvent(&gScRetraceQueue, (void*)0x29A, retraceCount);
+    osSetEventMesg(OS_EVENT_SP, &gScSPMesgQueue, (void*)0x29B);
+    osSetEventMesg(OS_EVENT_DP, &gScDPMesgQueue, (void*)0x29C);
+    osSetEventMesg(OS_EVENT_PRENMI, &gScRetraceQueue, (void*)0x29D);
 
-    osCreateThread(&D_801C7F28, 0x13, (void*)func_800D586C, &D_801C7DD0, STACK_START(D_801C1DD0), 0x78);
-    osStartThread(&D_801C7F28);
+    osCreateThread(&gScViThread, 0x13, (void*)func_800D586C, &gScScheduler, STACK_START(gScViThreadStack), 0x78);
+    osStartThread(&gScViThread);
 
-    osCreateThread(&D_801C80D8, 0x12, (void*)nnScExecuteAudio, &D_801C7DD0, STACK_START(D_801C3DD0), 0x6E);
-    osStartThread(&D_801C80D8);
+    osCreateThread(&gScAudioThread, 0x12, (void*)nnScExecuteAudio, &gScScheduler, STACK_START(gScAudioThreadStack), 0x6E);
+    osStartThread(&gScAudioThread);
 
-    osCreateThread(&D_801C8288, 0x11, (void*)func_800D5C90, &D_801C7DD0, STACK_START(D_801C5DD0), 0x64);
-    osStartThread(&D_801C8288);
+    osCreateThread(&gScGraphicsThread, 0x11, (void*)nnScExecuteGraphics , &gScScheduler, STACK_START(gScGraphicsThreadStack), 0x64);
+    osStartThread(&gScGraphicsThread);
 }
 
-OSMesgQueue* func_800D5854(void) {
-    return &D_801C7DD4;
+OSMesgQueue* nnScGetAudioCmdQueue(void) {
+    return &gScAudioCmdQueue;
 }
 
-OSMesgQueue* func_800D5860(void) {
-    return &D_801C7E0C;
+OSMesgQueue* nnScGetGraphicsCmdQueue(void) {
+    return &gScGraphicsCmdQueue;
 }
 
-/* Main VI / pre-NMI thread */
+/* Main VI / pre-NMI thread (nnScEventHandler?) */
 void func_800D586C(void) {
     OSMesg sp54;
     s32 temp_t7;
 
     D_801C8450 = 0;
     while (1) {
-        osRecvMesg(&D_801C7E44, &sp54, 1);
+        osRecvMesg(&gScRetraceQueue, &sp54, 1);
         if (sp54 != (void*)0x29A) {
             if (sp54 != (void*)0x29D) {
                 continue;
@@ -145,17 +145,17 @@ void func_800D586C(void) {
         } else {
             D_801C8450++;
             if (D_801C8450 & 1) {
-                func_800D5AA4(&D_801C7DD0.unk_00);
+                func_800D5AA4(&gScScheduler.unk_00);
                 continue;
             } else {
-                osSendMesg(&D_8019CEB0, &D_801C7DD0.unk_00, 0);
+                osSendMesg(&D_8019CEB0, &gScScheduler.unk_00, 0);
                 continue;
             }
         }
 
         osViSetYScale(1.0f);
         osAfterPreNMI();
-        func_800D5AA4(&D_801C7DD0.unk_02);
+        func_800D5AA4(&gScScheduler.unk_02);
         if (D_800F1F80 == NULL) {
             continue;
         }
@@ -168,9 +168,9 @@ void nnScAddClient(ScClientNode* node, void* queuePtr, s16 flags) {
     u32 mask = osSetIntMask(1);
 
     node->msgQueuePtr = queuePtr;
-    node->next = D_801C7DD0.clientList;
+    node->next = gScScheduler.clientList;
     node->flags = flags;
-    D_801C7DD0.clientList = node;
+    gScScheduler.clientList = node;
 
     osSetIntMask(mask);
 }
@@ -220,13 +220,13 @@ void nnScExecuteAudio(void) {
 
     while (1) {
         resumeState = 0;
-        osRecvMesg(&D_801C7DD4, (void*)&sp50, 1);
+        osRecvMesg(&gScAudioCmdQueue, (void*)&sp50, 1);
         osWritebackDCacheAll();
 
-        yielded = D_801C7DD0.pendingTask;
+        yielded = gScScheduler.pendingTask;
         if (yielded != NULL) {
             osSpTaskYield();
-            osRecvMesg(&D_801C7E7C, &sp4C, 1);
+            osRecvMesg(&gScSPMesgQueue, &sp4C, 1);
             if (osSpTaskYielded(&yielded->tp) != 0) {
                 resumeState = 1;
             } else {
@@ -234,19 +234,19 @@ void nnScExecuteAudio(void) {
             }
         }
 
-        D_801C7DD0.runningTask = sp50;
+        gScScheduler.runningTask = sp50;
         osSpTaskStart(&sp50->tp);
-        osRecvMesg(&D_801C7E7C, &sp4C, 1);
-        D_801C7DD0.runningTask = NULL;
+        osRecvMesg(&gScSPMesgQueue, &sp4C, 1);
+        gScScheduler.runningTask = NULL;
 
-        if (D_801C7DD0.yieldedTask != NULL) {
-            osSendMesg(&D_801C7EEC, &sp4C, 1);
+        if (gScScheduler.yieldedTask != NULL) {
+            osSendMesg(&gScYieldMesgQueue, &sp4C, 1);
         }
 
         if (resumeState == 1) {
             osSpTaskStart(&yielded->tp);
         } else if (resumeState == 2) {
-            osSendMesg(&D_801C7E7C, &sp4C, 1);
+            osSendMesg(&gScSPMesgQueue, &sp4C, 1);
         }
 
         osSendMesg(sp50->MesgQueue, sp50->Mesg, 1);
@@ -254,38 +254,38 @@ void nnScExecuteAudio(void) {
 }
 
 /* Main graphics/task thread */
-void func_800D5C90(void) {
+void nnScExecuteGraphics (void) {
     void* sp44;
     ScTask* sp40;
     u32 mask;
 
     while (1) {
-        osRecvMesg(&D_801C7E0C, (void*)&sp40, 1);
+        osRecvMesg(&gScGraphicsCmdQueue, (void*)&sp40, 1);
         nnScWaitTaskReady(sp40);
 
         mask = osSetIntMask(1);
-        if (D_801C7DD0.runningTask != NULL) {
-            D_801C7DD0.yieldedTask = sp40;
+        if (gScScheduler.runningTask != NULL) {
+            gScScheduler.yieldedTask = sp40;
             osSetIntMask(mask);
-            osRecvMesg(&D_801C7EEC, &sp44, 1);
+            osRecvMesg(&gScYieldMesgQueue, &sp44, 1);
             mask = osSetIntMask(1);
-            D_801C7DD0.yieldedTask = NULL;
+            gScScheduler.yieldedTask = NULL;
         }
         osSetIntMask(mask);
 
         mask = osSetIntMask(1);
-        D_801C7DD0.pendingTask = sp40;
+        gScScheduler.pendingTask = sp40;
         osSetIntMask(mask);
 
         osSpTaskStart(&sp40->tp);
-        osRecvMesg(&D_801C7E7C, &sp44, 1);
+        osRecvMesg(&gScSPMesgQueue, &sp44, 1);
 
         mask = osSetIntMask(1);
-        D_801C7DD0.pendingTask = NULL;
+        gScScheduler.pendingTask = NULL;
         osSetIntMask(mask);
 
         if (!(sp40->unk_08 & 2)) {
-            osRecvMesg(&D_801C7EB4, &sp44, 1);
+            osRecvMesg(&gScDPMesgQueue, &sp44, 1);
         }
         osSendMesg(sp40->MesgQueue, sp40, 1);
     }
@@ -297,9 +297,9 @@ void nnScWaitTaskReady(ScTask* task) {
     ScClientNode stackNode;
     void* framebuffer = task->framebuffer;
 
-    nnScAddClient(&stackNode, &D_801C7EEC, 1);
+    nnScAddClient(&stackNode, &gScYieldMesgQueue, 1);
     while ((osViGetCurrentFramebuffer() == framebuffer) || (func_800DC9A0() == framebuffer)) {
-        osRecvMesg(&D_801C7EEC, NULL, 1);
+        osRecvMesg(&gScYieldMesgQueue, NULL, 1);
         if (framebuffer != NULL) {
             continue;
         }
