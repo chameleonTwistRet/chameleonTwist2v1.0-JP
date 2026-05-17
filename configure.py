@@ -57,7 +57,7 @@ IO_COMPILE_CMD = (
 # Value: ninja rule name to use instead of the default
 FILE_BUILD_OVERRIDES: Dict[str, str] = {
     "src/io/pfschecker.c": "cc", # Use io_cc instead of default cc
-    "src/240B0.c": "ido71_cc", # Use ido71_cc
+    "src/vector.c": "ido71_cc", # Use ido71_cc
     "src/2B30.c": "ido71_cc", # Use ido71_cc
     "src/5640.c": "ido71_cc", # Use ido71_cc
     "src/E790.c": "ido71_cc", # Use ido71_cc

@@ -278,7 +278,8 @@ cplext = 0x800F055C; //rom:0xCB95C
 cpdist = 0x800F05D8; //rom:0xCB9D8
 cpdext = 0x800F0650; //rom:0xCBA50
 
-
+WrapAngle = 0x80048CB0;
+Poly_BuildInfoLevel = 0x80048DEC;
 inflate_trees_dynamic = 0x800BAC10; //rom:0x96010
 CalculateBoundingRectFromVectors = 0x80047EDC; //segment:main
 IfRectsIntersect = 0x80047D90; //rom:0x23190

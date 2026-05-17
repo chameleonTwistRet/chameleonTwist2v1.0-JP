@@ -27,14 +27,62 @@ typedef struct Poly {
 } Poly; //sizeof 0xA0?
 
 void func_80035C2C(char*, ...);
-void func_80048DEC(Poly*, s32);
+void Poly_BuildInfoLevel(Poly*, s32);
 void Poly_AssertInfoLevel(Poly* poly, s32 levelCheck, char* funcStr);
 
-#pragma GLOBAL_ASM("asm/nonmatchings/240B0/func_80048CB0.s")
+/**
+ * @brief Wraps an angle to the range [0, 360).
+ * @param angle: pointer to the angle to wrap.
+ * 
+ * @return: (the wrapped angle).
+ */
+void WrapAngle(f32* angle) {
+    if (*angle < 0.0) {
+        *angle = (*angle + 360.0);
+        return;
+    }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/240B0/func_80048D14.s")
+    if (360.0 <= *angle) {
+        *angle = (*angle - 360.0);
+    }
+}
 
-#pragma GLOBAL_ASM("asm/nonmatchings/240B0/func_80048DEC.s")
+/**
+ * @brief Compares two angles (degrees), wrapping them to the range [0, 360) before comparing.
+ *      
+ * @param angle1: the first angle to compare.
+ * @param angle2: the second angle to compare.
+ * 
+ * @return: 1 if angle1 is greater than angle2, -1 if angle1 is less than angle2, and 0 if they are equal.
+ */
+s32 func_80048D14(f32 angle1, f32 angle2) {
+    s32 ret;
+    
+    WrapAngle(&angle1);
+    WrapAngle(&angle2);
+    
+    if (angle1 == angle2) {
+        ret = 0;
+    } else {
+        if (angle1 < 180.0) {
+            if ((angle1 < angle2) && (angle2 <= (angle1 + 180.0))) {
+                ret = 1;
+            } else {
+                ret = -1;
+            }
+        } else {
+            if (((angle1 - 180.0) < angle2) && (angle2 <= angle1)) {
+                ret = -1;
+            } else {
+                ret = 1;
+            }
+        }
+    }
+
+    return ret;
+}
+
+#pragma GLOBAL_ASM("asm/nonmatchings/vector/Poly_BuildInfoLevel.s")
 
 void Poly_AssertInfoLevel(Poly* arg0, s32 arg1, char* funcStr) {
     if (arg0->infoLevel < arg1) {
@@ -49,7 +97,7 @@ void Poly_EnsureInfoLevel(Poly* poly, s32 level) {
     func_80035C2C("CheckPolyInfoLevel: %d, (%X)\n", level, poly);
     if (poly->infoLevel < level) {
         for (i = poly->infoLevel + 1; (level >= i); i++) {
-            func_80048DEC(poly, i);
+            Poly_BuildInfoLevel(poly, i);
         }    
     }
     func_80035C2C("CheckPolyInfoLevel: (OUT)\n");
