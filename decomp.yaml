@@ -1,0 +1,19 @@
+name: Chameleon Twist 2
+repo: https://https://github.com/chameleonTwistRet/chameleonTwist2v1.0-JP
+platform: n64
+versions:
+- name: jp
+  fullname: JP
+  sha1: b60d0347e7b765195fb27c3ee50a806ea9977dca
+  paths:
+    target: "chameleontwist2"
+
+    build_dir: "build"
+    map: "build/chameleontwist2.map"
+    compiled_target: "build/chameleontwist2"
+    elf: "build/chameleontwist2.elf"
+
+    expected_dir: "expected/"
+
+    asm: "asm"
+    nonmatchings: "asm/nonmatchings"

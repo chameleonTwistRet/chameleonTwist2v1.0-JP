@@ -3,8 +3,8 @@
 void func_800AFE64(Player*, f32);
 void func_800B0568(Player* arg0, Player* arg1, Tongue* arg2);
 void func_800B065C(Player* arg0, Player* arg1, Tongue* arg2);
-f32 func_80037F78(f32);
-f32 func_80037FD8(f32);
+f32 sin_deg(f32);
+f32 cos_deg(f32);
 s32 func_8003B8B8(s32);
 void func_800B04B0(Player*, Player*, Tongue*);
 
@@ -157,9 +157,9 @@ void func_800B0568(Player* arg0, Player* arg1, Tongue* tongueData) {
     }
     func_800B04B0(arg0, arg1, tongueData);
     tongueData->tongue[2].y = 0.0f;
-    tongueData->tongue[1].x = (f32) (tongueData->tongue[0].x + (func_80037F78(tongueData->tongue[2].x) * 0.5f * 50.0f));
+    tongueData->tongue[1].x = (f32) (tongueData->tongue[0].x + (sin_deg(tongueData->tongue[2].x) * 0.5f * 50.0f));
     tongueData->tongue[1].y = (f32) (arg0->unk8A4 + 5.0f);
-    tongueData->tongue[1].z = (f32) (tongueData->tongue[0].z + (func_80037FD8(tongueData->tongue[2].x ) * 0.5f * 50.0f));
+    tongueData->tongue[1].z = (f32) (tongueData->tongue[0].z + (cos_deg(tongueData->tongue[2].x ) * 0.5f * 50.0f));
 }
 
 #pragma GLOBAL_ASM("asm/nonmatchings/88F80/func_800B065C.s")

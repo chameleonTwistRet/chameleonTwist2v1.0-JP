@@ -26,7 +26,7 @@ typedef struct Poly {
 /* 0x98 */ Vec2f projData;
 } Poly; //sizeof 0xA0?
 
-void func_80035C2C(char*, ...);
+void DummiedPrintf3(char*, ...);
 void Poly_BuildInfoLevel(Poly*, s32);
 void Poly_AssertInfoLevel(Poly* poly, s32 levelCheck, char* funcStr);
 
@@ -86,21 +86,21 @@ s32 func_80048D14(f32 angle1, f32 angle2) {
 
 void Poly_AssertInfoLevel(Poly* arg0, s32 arg1, char* funcStr) {
     if (arg0->infoLevel < arg1) {
-        func_80035C2C("OnlyCheckPolyInfoLevel: Need More Info Level\n");
-        func_80035C2C("Function: %s\n", funcStr);
+        DummiedPrintf3("OnlyCheckPolyInfoLevel: Need More Info Level\n");
+        DummiedPrintf3("Function: %s\n", funcStr);
     }
 }
 
 void Poly_EnsureInfoLevel(Poly* poly, s32 level) {
     s32 i;
 
-    func_80035C2C("CheckPolyInfoLevel: %d, (%X)\n", level, poly);
+    DummiedPrintf3("CheckPolyInfoLevel: %d, (%X)\n", level, poly);
     if (poly->infoLevel < level) {
         for (i = poly->infoLevel + 1; (level >= i); i++) {
             Poly_BuildInfoLevel(poly, i);
         }    
     }
-    func_80035C2C("CheckPolyInfoLevel: (OUT)\n");
+    DummiedPrintf3("CheckPolyInfoLevel: (OUT)\n");
 }
 
 /**

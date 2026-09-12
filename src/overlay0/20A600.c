@@ -164,7 +164,7 @@ extern s16 D_800FF20A;
 //     gPlayers[0].hp = 10;
 //     switch (D_800EAF64) {
 //     case 0:
-//         func_80035C2C("プロセステストプロセス\n"); //Process Test Process
+//         DummiedPrintf3("プロセステストプロセス\n"); //Process Test Process
 //         func_8003C9DC();
 //         D_800EAD68 = 0x3C;
 //         D_800EAD6C = 0x8C;

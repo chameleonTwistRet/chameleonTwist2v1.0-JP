@@ -4,7 +4,7 @@ extern f32 D_800EB390[];
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80035C10.s")
 
-void func_80035C2C(char* fmt, ...) {
+void DummiedPrintf3(char* fmt, ...) {
 
 }
 
@@ -68,7 +68,7 @@ void func_80037EB4(unk_func_80037EB4* arg0) {
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037EBC.s")
 
-f32 func_80037F78(f32 arg0) {
+f32 sin_deg(f32 arg0) {
     f32 var_f2;
     s32 temp_f4;
     s32 var_v1;
@@ -93,7 +93,9 @@ f32 func_80037F78(f32 arg0) {
     return var_f2;
 }
 
-#pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80037FD8.s")
+f32 cos_deg(f32 arg0) {
+    return sin_deg(arg0 + 90.0);
+}
 
 #pragma GLOBAL_ASM("asm/nonmatchings/11010/func_80038008.s")
 
