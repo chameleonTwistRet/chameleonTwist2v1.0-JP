@@ -36,7 +36,7 @@ segments:
     start: 0x1000
     vram: 0x80025C00
     bss_size: 0xD2F50
-    subalign: 8
+    subalign: 16
     subsegments:
       - [0x1000, asm]
       - [0x1060, asm]
